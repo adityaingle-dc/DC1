@@ -1,6 +1,17 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import CompanyMarquee from "./components/CompanyMarquee";
 import FloatingActions from "./components/FloatingActions";
+import SelectedProjects from "./components/SelectedProjects";
+import Services from "./components/Services";
+import ClientPortal from "./components/ClientPortal";
+import Process from "./components/Process";
+import Techstack from "./components/Techstack";
+import FAQ from "./components/FAQ";
+import SelectedProjects2 from "./components/SelectedProjects2";
+import Footer from "./components/Footer";
+import FinalCTA from "./components/FinalCTA";
+import WhyCopperStudio from "./components/WhyCopperStudio";
 
 function App() {
   return (
@@ -10,19 +21,41 @@ function App() {
       <div
         className="fixed inset-0 -z-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/cpbg.png')",
+          backgroundImage: "url('/hero-bg.png')",
         }}
       />
 
       {/* Overlay */}
-      <div className="fixed inset-0 -z-10 bg-white/20 backdrop-blur-[1px]" />
+      <div className="fixed inset-0 -z-10 bg-black/10" />
 
-      {/* Page */}
       <Navbar />
-      <Hero />
 
-      {/* Floating Actions */}
-      <FloatingActions />
+     <Hero />
+
+<CompanyMarquee />
+
+<SelectedProjects />
+
+<Services />
+
+<ClientPortal />
+
+<Process />
+
+<Techstack />
+
+<WhyCopperStudio/>
+
+<FAQ/>
+
+<SelectedProjects2 />
+
+<FinalCTA/>
+
+<Footer/>
+
+
+<FloatingActions />
 
     </div>
   );
