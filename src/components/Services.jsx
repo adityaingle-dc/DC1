@@ -72,63 +72,60 @@ const Services = () => {
             Services We Offer
           </h2>
 
+<motion.button
+  whileHover={{
+    scale: 1.04,
+  }}
+  whileTap={{
+    scale: 0.97,
+  }}
+  transition={{
+    duration: 0.2,
+  }}
+  className="
+    mr-5
+    mt-5
+    flex
+    h-[42px]
+    w-fit
+    shrink-0
+    items-center
+    gap-3
+    rounded-full
+    border
+    border-orange-500
+    bg-orange-500
+    pl-5
+    pr-2
+    text-sm
+    font-medium
+    text-white
+    transition-all
+    duration-300
+    hover:border-orange-600
+    hover:bg-orange-600
+  "
+>
+  <span className="whitespace-nowrap">
+    Know More
+  </span>
 
-          {/* Know More Button */}
-
-          <motion.button
-            whileHover={{
-              scale: 1.04,
-            }}
-            whileTap={{
-              scale: 0.97,
-            }}
-            transition={{
-              duration: 0.2,
-            }}
-            className="
-              mr-8
-              mt-5
-              flex
-              h-[40px]
-              w-[185px]
-              shrink-0
-              items-center
-              justify-start
-              gap-3
-              rounded-full
-              border
-              border-orange-500
-              bg-orange-500
-              px-2
-              pl-5
-              text-sm
-              font-medium
-              text-white
-              transition-colors
-              duration-300
-              hover:border-orange-600
-              hover:bg-orange-600
-            "
-          >
-            <span>Know More</span>
-
-            <span
-              className="
-                flex
-                h-7
-                w-7
-                shrink-0
-                items-center
-                justify-center
-                rounded-full
-                bg-white
-                text-black
-              "
-            >
-              <MdChevronRight size={18} />
-            </span>
-          </motion.button>
-
+  <span
+    className="
+      flex
+      h-8
+      w-8
+      shrink-0
+      items-center
+      justify-center
+      rounded-full
+      bg-white
+      text-black
+    "
+  >
+    <MdChevronRight size={18} />
+  </span>
+</motion.button>
         </div>
 
 
