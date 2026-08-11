@@ -2,20 +2,28 @@ import { motion } from "framer-motion";
 
 const features = [
   {
-    name: "Dashboard",
+    name: "Decision",
     logo: "/circles/bulb.svg",
+    description:
+      "Clear decisions that turn ideas into purposeful digital solutions.",
   },
   {
-    name: "Projects",
+    name: "Client Portal",
     logo: "/circles/screen.svg",
+    description:
+      "A centralized space to manage projects, communication and documents.",
   },
   {
-    name: "Invoices",
+    name: "Hosting",
     logo: "/circles/refresh.svg",
+    description:
+      "Reliable infrastructure that keeps your digital experience fast and accessible.",
   },
   {
-    name: "Support",
+    name: "Brand Identity",
     logo: "/circles/home.svg",
+    description:
+      "A distinctive identity that gives your business a memorable presence.",
   },
 ];
 
@@ -76,7 +84,6 @@ const ClientPortal = () => {
               </h2>
             </div>
 
-
             {/* Know More Button */}
 
             <motion.button
@@ -108,7 +115,6 @@ const ClientPortal = () => {
             </motion.button>
 
           </motion.div>
-
 
           {/* =====================================
               MAIN IMAGE
@@ -162,7 +168,6 @@ const ClientPortal = () => {
           </motion.div>
 
         </div>
-
 
         {/* =====================================
             OVERLAPPING LOGO CIRCLES
@@ -251,27 +256,76 @@ const ClientPortal = () => {
                   "
                 />
 
-
                 {/* =================================
-                    LOGO
+                    LOGO + TEXT
                 ================================== */}
-<img
-  src={feature.logo}
-  alt={feature.name}
-  className="
-    relative
-    z-10
-    h-[15%]
-    w-[15%]
-    -translate-y-18
-    object-contain
-    grayscale
-    transition-all
-    duration-300
-    group-hover:scale-110
-    group-hover:grayscale-0
-  "
-/>
+
+                <div
+                  className="
+                    relative
+                    z-10
+                    flex
+                    -translate-y-8
+                    flex-col
+                    items-center
+                    justify-center
+                    text-center
+                  "
+                >
+
+                  {/* Logo */}
+
+                  <img
+                    src={feature.logo}
+                    alt={feature.name}
+                    className="
+                      h-[15%]
+                      w-[15%]
+                      object-contain
+                      grayscale
+                      transition-all
+                      duration-300
+                      group-hover:scale-110
+                      group-hover:grayscale-0
+                    "
+                  />
+
+                  {/* Name */}
+
+                  <span
+                    className="
+                      mt-4
+                      whitespace-nowrap
+                      text-sm
+                      font-medium
+                      tracking-tight
+                      text-black
+                      transition-colors
+                      duration-300
+                      group-hover:text-orange-500
+                      sm:text-base
+                    "
+                  >
+                    {feature.name}
+                  </span>
+
+                  {/* Description */}
+
+                  <p
+                    className="
+                      mt-2
+                      max-w-[150px]
+                      text-[10px]
+                      leading-4
+                      text-black/45
+                      sm:text-xs
+                      sm:leading-5
+                    "
+                  >
+                    {feature.description}
+                  </p>
+
+                </div>
 
               </motion.div>
 
@@ -280,7 +334,6 @@ const ClientPortal = () => {
           </div>
 
         </div>
-
 
         {/* =====================================
             DESCRIPTION
