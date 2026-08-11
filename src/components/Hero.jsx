@@ -2,128 +2,342 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pt-24">
+    <section className="w-full bg-white px-3 py-3">
 
-      {/* Animated Background */}
-      <motion.div
-        className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/cpbg.png')",
-        }}
-        initial={{
-          scale: 1.08,
-          x: 0,
-        }}
-        animate={{
-          scale: 1,
-          x: [-10, 10, -10],
-        }}
-        transition={{
-          scale: {
-            duration: 2,
-            ease: "easeOut",
-          },
-          x: {
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-          },
-        }}
-      />
+      {/* =====================================
+          HERO CONTAINER
+      ====================================== */}
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 -z-10 bg-black/20" />
+      <div
+        className="
+          relative
+          mx-auto
+          flex
+          h-[710px]
+          w-[100vw]
+          max-w-full
+          items-center
+          justify-center
+          overflow-hidden
+          rounded-[8px]
+          px-6
+          pt-24
+        "
+      >
 
-      {/* Subtle Gradient */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
+        {/* =====================================
+            ANIMATED BACKGROUND
+        ====================================== */}
 
-      {/* Hero Content */}
-      <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-
-        {/* Glass Pill */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.3,
-            ease: "easeOut",
+          className="
+            absolute
+            inset-0
+            z-0
+            bg-cover
+            bg-center
+            bg-no-repeat
+          "
+          style={{
+            backgroundImage: "url('/cpbg.png')",
           }}
-          className="mb-7 rounded-full border border-white/30 bg-white/15 px-5 py-2 backdrop-blur-md"
+          initial={{
+            scale: 1.12,
+            x: 0,
+          }}
+          animate={{
+            scale: [1.12, 1.16, 1.12],
+            x: [-4, 4, -4],
+          }}
+          transition={{
+            scale: {
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+            x: {
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+            },
+          }}
+        />
+
+
+        {/* =====================================
+            DARK OVERLAY
+        ====================================== */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            z-10
+            bg-black/20
+          "
+        />
+
+
+        {/* =====================================
+            SUBTLE GRADIENT
+        ====================================== */}
+
+        <div
+          className="
+            absolute
+            inset-0
+            z-10
+            bg-gradient-to-b
+            from-black/10
+            via-transparent
+            to-black/20
+          "
+        />
+
+
+        {/* =====================================
+            HERO CONTENT
+        ====================================== */}
+
+        <div
+          className="
+            relative
+            z-20
+            mx-auto
+            flex
+            max-w-5xl
+            flex-col
+            items-center
+            text-center
+          "
         >
-          <span className="text-sm font-medium text-white">
-             Brand Identity • Website Design • Custom Portals
+
+          {/* Glass Pill */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 25,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.3,
+              ease: "easeOut",
+            }}
+            className="
+              mb-7
+              rounded-full
+              border
+              border-white/15
+              bg-black/10
+              px-5
+              py-2
+              backdrop-blur-md
+            "
+          >
+            <span className="text-sm font-medium text-white">
+              Brand Identity • Website Design • Custom Portals
+            </span>
+          </motion.div>
+
+
+          {/* Heading */}
+
+          <motion.h1
+            initial={{
+              opacity: 0,
+              y: 35,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.9,
+              delay: 0.45,
+              ease: "easeOut",
+            }}
+            className="
+              max-w-4xl
+              text-5xl
+              font-medium
+              leading-[1.05]
+              tracking-tight
+              text-white
+              sm:text-6xl
+              md:text-7xl
+            "
+          >
+            We help you to build,launch and
+            <br />
+            grow with confidence
+          </motion.h1>
+
+
+          {/* Paragraph */}
+
+          <motion.p
+            initial={{
+              opacity: 0,
+              y: 25,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.65,
+              ease: "easeOut",
+            }}
+            className="
+              mt-7
+              max-w-2xl
+              text-base
+              leading-7
+              text-white/80
+              sm:text-lg
+            "
+          >
+            We design every piece of your business to work together
+            so growth feels simple, not scattered.
+          </motion.p>
+
+
+          {/* =====================================
+              BUTTONS
+          ====================================== */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 20,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.7,
+              delay: 0.8,
+              ease: "easeOut",
+            }}
+            className="
+              mt-9
+              flex
+              flex-col
+              gap-3
+              sm:flex-row
+            "
+          >
+
+            {/* View All Services */}
+
+            <motion.button
+              whileHover={{
+                backgroundColor: "#ffffff",
+                color: "#000000",
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
+              className="
+                h-[42px]
+                rounded-full
+                border
+                border-white/50
+                px-7
+                text-sm
+                font-medium
+                text-white
+                backdrop-blur-sm
+                transition-all
+                duration-1
+              "
+            >
+              View All Services
+            </motion.button>
+
+
+            {/* Let's Connect */}
+
+            <motion.button
+              whileHover={{
+                backgroundColor: "#ffffff",
+                color: "#000000",
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
+              className="
+                h-[42px]
+                rounded-full
+                border
+                border-white/50
+                px-7
+                text-sm
+                font-medium
+                text-white
+                backdrop-blur-sm
+                transition-all
+                duration-1
+              "
+            >
+              Let's Connect →
+            </motion.button>
+
+          </motion.div>
+
+        </div>
+
+
+        {/* =====================================
+            SCROLL DOWN
+        ====================================== */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 10,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 1.1,
+          }}
+          className="
+            absolute
+            bottom-7
+            left-7
+            z-20
+            flex
+            h-[18px]
+            w-[133px]
+            items-center
+          "
+        >
+          <span
+            className="
+              whitespace-nowrap
+              text-[11px]
+              font-medium
+              tracking-[0.12em]
+              text-white/70
+            "
+          >
+            scroll down for more
           </span>
         </motion.div>
 
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 35 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.9,
-            delay: 0.45,
-            ease: "easeOut",
-          }}
-          className="max-w-4xl text-5xl font-medium leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl "
-        >
-           We help you to build,launch and
-         
-          grow with confidence
-
-        </motion.h1>
-
-        {/* Paragraph */}
-        <motion.p
-          initial={{ opacity: 0, y: 25 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            delay: 0.65,
-            ease: "easeOut",
-          }}
-          className="mt-7 max-w-2xl text-base leading-7 text-white/80 sm:text-lg"
-        >
-          We design every piece of your business to work together
-          so growth feels simple , not scattered.
-
-        </motion.p>
-
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.7,
-            delay: 0.8,
-            ease: "easeOut",
-          }}
-          className="mt-9 flex flex-col gap-3 sm:flex-row"
-        >
-          <motion.button
-            whileHover={{
-              y: -3,
-              backgroundColor: "rgba(255,255,255,0.15)",
-            }}
-            whileTap={{ scale: 0.97 }}
-            className="rounded-full border border-white/50 px-7 py-3 text-sm font-medium text-white backdrop-blur-sm transition"
-          >
-            Explore Projects
-          </motion.button>
-
-          <motion.button
-            whileHover={{
-              y: -3,
-              backgroundColor: "rgba(255,255,255,0.15)",
-            }}
-            whileTap={{ scale: 0.97 }}
-            className="rounded-full border border-white/50 px-7 py-3 text-sm font-medium text-white backdrop-blur-sm transition"
-          >
-            Let's Talk →
-          </motion.button>
-        </motion.div>
-
       </div>
+
     </section>
   );
 };

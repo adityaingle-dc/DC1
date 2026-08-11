@@ -1,8 +1,8 @@
 import {
-  FaPhone,
-  FaCalendarAlt,
-  FaInstagram,
-} from "react-icons/fa";
+  FiPhone,
+  FiCalendar,
+  FiInstagram,
+} from "react-icons/fi";
 
 const FloatingActions = () => {
   return (
@@ -12,27 +12,86 @@ const FloatingActions = () => {
       <button
         type="button"
         aria-label="Call us"
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/50 bg-white/90 text-gray-900 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white"
+        className="
+          flex
+          h-[40px]
+          w-[40px]
+          items-center
+          justify-center
+          rounded-full
+          border
+          border-black/30
+          bg-white/80
+          text-black
+          shadow-md
+          backdrop-blur-md
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:border-orange-500
+          hover:text-orange-500
+          hover:bg-white
+        "
       >
-        <FaPhone size={17} />
+        <FiPhone size={17} strokeWidth={1.8} />
       </button>
+
 
       {/* Calendar */}
       <button
         type="button"
         aria-label="Book a meeting"
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/50 bg-white/90 text-gray-900 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white"
+        className="
+          flex
+          h-[40px]
+          w-[40px]
+          items-center
+          justify-center
+          rounded-full
+          border
+          border-black/30
+          bg-white/80
+          text-black
+          shadow-md
+          backdrop-blur-md
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:border-orange-500
+          hover:text-orange-500
+          hover:bg-white
+        "
       >
-        <FaCalendarAlt size={17} />
+        <FiCalendar size={17} strokeWidth={1.8} />
       </button>
+
 
       {/* Instagram */}
       <button
         type="button"
         aria-label="Instagram"
-        className="flex h-12 w-12 items-center justify-center rounded-full border border-white/50 bg-white/90 text-gray-900 shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:bg-white"
+        className="
+          flex
+          h-[40px]
+          w-[40px]
+          items-center
+          justify-center
+          rounded-full
+          border
+          border-black/30
+          bg-white/80
+          text-black
+          shadow-md
+          backdrop-blur-md
+          transition-all
+          duration-300
+          hover:-translate-y-1
+          hover:border-orange-500
+          hover:text-orange-500
+          hover:bg-white
+        "
       >
-        <FaInstagram size={18} />
+        <FiInstagram size={18} strokeWidth={1.8} />
       </button>
 
     </div>

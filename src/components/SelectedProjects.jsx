@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { MdArrowForward } from "react-icons/md";
+import { MdChevronRight } from "react-icons/md";
 
 const projects = [
   "/projects/projects_common grounds.png",
@@ -10,91 +12,237 @@ const projects = [
   "/projects/projects_nitty gritty.png",
   "/projects/projects_nora.png",
   "/projects/projects_qodenext.png",
-  "/projects/projects_umaraj.png"
+  "/projects/projects_umaraj.png",
 ];
+
+const firstRow = projects.slice(0, 5);
+const secondRow = projects.slice(5, 10);
+
+const ProjectImage = ({ image, index }) => {
+  return (
+    <div
+      className="
+        group
+        relative
+        h-[400px]
+        w-[320px]
+        shrink-0
+        overflow-hidden
+        rounded-2xl
+      "
+    >
+      <motion.img
+        src={image}
+        alt={`Project ${index + 1}`}
+        className="
+          h-full
+          w-full
+          object-cover
+        "
+        whileHover={{
+          scale: 1.05,
+        }}
+        transition={{
+          duration: 0.5,
+          ease: "easeOut",
+        }}
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          bg-black/0
+          transition-colors
+          duration-300
+          group-hover:bg-black/10
+        "
+      />
+    </div>
+  );
+};
 
 const SelectedProjects = () => {
   return (
-    <section className="bg-white px-6 py-24 md:px-10 lg:px-16">
+    <div className="w-full bg-white">
+      <section
+        className="
+          mx-auto
+          h-[954px]
+          w-100vw
+          max-w-full
+          overflow-hidden
+          bg-white
+        "
+      >
+       
+      {/* =====================================
+          CONTENT
+      ====================================== */}
 
-      {/* Section Heading */}
-      <div className="mx-auto mb-14 flex max-w-6xl items-end justify-between gap-6">
+      <div
+        className="
+          mx-auto
+          h-full
+          w-full
+          overflow-hidden
+          px-6
+          py-24
+          md:px-10
+          lg:px-16
+        "
+      >
 
-        <div>
-         
+        {/* =====================================
+            SECTION HEADER
+        ====================================== */}
 
-          <h2 className="text-4xl font-medium tracking-tight text-gray-950 sm:text-5xl md:text-6xl">
+        <div
+  className="
+    mb-14
+    flex
+    w-full
+    items-end
+    justify-between
+    gap-6
+  "
+>
+
+          <h2
+            className="
+              text-4xl
+              font-medium
+              tracking-tight
+              text-gray-950
+              sm:text-5xl
+              md:text-6xl
+            
+            "
+          >
             Selected Projects
           </h2>
-        </div>
+
+        
 
         {/* See All Projects */}
-        <motion.button
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.97 }}
-          className="shrink-0 rounded-full border border-gray-900 bg-white px-6 py-3 text-sm font-medium text-gray-900 transition-colors duration-300 hover:bg-gray-900 hover:text-white"
+
+<motion.button
+  whileHover={{ y: -2 }}
+  whileTap={{ scale: 0.97 }}
+  className="
+    flex
+    shrink-0
+    items-center
+    gap-2
+    rounded-full
+    border
+    
+    bg-white
+    px-6
+    py-3
+    text-sm
+    font-medium
+    text-gray-900
+    transition-colors
+    duration-300
+    hover:bg-orange-500
+    hover:text-white
+  "
+>
+  <span>See All Projects</span>
+  <MdChevronRight size={20} />
+</motion.button>
+        </div>
+
+
+        {/* =====================================
+            TOP MARQUEE — MOVES LEFT
+        ====================================== */}
+
+        <div
+          className="
+            relative
+            w-full
+            overflow-hidden
+          "
         >
-          See All Projects →
-        </motion.button>
 
-      </div>
-
-      {/* Project Grid */}
-      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-5 md:grid-cols-4">
-
-        {projects.map((image, index) => (
           <motion.div
-            key={`${image}-${index}`}
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.2,
+            className="
+              flex
+              w-max
+              gap-5
+            "
+            animate={{
+              x: ["0%", "-50%"],
             }}
             transition={{
-              duration: 0.6,
-              delay: index * 0.08,
-              ease: "easeOut",
+              duration: 28,
+              repeat: Infinity,
+              ease: "linear",
             }}
-            className={`group relative overflow-hidden rounded-2xl ${
-              index % 3 === 1
-                ? "aspect-[1.1/1]"
-                : index % 3 === 2
-                ? "aspect-[0.95/1]"
-                : "aspect-square"
-            }`}
           >
-            <motion.img
-              src={image}
-              alt={`Project ${index + 1}`}
-              className="h-full w-full object-cover"
-              whileHover={{
-                scale: 1.08,
-              }}
-              transition={{
-                duration: 0.5,
-                ease: "easeOut",
-              }}
-            />
 
-            <motion.div
-              className="absolute inset-0 bg-black/10"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
+            {[...firstRow, ...firstRow].map((image, index) => (
+              <ProjectImage
+                key={`top-${index}`}
+                image={image}
+                index={index}
+              />
+            ))}
+
           </motion.div>
-        ))}
+
+        </div>
+
+
+        {/* =====================================
+            BOTTOM MARQUEE — MOVES RIGHT
+        ====================================== */}
+
+        <div
+          className="
+            relative
+            mt-6
+            w-full
+            overflow-hidden
+          "
+        >
+
+          <motion.div
+            className="
+              flex
+              w-max
+              gap-5
+            "
+            animate={{
+              x: ["-50%", "0%"],
+            }}
+            transition={{
+              duration: 32,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+
+            {[...secondRow, ...secondRow].map((image, index) => (
+              <ProjectImage
+                key={`bottom-${index}`}
+                image={image}
+                index={index + 5}
+              />
+            ))}
+
+          </motion.div>
+
+        </div>
 
       </div>
 
     </section>
+
+    </div>
   );
 };
 

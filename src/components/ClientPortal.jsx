@@ -1,38 +1,27 @@
 import { motion } from "framer-motion";
-import {
-  MdDashboard,
-  MdFolder,
-  MdReceiptLong,
-  MdSupportAgent,
-} from "react-icons/md";
 
 const features = [
   {
     name: "Dashboard",
-    icon: MdDashboard,
-    description: "Track everything",
+    logo: "/circles/bulb.svg",
   },
   {
     name: "Projects",
-    icon: MdFolder,
-    description: "Manage projects",
+    logo: "/circles/screen.svg",
   },
   {
     name: "Invoices",
-    icon: MdReceiptLong,
-    description: "Manage billing",
+    logo: "/circles/refresh.svg",
   },
   {
     name: "Support",
-    icon: MdSupportAgent,
-    description: "Stay connected",
+    logo: "/circles/home.svg",
   },
 ];
 
 const ClientPortal = () => {
   return (
     <section className="bg-white px-6 py-28 md:px-10 lg:px-16">
-
       <div className="mx-auto max-w-[95%]">
 
         {/* =====================================
@@ -176,156 +165,117 @@ const ClientPortal = () => {
 
 
         {/* =====================================
-            OVERLAPPING FEATURE CIRCLES
+            OVERLAPPING LOGO CIRCLES
         ====================================== */}
 
         <div className="mx-auto mt-12 max-w-6xl">
 
-          <div className="
-            flex
-            w-full
-            items-center
-            overflow-visible
-          ">
+          <div
+            className="
+              flex
+              w-full
+              items-center
+              overflow-visible
+            "
+          >
 
-            {features.map((feature, index) => {
+            {features.map((feature, index) => (
 
-              const Icon = feature.icon;
+              <motion.div
+                key={feature.name}
 
-              return (
-                <motion.div
-                  key={feature.name}
+                initial={{
+                  opacity: 0,
+                  scale: 0.9,
+                  y: 20,
+                }}
 
-                  initial={{
-                    opacity: 0,
-                    scale: 0.9,
-                    y: 20,
-                  }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                }}
 
-                  whileInView={{
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                  }}
+                viewport={{
+                  once: true,
+                }}
 
-                  viewport={{
-                    once: true,
-                  }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
 
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
+                whileHover={{
+                  y: -10,
+                  scale: 1.05,
+                  zIndex: 50,
+                }}
 
-                  whileHover={{
-                    y: -10,
-                    scale: 1.05,
-                    zIndex: 20,
-                  }}
+                className="
+                  group
+                  relative
+                  flex
+                  aspect-square
+                  w-[28%]
+                  shrink-0
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-white/20
+                  transition-all
+                  duration-300
+                  hover:bg-white/30
+                "
 
+                style={{
+                  marginLeft: index === 0 ? "0" : "-5%",
+                  zIndex: 10 + index,
+                }}
+              >
+
+                {/* =================================
+                    VISIBLE CIRCLE BORDER
+                ================================== */}
+
+                <div
                   className="
-                    group
-                    relative
-                    flex
-                    aspect-square
-                    w-[28%]
-                    shrink-0
-                    flex-col
-                    items-center
-                    justify-center
+                    pointer-events-none
+                    absolute
+                    inset-0
                     rounded-full
                     border-2
                     border-black/50
-                    bg-transparent
-                    text-center
-                    transition-all
+                    transition-colors
                     duration-300
-                    hover:border-orange-500
+                    group-hover:border-orange-500
                   "
-
-                  style={{
-                    marginLeft: index === 0 ? "0" : "-5%",
-                  }}
-                >
-
-                  {/* =================================
-                      ICON
-                  ================================== */}
-
-                  <div
-                    className="
-                      mb-3
-                      flex
-                      h-12
-                      w-12
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      border-black/15
-                      text-black
-                      transition-all
-                      duration-300
-                      group-hover:border-orange-500
-                      group-hover:bg-orange-500
-                      group-hover:text-white
-                    "
-                  >
-                    <Icon
-                      size={24}
-                      strokeWidth={1.5}
-                    />
-                  </div>
+                />
 
 
-                  {/* =================================
-                      FEATURE NAME
-                  ================================== */}
+                {/* =================================
+                    LOGO
+                ================================== */}
+<img
+  src={feature.logo}
+  alt={feature.name}
+  className="
+    relative
+    z-10
+    h-[15%]
+    w-[15%]
+    -translate-y-18
+    object-contain
+    grayscale
+    transition-all
+    duration-300
+    group-hover:scale-110
+    group-hover:grayscale-0
+  "
+/>
 
-                  <span
-                    className="
-                      pointer-events-none
-                      relative
-                      z-10
-                      max-w-[120px]
-                      text-sm
-                      font-medium
-                      leading-tight
-                      text-black
-                      transition-colors
-                      duration-300
-                      group-hover:text-orange-500
-                      sm:text-base
-                      md:text-lg
-                    "
-                  >
-                    {feature.name}
-                  </span>
+              </motion.div>
 
-
-                  {/* =================================
-                      DESCRIPTION
-                  ================================== */}
-
-                  <span
-                    className="
-                      mt-2
-                      max-w-[110px]
-                      text-[11px]
-                      leading-tight
-                      text-black/40
-                      transition-colors
-                      duration-300
-                      group-hover:text-black/60
-                      sm:text-xs
-                    "
-                  >
-                    {feature.description}
-                  </span>
-
-                </motion.div>
-              );
-            })}
+            ))}
 
           </div>
 
@@ -345,13 +295,9 @@ const ClientPortal = () => {
             flex-col
             gap-8
           "
-        >
-
-
-        </div>
+        />
 
       </div>
-
     </section>
   );
 };

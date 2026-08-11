@@ -12,6 +12,7 @@ import SelectedProjects2 from "./components/SelectedProjects2";
 import Footer from "./components/Footer";
 import FinalCTA from "./components/FinalCTA";
 import WhyCopperStudio from "./components/WhyCopperStudio";
+import CustomerReviews from "./components/CustomerReviews";
 
 function App() {
   return (
@@ -37,6 +38,8 @@ function App() {
 <SelectedProjects />
 
 <Services />
+
+<CustomerReviews/>
 
 <ClientPortal />
 
