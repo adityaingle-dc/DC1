@@ -111,39 +111,37 @@ const Hero = () => {
             text-center
           "
         >
+{/* Glass Pill */}
 
-          {/* Glass Pill */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 25,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 0.8,
-              delay: 0.3,
-              ease: "easeOut",
-            }}
-            className="
-              mb-7
-              rounded-full
-              border
-              border-white/15
-              bg-black/10
-              px-5
-              py-2
-              backdrop-blur-md
-            "
-          >
-            <span className="text-sm font-medium text-white">
-              Brand Identity • Website Design • Custom Portals
-            </span>
-          </motion.div>
-
+<motion.div
+  initial={{
+    opacity: 0,
+    y: 25,
+  }}
+  animate={{
+    opacity: 1,
+    y: 0,
+  }}
+  transition={{
+    duration: 0.8,
+    delay: 0.3,
+    ease: "easeOut",
+  }}
+  className="
+    mb-7
+    rounded-full
+    border
+    border-white/[0.08]
+    bg-black/[0.10]
+    px-5
+    py-2
+    
+  "
+>
+  <span className="text-sm font-medium text-white/90">
+    Brand Identity • Website Design • Custom Portals
+  </span>
+</motion.div>
 
           {/* Heading */}
 
@@ -254,7 +252,7 @@ const Hero = () => {
                 text-sm
                 font-medium
                 text-white
-                backdrop-blur-sm
+              
                 transition-all
                 duration-1
               "
@@ -282,7 +280,7 @@ const Hero = () => {
                 text-sm
                 font-medium
                 text-white
-                backdrop-blur-sm
+               
                 transition-all
                 duration-1
               "
