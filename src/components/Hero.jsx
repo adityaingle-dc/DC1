@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <section className="w-full bg-white px-3 py-3">
+    <section className="w-full bg-white px-2 py-2 sm:px-3 sm:py-3">
 
       {/* =====================================
           HERO CONTAINER
@@ -13,15 +13,21 @@ const Hero = () => {
           relative
           mx-auto
           flex
-          h-[710px]
-          w-[100vw]
-          max-w-full
+          min-h-[620px]
+          w-full
           items-center
           justify-center
           overflow-hidden
           rounded-[8px]
-          px-6
+          px-4
+          pb-16
           pt-24
+          sm:min-h-[660px]
+          sm:px-6
+          sm:pt-24
+          md:min-h-[710px]
+          md:px-8
+          lg:px-10
         "
       >
 
@@ -105,45 +111,62 @@ const Hero = () => {
             z-20
             mx-auto
             flex
+            w-full
             max-w-5xl
             flex-col
             items-center
             text-center
           "
         >
-{/* Glass Pill */}
 
-<motion.div
-  initial={{
-    opacity: 0,
-    y: 25,
-  }}
-  animate={{
-    opacity: 1,
-    y: 0,
-  }}
-  transition={{
-    duration: 0.8,
-    delay: 0.3,
-    ease: "easeOut",
-  }}
-  className="
-    mb-7
-    rounded-full
-    border
-    border-white/[0.08]
-    bg-black/[0.10]
-    px-5
-    py-2
-    
-  "
->
-  <span className="text-sm font-medium text-white/90">
-    Brand Identity • Website Design • Custom Portals
-  </span>
-</motion.div>
+          {/* =====================================
+              GLASS PILL
+          ====================================== */}
 
-          {/* Heading */}
+          <motion.div
+            initial={{
+              opacity: 0,
+              y: 25,
+            }}
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              delay: 0.3,
+              ease: "easeOut",
+            }}
+            className="
+              mb-6
+              max-w-[90%]
+              rounded-full
+              border
+              border-white/[0.08]
+              bg-black/[0.10]
+              px-4
+              py-2
+              backdrop-blur-[2px]
+              sm:mb-7
+              sm:px-5
+            "
+          >
+            <span
+              className="
+                text-xs
+                font-medium
+                text-white/90
+                sm:text-sm
+              "
+            >
+              Brand Identity • Website Design • Custom Portals
+            </span>
+          </motion.div>
+
+
+          {/* =====================================
+              HEADING
+          ====================================== */}
 
           <motion.h1
             initial={{
@@ -160,23 +183,29 @@ const Hero = () => {
               ease: "easeOut",
             }}
             className="
-              max-w-4xl
-              text-5xl
+              max-w-[95%]
+              text-4xl
               font-medium
-              leading-[1.05]
+              leading-[1.02]
               tracking-tight
               text-white
-              sm:text-6xl
-              md:text-7xl
+              sm:max-w-3xl
+              sm:text-5xl
+              md:max-w-4xl
+              md:text-6xl
+              font-[DM Sans] font-medium
+              
             "
           >
-            We help you to build,launch and
-            <br />
-            grow with confidence
+            We help you to build, launch and
+            <br className="hidden sm:block" />
+            {" "}grow with confidence
           </motion.h1>
 
 
-          {/* Paragraph */}
+          {/* =====================================
+              PARAGRAPH
+          ====================================== */}
 
           <motion.p
             initial={{
@@ -193,12 +222,16 @@ const Hero = () => {
               ease: "easeOut",
             }}
             className="
-              mt-7
-              max-w-2xl
-              text-base
-              leading-7
+              mt-6
+              max-w-[90%]
+              text-sm
+              leading-6
               text-white/80
-              sm:text-lg
+              sm:mt-7
+              sm:max-w-xl
+              sm:text-base
+              sm:leading-7
+              md:text-lg
             "
           >
             We design every piece of your business to work together
@@ -225,10 +258,14 @@ const Hero = () => {
               ease: "easeOut",
             }}
             className="
-              mt-9
+              mt-8
               flex
+              w-full
               flex-col
+              items-center
               gap-3
+              sm:mt-9
+              sm:w-auto
               sm:flex-row
             "
           >
@@ -245,16 +282,18 @@ const Hero = () => {
               }}
               className="
                 h-[42px]
+                w-[170px]
                 rounded-full
                 border
                 border-white/50
-                px-7
+                px-5
                 text-sm
                 font-medium
                 text-white
-              
                 transition-all
                 duration-1
+                sm:w-auto
+                sm:px-7
               "
             >
               View All Services
@@ -273,16 +312,18 @@ const Hero = () => {
               }}
               className="
                 h-[42px]
+                w-[170px]
                 rounded-full
                 border
                 border-white/50
-                px-7
+                px-5
                 text-sm
                 font-medium
                 text-white
-               
                 transition-all
                 duration-1
+                sm:w-auto
+                sm:px-7
               "
             >
               Let's Connect →
@@ -312,22 +353,23 @@ const Hero = () => {
           }}
           className="
             absolute
-            bottom-7
-            left-7
+            bottom-5
+            left-4
             z-20
             flex
-            h-[18px]
-            w-[133px]
             items-center
+            sm:bottom-7
+            sm:left-7
           "
         >
           <span
             className="
               whitespace-nowrap
-              text-[11px]
+              text-[9px]
               font-medium
               tracking-[0.12em]
               text-white/70
+              sm:text-[11px]
             "
           >
             scroll down for more

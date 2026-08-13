@@ -26,8 +26,8 @@ const reasons = [
 
 const WhyCopperStudio = () => {
   return (
-    <section className="bg-white px-6 py-32 md:px-10 lg:px-16">
-      <div className="mx-auto max-w-[95%]">
+    <section className="bg-white px-4 py-20 sm:px-6 sm:py-24 md:px-10 md:py-28 lg:px-16 lg:py-32">
+      <div className="mx-auto w-full max-w-[95%]">
 
         {/* =====================================
             CENTERED HEADING
@@ -49,15 +49,17 @@ const WhyCopperStudio = () => {
           transition={{
             duration: 0.8,
           }}
-          className="mx-auto max-w-4xl text-center"
+          className="mx-auto w-full max-w-4xl text-center"
         >
           <p
             className="
-              text-sm
+              text-xs
               font-medium
               uppercase
-              tracking-[0.2em]
+              tracking-[0.18em]
               text-black/40
+              sm:text-sm
+              sm:tracking-[0.2em]
             "
           >
             Why Copper Studio
@@ -65,15 +67,16 @@ const WhyCopperStudio = () => {
 
           <h2
             className="
-              mt-5
-              whitespace-nowrap
-              text-5xl
+              mt-4
+              text-4xl
               font-medium
-              leading-[0.95]
+              leading-[0.98]
               tracking-tight
               text-black
-              sm:text-6xl
-              md:text-7xl
+              sm:mt-5
+              sm:text-5xl
+              md:text-6xl
+              lg:text-7xl
             "
           >
             Why work with{" "}
@@ -85,12 +88,15 @@ const WhyCopperStudio = () => {
           <p
             className="
               mx-auto
-              mt-7
+              mt-6
               max-w-2xl
-              text-base
-              leading-7
+              text-sm
+              leading-6
               text-black/50
-              sm:text-lg
+              sm:mt-7
+              sm:text-base
+              sm:leading-7
+              md:text-lg
             "
           >
             We combine creative thinking, thoughtful design and
@@ -101,20 +107,22 @@ const WhyCopperStudio = () => {
 
 
         {/* =====================================
-            CARDS CONTAINER — 1198 × 450
+            CARDS CONTAINER
         ====================================== */}
 
         <div
           className="
             mx-auto
-            mt-20
+            mt-12
             grid
-            h-[450px]
-            w-[1198px]
-            max-w-full
+            w-full
+            max-w-[1198px]
             grid-cols-1
             gap-5
-            md:grid-cols-3
+            sm:mt-16
+            md:grid-cols-2
+            lg:mt-20
+            lg:grid-cols-3
           "
         >
 
@@ -144,7 +152,7 @@ const WhyCopperStudio = () => {
               className="
                 group
                 relative
-                h-full
+                min-h-[460px]
                 overflow-hidden
                 rounded-2xl
                 border
@@ -154,6 +162,9 @@ const WhyCopperStudio = () => {
                 duration-300
                 hover:border-orange-500/50
                 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]
+                sm:min-h-[470px]
+                lg:h-[450px]
+                lg:min-h-0
               "
             >
 
@@ -161,7 +172,16 @@ const WhyCopperStudio = () => {
                   IMAGE
               ====================================== */}
 
-              <div className="relative h-[250px] w-full overflow-hidden">
+              <div
+                className="
+                  relative
+                  h-[220px]
+                  w-full
+                  overflow-hidden
+                  sm:h-[240px]
+                  lg:h-[250px]
+                "
+              >
 
                 <motion.img
                   src={reason.image}
@@ -197,19 +217,20 @@ const WhyCopperStudio = () => {
                   TEXT CONTENT
               ====================================== */}
 
-              <div className="p-6 md:p-7">
+              <div className="p-5 sm:p-6 md:p-7">
 
                 {/* Number */}
 
                 <span
                   className="
-                    text-sm
+                    text-xs
                     font-medium
                     tracking-[0.15em]
                     text-black/30
                     transition-colors
                     duration-300
                     group-hover:text-orange-500
+                    sm:text-sm
                   "
                 >
                   {reason.number}
@@ -220,11 +241,12 @@ const WhyCopperStudio = () => {
 
                 <h3
                   className="
-                    mt-3
+                    mt-2
                     text-2xl
                     font-medium
                     tracking-tight
                     text-black
+                    sm:mt-3
                     sm:text-3xl
                   "
                 >

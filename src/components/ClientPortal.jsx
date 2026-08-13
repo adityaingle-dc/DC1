@@ -29,7 +29,19 @@ const features = [
 
 const ClientPortal = () => {
   return (
-    <section className="bg-white px-6 py-28 md:px-10 lg:px-16">
+    <section
+      className="
+        bg-white
+        px-4
+        py-16
+        sm:px-6
+        sm:py-20
+        md:px-10
+        md:py-24
+        lg:px-16
+        lg:py-28
+      "
+    >
       <div className="mx-auto max-w-[95%]">
 
         {/* =====================================
@@ -58,9 +70,12 @@ const ClientPortal = () => {
             className="
               mb-8
               flex
-              items-start
-              justify-between
-              gap-8
+              flex-col
+              gap-5
+              sm:flex-row
+              sm:items-start
+              sm:justify-between
+              sm:gap-8
             "
           >
 
@@ -69,15 +84,17 @@ const ClientPortal = () => {
             <div>
               <h2
                 className="
-                  mt-4
+                  mt-2
                   max-w-3xl
-                  text-5xl
+                  text-4xl
                   font-medium
                   leading-[0.95]
                   tracking-tight
                   text-black
-                  sm:text-6xl
-                  md:text-7xl
+                  sm:text-5xl
+                  md:text-6xl
+                  lg:mt-4
+                  lg:text-7xl
                 "
               >
                 Client Portal
@@ -94,13 +111,14 @@ const ClientPortal = () => {
                 scale: 0.97,
               }}
               className="
-                mt-8
+                mt-1
+                w-fit
                 shrink-0
                 rounded-full
                 border
                 border-black/30
-                px-7
-                py-3
+                px-6
+                py-2.5
                 text-sm
                 font-medium
                 text-black
@@ -109,6 +127,9 @@ const ClientPortal = () => {
                 hover:border-orange-500
                 hover:bg-orange-500
                 hover:text-white
+                sm:mt-4
+                sm:px-7
+                sm:py-3
               "
             >
               Know more
@@ -138,9 +159,10 @@ const ClientPortal = () => {
             className="
               relative
               overflow-hidden
-              rounded-2xl
+              rounded-xl
               border
               border-black/10
+              sm:rounded-2xl
             "
           >
 
@@ -149,8 +171,10 @@ const ClientPortal = () => {
               alt="Client portal"
               className="
                 h-auto
+                min-h-[220px]
                 w-full
                 object-cover
+                sm:min-h-0
               "
             />
 
@@ -173,14 +197,26 @@ const ClientPortal = () => {
             OVERLAPPING LOGO CIRCLES
         ====================================== */}
 
-        <div className="mx-auto mt-12 max-w-6xl">
+        <div
+          className="
+            mx-auto
+            mt-10
+            max-w-6xl
+            sm:mt-12
+          "
+        >
+
+          {/* =====================================
+              DESKTOP / TABLET OVERLAPPING CIRCLES
+          ====================================== */}
 
           <div
             className="
-              flex
+              hidden
               w-full
               items-center
               overflow-visible
+              sm:flex
             "
           >
 
@@ -221,7 +257,7 @@ const ClientPortal = () => {
                   relative
                   flex
                   aspect-square
-                  w-[28%]
+                  w-[25%]
                   shrink-0
                   items-center
                   justify-center
@@ -230,6 +266,10 @@ const ClientPortal = () => {
                   transition-all
                   duration-300
                   hover:bg-white/30
+
+                  md:w-[27%]
+
+                  lg:w-[28%]
                 "
 
                 style={{
@@ -238,9 +278,7 @@ const ClientPortal = () => {
                 }}
               >
 
-                {/* =================================
-                    VISIBLE CIRCLE BORDER
-                ================================== */}
+                {/* Visible Circle Border */}
 
                 <div
                   className="
@@ -256,19 +294,186 @@ const ClientPortal = () => {
                   "
                 />
 
-                {/* =================================
-                    LOGO + TEXT
-                ================================== */}
+                {/* Logo + Text */}
 
                 <div
                   className="
                     relative
                     z-10
                     flex
-                    -translate-y-8
+                    -translate-y-6
                     flex-col
                     items-center
                     justify-center
+                    px-4
+                    text-center
+                    md:-translate-y-8
+                  "
+                >
+
+                  {/* Logo */}
+
+                  <img
+                    src={feature.logo}
+                    alt={feature.name}
+                    className="
+                      h-8
+                      w-8
+                      object-contain
+                      grayscale
+                      transition-all
+                      duration-300
+                      group-hover:scale-110
+                      group-hover:grayscale-0
+
+                      md:h-10
+                      md:w-10
+
+                      lg:h-12
+                      lg:w-12
+                    "
+                  />
+
+                  {/* Name */}
+
+                  <span
+                    className="
+                      mt-3
+                      whitespace-nowrap
+                      text-xs
+                      font-medium
+                      tracking-tight
+                      text-black
+                      transition-colors
+                      duration-300
+                      group-hover:text-orange-500
+
+                      md:mt-4
+                      md:text-sm
+
+                      lg:text-base
+                    "
+                  >
+                    {feature.name}
+                  </span>
+
+                  {/* Description */}
+
+                  <p
+                    className="
+                      mt-1
+                      max-w-[110px]
+                      text-[9px]
+                      leading-3
+                      text-black/45
+
+                      md:max-w-[130px]
+                      md:text-[10px]
+                      md:leading-4
+
+                      lg:max-w-[150px]
+                      lg:text-xs
+                      lg:leading-5
+                    "
+                  >
+                    {feature.description}
+                  </p>
+
+                </div>
+
+              </motion.div>
+
+            ))}
+
+          </div>
+
+
+          {/* =====================================
+              MOBILE 2 × 2 CIRCLE GRID
+          ====================================== */}
+
+          <div
+            className="
+              grid
+              grid-cols-2
+              gap-3
+              sm:hidden
+            "
+          >
+
+            {features.map((feature, index) => (
+
+              <motion.div
+                key={feature.name}
+
+                initial={{
+                  opacity: 0,
+                  scale: 0.9,
+                  y: 20,
+                }}
+
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                  y: 0,
+                }}
+
+                viewport={{
+                  once: true,
+                }}
+
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                }}
+
+                whileTap={{
+                  scale: 0.97,
+                }}
+
+                className="
+                  group
+                  relative
+                  flex
+                  aspect-square
+                  w-full
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-white/30
+                  transition-all
+                  duration-300
+                "
+              >
+
+                {/* Visible Circle Border */}
+
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    rounded-full
+                    border-2
+                    border-black/50
+                    transition-colors
+                    duration-300
+                    group-hover:border-orange-500
+                  "
+                />
+
+                {/* Logo + Text */}
+
+                <div
+                  className="
+                    relative
+                    z-10
+                    flex
+                    -translate-y-3
+                    flex-col
+                    items-center
+                    justify-center
+                    px-5
                     text-center
                   "
                 >
@@ -279,8 +484,8 @@ const ClientPortal = () => {
                     src={feature.logo}
                     alt={feature.name}
                     className="
-                      h-[15%]
-                      w-[15%]
+                      h-8
+                      w-8
                       object-contain
                       grayscale
                       transition-all
@@ -294,16 +499,14 @@ const ClientPortal = () => {
 
                   <span
                     className="
-                      mt-4
-                      whitespace-nowrap
-                      text-sm
+                      mt-3
+                      text-xs
                       font-medium
                       tracking-tight
                       text-black
                       transition-colors
                       duration-300
                       group-hover:text-orange-500
-                      sm:text-base
                     "
                   >
                     {feature.name}
@@ -314,12 +517,10 @@ const ClientPortal = () => {
                   <p
                     className="
                       mt-2
-                      max-w-[150px]
-                      text-[10px]
-                      leading-4
+                      max-w-[130px]
+                      text-[9px]
+                      leading-3.5
                       text-black/45
-                      sm:text-xs
-                      sm:leading-5
                     "
                   >
                     {feature.description}
@@ -342,11 +543,15 @@ const ClientPortal = () => {
         <div
           className="
             mx-auto
-            mt-20
+            mt-12
             flex
             max-w-6xl
             flex-col
             gap-8
+
+            sm:mt-16
+
+            md:mt-20
           "
         />
 

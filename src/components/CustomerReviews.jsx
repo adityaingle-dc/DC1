@@ -4,24 +4,24 @@ import { motion, AnimatePresence } from "framer-motion";
 const reviews = [
   {
     quote:
-      "Copper Studio understood exactly what we wanted and turned our ideas into a digital experience that feels premium, modern and completely aligned with our brand.",
-    name: "Sarah Mitchell",
-    role: "Marketing Director",
-    company: "Common Grounds",
+      "Copper Studio completely transformed how we manage our business. The new website makes it easy for customers to explore our services and get in touch, while the custom CRM has made tracking clients, cab assignments, driver availability, and trip details incredibly efficient. Everything is now organized in one place, saving our team hours every week and giving us a scalable system.",
+    name: "Subhash Mishra | Director",
+    
+    company: "Facilities Tours & Travels Pvt. Ltd.",
   },
   {
     quote:
-      "The entire process was smooth from start to finish. Their team brought great ideas to the table and delivered a website that our customers genuinely enjoy using.",
-    name: "Daniel Carter",
-    role: "Founder",
-    company: "DataCircles",
+      "Copper Studio created a website that represents our agency perfectly. The team understood our vision, organized our content clearly, and delivered a modern, user-friendly experience. The new website has strengthened our online presence and given us a scalable platform to showcase our work and support our growth.",
+    name: "Pratik Jambhale | Founder",
+   
+    company: "Nitty Gritty Labz LLP",
   },
   {
     quote:
-      "What stood out most was their attention to detail. They didn't just build a website for us — they created an experience that actually represents our business.",
-    name: "Michael Anderson",
-    role: "Creative Director",
-    company: "Nora",
+      "Copper Studio developed a rebranding proposal backed by thorough research and strategic thinking. They took the time to understand our business before presenting multiple concepts, each with a clear rationale. The proposal gave us a strong vision for how our brand could evolve and grow.",
+    name: "Mallika Kadambande | Marketing Head",
+   
+    company: "Qodenext India Private Limited",
   },
 ];
 
@@ -31,7 +31,7 @@ const CustomerReviews = () => {
   /*
     =========================================
     AUTO CHANGE REVIEW EVERY 5 SECONDS
-    =========================================
+  =========================================
   */
 
   useEffect(() => {
@@ -45,29 +45,40 @@ const CustomerReviews = () => {
   const review = reviews[activeReview];
 
   return (
-    <section className="bg-white px-6 py-2 md:px-10 lg:px-16">
-
+    <section
+      className="
+        bg-white
+        px-4
+        py-12
+        sm:px-6
+        sm:py-16
+        md:px-10
+        md:py-20
+        lg:px-16
+      "
+    >
       {/* =================================================
           MAIN CONTAINER
-          1200 × 594
       ================================================= */}
 
       <div
         className="
           mx-auto
           flex
-          h-[594px]
           w-full
           max-w-[1200px]
+          flex-col
           items-center
           justify-center
           gap-8
+          md:gap-10
+          lg:flex-row
+          lg:items-center
+          lg:gap-8
         "
       >
-
         {/* =================================================
             LOGO
-            400 × 400
         ================================================= */}
 
         <motion.div
@@ -87,47 +98,53 @@ const CustomerReviews = () => {
           }}
           className="
             flex
-            h-[400px]
-            w-[400px]
+            h-[220px]
+            w-[220px]
             shrink-0
             items-center
             justify-center
+
+            sm:h-[280px]
+            sm:w-[280px]
+
+            md:h-[320px]
+            md:w-[320px]
+
+            lg:h-[400px]
+            lg:w-[400px]
           "
         >
           <img
             src="/icons/client_testimonial.png"
             alt="Copper Studio"
             className="
-              h-[400px]
-              w-[400px]
+              h-full
+              w-full
               object-contain
             "
           />
         </motion.div>
 
-
         {/* =================================================
             REVIEW CONTAINER
-            819 × 364
         ================================================= */}
 
         <div
           className="
             flex
-            h-[364px]
-            w-[819px]
-            shrink-0
+            w-full
+            max-w-[819px]
+            flex-1
             flex-col
             justify-center
+            lg:min-h-[364px]
           "
         >
-
           {/* =================================================
               REVIEW CONTENT
           ================================================= */}
 
           <AnimatePresence mode="wait">
-
             <motion.div
               key={activeReview}
               initial={{
@@ -147,104 +164,114 @@ const CustomerReviews = () => {
                 ease: "easeInOut",
               }}
             >
-
               {/* Quote */}
 
               <div
                 className="
-                  text-6xl
+                  text-5xl
                   leading-none
                   text-orange-500
+                  sm:text-6xl
                 "
               >
                 “
               </div>
 
-
               {/* Review */}
 
               <p
                 className="
-                  mt-5
-                  max-w-[760px]
-                  text-2xl
+                  mt-4
+                  w-full
+                  max-w-none
+                  text-xl
                   font-medium
-                  leading-[1.35]
+                  leading-[1.4]
                   tracking-tight
                   text-black
-                  sm:text-3xl
-                  md:text-4xl
+                  sm:mt-5
+                  sm:text-2xl
+                  md:text-3xl
+                  lg:text-4xl
                 "
               >
                 {review.quote}
               </p>
 
+              {/* Customer Information + Indicators */}
 
-              {/* Customer Information */}
+              <div
+                className="
+                  mt-6
+                  flex
+                  w-full
+                  items-end
+                  justify-between
+                  gap-6
+                  sm:mt-8
+                "
+              >
+                {/* Customer Information */}
 
-              <div className="mt-8">
+                <div>
+                  <p
+                    className="
+                      text-sm
+                      font-medium
+                      text-black
+                      sm:text-base
+                    "
+                  >
+                    {review.name}
+                  </p>
 
-                <p
+                  <p
+                    className="
+                      mt-1
+                      text-xs
+                      text-black/45
+                      sm:text-sm
+                    "
+                  >
+                    {review.role} · {review.company}
+                  </p>
+                </div>
+
+                {/* Review Indicators */}
+
+                <div
                   className="
-                    text-base
-                    font-medium
-                    text-black
+                    flex
+                    shrink-0
+                    items-center
+                    gap-2
                   "
                 >
-                  {review.name}
-                </p>
-
-                <p
-                  className="
-                    mt-1
-                    text-sm
-                    text-black/45
-                  "
-                >
-                  {review.role} · {review.company}
-                </p>
-
+                  {reviews.map((_, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      onClick={() => setActiveReview(index)}
+                      aria-label={`Show review ${index + 1}`}
+                      className={`
+                        h-2
+                        rounded-full
+                        transition-all
+                        duration-300
+                        ${
+                          activeReview === index
+                            ? "w-8 bg-orange-500"
+                            : "w-2 bg-black/15"
+                        }
+                      `}
+                    />
+                  ))}
+                </div>
               </div>
-
             </motion.div>
-
           </AnimatePresence>
-
-
-          {/* =================================================
-              REVIEW INDICATORS
-          ================================================= */}
-
-          <div className="mt-8 flex items-center gap-2">
-
-            {reviews.map((_, index) => (
-
-              <button
-                key={index}
-                type="button"
-                onClick={() => setActiveReview(index)}
-                aria-label={`Show review ${index + 1}`}
-                className={`
-                  h-2
-                  rounded-full
-                  transition-all
-                  duration-300
-                  ${
-                    activeReview === index
-                      ? "w-8 bg-orange-500"
-                      : "w-2 bg-black/15"
-                  }
-                `}
-              />
-
-            ))}
-
-          </div>
-
         </div>
-
       </div>
-
     </section>
   );
 };

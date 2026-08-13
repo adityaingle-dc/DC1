@@ -6,7 +6,20 @@ import {
 
 const FloatingActions = () => {
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div
+      className="
+        fixed
+        bottom-4
+        right-4
+        z-50
+        flex
+        items-center
+        gap-2
+        sm:bottom-6
+        sm:right-6
+        sm:gap-3
+      "
+    >
 
       {/* Call */}
       <button
@@ -14,8 +27,8 @@ const FloatingActions = () => {
         aria-label="Call us"
         className="
           flex
-          h-[40px]
-          w-[40px]
+          h-9
+          w-9
           items-center
           justify-center
           rounded-full
@@ -29,13 +42,18 @@ const FloatingActions = () => {
           duration-300
           hover:-translate-y-1
           hover:border-orange-500
-          hover:text-orange-500
           hover:bg-white
+          hover:text-orange-500
+          sm:h-10
+          sm:w-10
         "
       >
-        <FiPhone size={17} strokeWidth={1.8} />
+        <FiPhone
+          size={16}
+          strokeWidth={1.8}
+          className="sm:h-[17px] sm:w-[17px]"
+        />
       </button>
-
 
       {/* Calendar */}
       <button
@@ -43,8 +61,8 @@ const FloatingActions = () => {
         aria-label="Book a meeting"
         className="
           flex
-          h-[40px]
-          w-[40px]
+          h-9
+          w-9
           items-center
           justify-center
           rounded-full
@@ -58,13 +76,18 @@ const FloatingActions = () => {
           duration-300
           hover:-translate-y-1
           hover:border-orange-500
-          hover:text-orange-500
           hover:bg-white
+          hover:text-orange-500
+          sm:h-10
+          sm:w-10
         "
       >
-        <FiCalendar size={17} strokeWidth={1.8} />
+        <FiCalendar
+          size={16}
+          strokeWidth={1.8}
+          className="sm:h-[17px] sm:w-[17px]"
+        />
       </button>
-
 
       {/* Instagram */}
       <button
@@ -72,8 +95,8 @@ const FloatingActions = () => {
         aria-label="Instagram"
         className="
           flex
-          h-[40px]
-          w-[40px]
+          h-9
+          w-9
           items-center
           justify-center
           rounded-full
@@ -87,11 +110,17 @@ const FloatingActions = () => {
           duration-300
           hover:-translate-y-1
           hover:border-orange-500
-          hover:text-orange-500
           hover:bg-white
+          hover:text-orange-500
+          sm:h-10
+          sm:w-10
         "
       >
-        <FiInstagram size={18} strokeWidth={1.8} />
+        <FiInstagram
+          size={17}
+          strokeWidth={1.8}
+          className="sm:h-[18px] sm:w-[18px]"
+        />
       </button>
 
     </div>

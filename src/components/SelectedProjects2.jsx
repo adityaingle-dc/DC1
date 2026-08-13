@@ -20,11 +20,15 @@ const ProjectImage = ({ image, index }) => {
       className="
         group
         relative
-        h-[400px]
-        w-[320px]
+        h-[300px]
+        w-[240px]
         shrink-0
         overflow-hidden
         rounded-2xl
+        sm:h-[350px]
+        sm:w-[280px]
+        md:h-[400px]
+        md:w-[320px]
       "
       whileHover={{
         scale: 1.02,
@@ -79,8 +83,10 @@ const SelectedProjects2 = () => {
           w-full
           overflow-hidden
           bg-white
-          px-6
-          py-20
+          px-4
+          py-16
+          sm:px-6
+          sm:py-20
           md:px-10
           lg:px-16
         "
@@ -93,12 +99,18 @@ const SelectedProjects2 = () => {
         <div
           className="
             mx-auto
-            mb-12
+            mb-8
             flex
             w-full
-            items-end
+            flex-col
+            items-start
             justify-between
-            gap-6
+            gap-5
+            sm:mb-10
+            sm:flex-row
+            sm:items-end
+            sm:gap-6
+            md:mb-12
           "
         >
 
@@ -172,7 +184,9 @@ const SelectedProjects2 = () => {
             className="
               flex
               w-max
-              gap-5
+              gap-3
+              sm:gap-4
+              md:gap-5
             "
             animate={{
               x: ["0%", "-50%"],

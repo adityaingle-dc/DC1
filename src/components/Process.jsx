@@ -43,6 +43,16 @@ const Process = () => {
 
   useEffect(() => {
     const handleWheel = (event) => {
+      /*
+        ==========================================
+        DESKTOP ONLY
+        ==========================================
+      */
+
+      if (window.innerWidth < 1024) {
+        return;
+      }
+
       const process = processRef.current;
       const stepsContainer = stepsRef.current;
 
@@ -50,10 +60,6 @@ const Process = () => {
 
       const rect = process.getBoundingClientRect();
 
-      /*
-        Process becomes active when it reaches
-        the viewport.
-      */
       const processActive =
         rect.top <= 10 &&
         rect.bottom >= window.innerHeight - 10;
@@ -85,12 +91,6 @@ const Process = () => {
       */
 
       if (scrollingDown) {
-
-        /*
-          If steps are NOT finished,
-          keep the page locked.
-        */
-
         if (!atBottom) {
           event.preventDefault();
 
@@ -101,15 +101,6 @@ const Process = () => {
           return;
         }
 
-        /*
-          We have reached Step 05.
-
-          The FIRST wheel event at the bottom
-          only marks the process as completed.
-          
-          It does NOT move the page.
-        */
-
         if (atBottom && !reachedBottom.current) {
           event.preventDefault();
 
@@ -119,21 +110,12 @@ const Process = () => {
           return;
         }
 
-        /*
-          The SECOND wheel event after Step 05
-          releases the page.
-
-          This is what allows the next section
-          to scroll normally.
-        */
-
         if (atBottom && reachedBottom.current) {
           processLocked.current = false;
 
           return;
         }
       }
-
 
       /*
         ==========================================
@@ -142,12 +124,6 @@ const Process = () => {
       */
 
       if (scrollingUp) {
-
-        /*
-          If we are inside the steps,
-          keep the page locked and move upward.
-        */
-
         if (!atTop) {
           event.preventDefault();
 
@@ -158,11 +134,6 @@ const Process = () => {
 
           return;
         }
-
-        /*
-          At Step 01, allow the main page to
-          scroll upward normally.
-        */
 
         if (atTop) {
           processLocked.current = false;
@@ -187,12 +158,16 @@ const Process = () => {
       ref={processRef}
       className="
         relative
-        min-h-screen
         bg-white
         px-4
         py-16
-        md:px-6
+        sm:px-6
+        sm:py-20
+        md:px-8
+        md:py-24
+        lg:min-h-screen
         lg:px-10
+        lg:py-16
       "
     >
       <div className="mx-auto w-full max-w-full">
@@ -204,17 +179,17 @@ const Process = () => {
         <div
           className="
             grid
-            min-h-[calc(100vh-8rem)]
             grid-cols-1
-            items-start
-            gap-8
+            gap-10
+            lg:min-h-[calc(100vh-8rem)]
             lg:grid-cols-[0.8fr_1.2fr]
+            lg:items-start
             lg:gap-12
           "
         >
 
           {/* =================================================
-              LEFT — STICKY
+              LEFT — STICKY ON DESKTOP
           ================================================= */}
 
           <div
@@ -244,15 +219,17 @@ const Process = () => {
 
               <h2
                 className="
-                  mt-5
+                  mt-0
                   max-w-xl
-                  text-5xl
+                  text-4xl
                   font-medium
                   leading-[0.95]
                   tracking-tight
                   text-black
-                  sm:text-6xl
-                  md:text-7xl
+                  sm:text-5xl
+                  md:text-6xl
+                  lg:mt-5
+                  lg:text-7xl
                 "
               >
                 Take a look at
@@ -262,12 +239,14 @@ const Process = () => {
 
               <p
                 className="
-                  mt-7
+                  mt-6
                   max-w-md
-                  text-base
-                  leading-7
+                  text-sm
+                  leading-6
                   text-black/50
-                  sm:text-lg
+                  sm:text-base
+                  sm:leading-7
+                  md:text-lg
                 "
               >
                 Every project follows a clear process that keeps
@@ -293,11 +272,15 @@ const Process = () => {
             <div
               ref={stepsRef}
               className="
-                h-[600px]
-                overflow-y-auto
-                overscroll-none
-                pr-3
-                scrollbar-hide
+                h-auto
+                overflow-visible
+                pr-0
+
+                lg:h-[600px]
+                lg:overflow-y-auto
+                lg:overscroll-none
+                lg:pr-3
+                lg:scrollbar-hide
               "
               style={{
                 scrollbarWidth: "none",
@@ -343,19 +326,33 @@ const Process = () => {
                     className="
                       group
                       min-h-[80px]
-                      rounded-3xl
+                      rounded-2xl
                       bg-[#f3f3f1]
-                      p-8
+                      p-5
                       transition-colors
                       duration-300
                       hover:bg-[#eeeeeb]
-                      sm:p-10
+
+                      sm:rounded-3xl
+                      sm:p-7
+
+                      md:p-8
+
+                      lg:p-10
                     "
                   >
 
                     {/* NUMBER + HEADING */}
 
-                    <div className="flex items-center gap-5">
+                    <div
+                      className="
+                        flex
+                        items-center
+                        gap-3
+                        sm:gap-4
+                        md:gap-5
+                      "
+                    >
 
                       <motion.div
                         whileHover={{
@@ -366,8 +363,8 @@ const Process = () => {
                         }}
                         className="
                           flex
-                          h-14
-                          w-14
+                          h-11
+                          w-11
                           shrink-0
                           items-center
                           justify-center
@@ -375,7 +372,7 @@ const Process = () => {
                           border
                           border-black/10
                           bg-white
-                          text-sm
+                          text-[11px]
                           font-medium
                           tracking-[0.12em]
                           text-black/40
@@ -384,22 +381,35 @@ const Process = () => {
                           group-hover:border-orange-500
                           group-hover:bg-orange-500
                           group-hover:text-white
+
+                          sm:h-12
+                          sm:w-12
+                          sm:text-xs
+
+                          md:h-14
+                          md:w-14
+                          md:text-sm
                         "
                       >
                         {step.number}
                       </motion.div>
 
+
                       <h3
                         className="
-                          text-3xl
+                          text-2xl
                           font-medium
                           tracking-tight
                           text-black
                           transition-transform
                           duration-500
                           group-hover:translate-x-1
-                          sm:text-4xl
-                          md:text-5xl
+
+                          sm:text-3xl
+
+                          md:text-4xl
+
+                          lg:text-5xl
                         "
                       >
                         {step.title}
@@ -412,12 +422,15 @@ const Process = () => {
 
                     <p
                       className="
-                        mt-5
+                        mt-4
                         max-w-lg
-                       
-                        text-base
-                        leading-7
+                        text-sm
+                        leading-6
                         text-black/50
+
+                        sm:mt-5
+                        sm:text-base
+                        sm:leading-7
                       "
                     >
                       {step.description}

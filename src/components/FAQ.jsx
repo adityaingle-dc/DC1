@@ -42,8 +42,19 @@ const FAQ = () => {
   };
 
   return (
-    <section className="bg-white px-6 py-28 md:px-10 lg:px-16">
-      <div className="mx-auto max-w-[95%]">
+    <section
+      className="
+        bg-white
+        px-4
+        py-20
+        sm:px-6
+        sm:py-24
+        md:px-10
+        md:py-28
+        lg:px-16
+      "
+    >
+      <div className="mx-auto w-full max-w-[95%]">
 
         {/* =========================================
             TWO COLUMN LAYOUT
@@ -54,9 +65,10 @@ const FAQ = () => {
             grid
             grid-cols-1
             items-start
-            gap-12
+            gap-10
             lg:grid-cols-[0.8fr_1.2fr]
-            lg:gap-20
+            lg:gap-16
+            xl:gap-20
           "
         >
 
@@ -85,15 +97,17 @@ const FAQ = () => {
 
               <h2
                 className="
-                  mt-5
+                  mt-2
                   max-w-xl
-                  text-5xl
+                  text-4xl
                   font-medium
                   leading-[0.95]
                   tracking-tight
                   text-black
-                  sm:text-6xl
-                  md:text-7xl
+                  sm:text-5xl
+                  md:text-6xl
+                  lg:mt-5
+                  lg:text-7xl
                 "
               >
                 Got questions?
@@ -103,12 +117,15 @@ const FAQ = () => {
 
               <p
                 className="
-                  mt-7
+                  mt-6
                   max-w-md
-                  text-base
-                  leading-7
+                  text-sm
+                  leading-6
                   text-black/50
-                  sm:text-lg
+                  sm:mt-7
+                  sm:text-base
+                  sm:leading-7
+                  md:text-lg
                 "
               >
                 Everything you need to know before starting
@@ -126,17 +143,38 @@ const FAQ = () => {
 
           <div
             className="
-              h-[564px]
-              w-[690px]
-              max-w-full
-              overflow-hidden
+              min-w-0
+              w-full
               lg:pl-4
             "
           >
 
-            <div className="h-full overflow-y-auto pr-2 scrollbar-hide">
+            <div
+              className="
+                h-auto
+                max-h-[650px]
+                overflow-y-auto
+                pr-0
+                scrollbar-hide
+                sm:pr-1
+                lg:h-[564px]
+                lg:pr-2
+              "
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+              }}
+            >
 
-              <div className="flex flex-col gap-4">
+              <style>
+                {`
+                  .scrollbar-hide::-webkit-scrollbar {
+                    display: none;
+                  }
+                `}
+              </style>
+
+              <div className="flex flex-col gap-3 sm:gap-4">
 
                 {faqs.map((faq, index) => {
 
@@ -165,128 +203,161 @@ const FAQ = () => {
                     >
 
                       {/* =================================
-                          QUESTION CAPSULE
+                          QUESTION + ANSWER WRAPPER
                       ================================== */}
 
-                      <button
-                        type="button"
-                        onClick={() => toggleFAQ(index)}
-                        className="
-                          flex
-                          min-h-[70px]
-                          w-full
-                          items-center
-                          justify-between
-                          gap-6
-                          rounded-full
-                          bg-[#f3f3f1]
-                          px-7
-                          text-left
-                          transition-all
-                          duration-300
-                          hover:bg-[#eeeeeb]
-                        "
+                      <div
+                        className={`
+                          overflow-hidden
+                          ${
+                            isOpen
+                              ? "rounded-[2rem]"
+                              : "rounded-full"
+                          }
+                        `}
                       >
 
-                        <span
-                          className="
-                            text-lg
-                            font-medium
-                            leading-tight
-                            tracking-tight
-                            text-black
-                            transition-colors
-                            duration-300
-                            group-hover:text-orange-500
-                            sm:text-xl
-                          "
-                        >
-                          {faq.question}
-                        </span>
+                        {/* =================================
+                            QUESTION CAPSULE
+                        ================================== */}
 
-
-                        {/* Plus / Minus */}
-
-                        <span
+                        <button
+                          type="button"
+                          onClick={() => toggleFAQ(index)}
                           className={`
                             flex
-                            h-9
-                            w-9
-                            shrink-0
+                            min-h-[64px]
+                            w-full
                             items-center
-                            justify-center
-                            rounded-full
-                            border
+                            justify-between
+                            gap-4
+                            bg-[#f3f3f1]
+                            px-5
+                            py-3
+                            text-left
                             transition-all
                             duration-300
+                            hover:bg-[#eeeeeb]
+                            sm:min-h-[70px]
+                            sm:gap-6
+                            sm:px-7
                             ${
                               isOpen
-                                ? "border-orange-500 bg-orange-500 text-white"
-                                : "border-black/10 bg-white text-black"
+                                ? "rounded-t-[2rem]"
+                                : "rounded-full"
                             }
                           `}
                         >
-                          <span className="text-lg font-light">
-                            {isOpen ? "−" : "+"}
-                          </span>
-                        </span>
 
-                      </button>
-
-
-                      {/* =================================
-                          ANSWER
-                      ================================== */}
-
-                      <AnimatePresence initial={false}>
-
-                        {isOpen && (
-                          <motion.div
-                            initial={{
-                              height: 0,
-                              opacity: 0,
-                            }}
-                            animate={{
-                              height: "auto",
-                              opacity: 1,
-                            }}
-                            exit={{
-                              height: 0,
-                              opacity: 0,
-                            }}
-                            transition={{
-                              duration: 0.35,
-                              ease: "easeInOut",
-                            }}
-                            className="overflow-hidden"
+                          <span
+                            className="
+                              min-w-0
+                              text-base
+                              font-medium
+                              leading-tight
+                              tracking-tight
+                              text-black
+                              transition-colors
+                              duration-300
+                              group-hover:text-orange-500
+                              sm:text-lg
+                              md:text-xl
+                            "
                           >
+                            {faq.question}
+                          </span>
 
-                            <div
-                              className="
-                                mx-5
-                                mt-2
-                                rounded-2xl
-                                bg-[#f8f8f6]
-                                px-6
-                                py-5
-                              "
+
+                          {/* Plus / Minus */}
+
+                          <span
+                            className={`
+                              flex
+                              h-8
+                              w-8
+                              shrink-0
+                              items-center
+                              justify-center
+                              rounded-full
+                              border
+                              transition-all
+                              duration-300
+                              sm:h-9
+                              sm:w-9
+                              ${
+                                isOpen
+                                  ? "border-orange-500 bg-orange-500 text-white"
+                                  : "border-black/10 bg-white text-black"
+                              }
+                            `}
+                          >
+                            <span className="text-base font-light sm:text-lg">
+                              {isOpen ? "−" : "+"}
+                            </span>
+                          </span>
+
+                        </button>
+
+
+                        {/* =================================
+                            ANSWER
+                        ================================== */}
+
+                        <AnimatePresence initial={false}>
+
+                          {isOpen && (
+                            <motion.div
+                              initial={{
+                                height: 0,
+                                opacity: 0,
+                              }}
+                              animate={{
+                                height: "auto",
+                                opacity: 1,
+                              }}
+                              exit={{
+                                height: 0,
+                                opacity: 0,
+                              }}
+                              transition={{
+                                duration: 0.35,
+                                ease: "easeInOut",
+                              }}
+                              className="overflow-hidden"
                             >
-                              <p
+
+                              <div
                                 className="
-                                  text-sm
-                                  leading-7
-                                  text-black/50
-                                  sm:text-base
+                                  bg-[#f8f8f6]
+                                  px-5
+                                  pb-5
+                                  pt-4
+                                  sm:px-7
+                                  sm:pb-6
+                                  sm:pt-4
                                 "
                               >
-                                {faq.answer}
-                              </p>
-                            </div>
 
-                          </motion.div>
-                        )}
+                                <p
+                                  className="
+                                    text-sm
+                                    leading-6
+                                    text-black/50
+                                    sm:text-base
+                                    sm:leading-7
+                                  "
+                                >
+                                  {faq.answer}
+                                </p>
 
-                      </AnimatePresence>
+                              </div>
+
+                            </motion.div>
+                          )}
+
+                        </AnimatePresence>
+
+                      </div>
 
                     </motion.div>
                   );

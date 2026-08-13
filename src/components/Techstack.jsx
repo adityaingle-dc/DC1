@@ -34,12 +34,11 @@ const technologies = [
 const TechPill = ({ tech }) => {
   return (
     <motion.div
-     
       className="
         group
         flex
-        h-[97.6px]
-        w-[225px]
+        h-[75px]
+        w-[170px]
         shrink-0
         cursor-pointer
         items-center
@@ -52,19 +51,37 @@ const TechPill = ({ tech }) => {
         duration-300
         hover:border-orange-500
         hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+
+        sm:h-[85px]
+        sm:w-[195px]
+
+        md:h-[90px]
+        md:w-[210px]
+
+        lg:h-[97.6px]
+        lg:w-[225px]
       "
     >
       <img
         src={tech.logo}
         alt={tech.name}
         className="
-          h-[55px]
-          w-[120px]
+          h-[42px]
+          w-[90px]
           object-contain
           grayscale
           transition-all
           duration-300
           group-hover:grayscale-0
+
+          sm:h-[48px]
+          sm:w-[105px]
+
+          md:h-[52px]
+          md:w-[115px]
+
+          lg:h-[55px]
+          lg:w-[120px]
         "
       />
     </motion.div>
@@ -73,8 +90,22 @@ const TechPill = ({ tech }) => {
 
 const TechStack = () => {
   return (
-    <section className="overflow-hidden bg-white px-6 py-28 md:px-10 lg:px-16">
+    <section
+      className="
+        overflow-hidden
+        bg-white
+        px-4
+        py-20
 
+        sm:px-6
+        sm:py-24
+
+        md:px-10
+        md:py-28
+
+        lg:px-16
+      "
+    >
       <div className="mx-auto max-w-[95%]">
 
         {/* =====================================
@@ -100,13 +131,16 @@ const TechStack = () => {
         >
           <h2
             className="
-              mt-5
-              text-5xl
+              mt-2
+              text-4xl
               font-medium
               leading-[0.95]
               tracking-tight
               text-black
+
               sm:text-5xl
+
+              md:text-6xl
             "
           >
             Creative &
@@ -120,13 +154,26 @@ const TechStack = () => {
             TECHNOLOGY MARQUEE
         ====================================== */}
 
-        <div className="relative mt-16 w-full overflow-hidden">
+        <div
+          className="
+            relative
+            mt-12
+            w-full
+            overflow-hidden
+
+            sm:mt-14
+
+            md:mt-16
+          "
+        >
 
           <motion.div
             className="
               flex
               w-max
-              gap-4
+              gap-3
+
+              sm:gap-4
             "
             animate={{
               x: ["0%", "-50%"],
@@ -147,6 +194,7 @@ const TechStack = () => {
               />
             ))}
 
+
             {/* Duplicate set for seamless loop */}
 
             {technologies.map((tech) => (
@@ -161,7 +209,6 @@ const TechStack = () => {
         </div>
 
       </div>
-
     </section>
   );
 };
