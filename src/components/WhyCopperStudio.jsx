@@ -3,30 +3,30 @@ import { motion } from "framer-motion";
 const reasons = [
   {
     number: "01",
-    title: "Creative Thinking",
+    title: "All Under One Roof",
     description:
-      "We don't just make things look good. We think about the idea, the audience and the story behind every experience.",
+    "Branding, websites, and digital experiences designed together.",
     image: "/stack/all under one roof_diagram.png",
   },
   {
     number: "02",
-    title: "Built With Purpose",
+    title: "Dedicated Client Portal",
     description:
-      "Every design and development decision has a reason. We create digital experiences that are beautiful, useful and built around your goals.",
+      "Every conversation, file, and milestone in one organized workspace.",
     image: "/stack/client portal_diagram.png",
   },
   {
     number: "03",
-    title: "One Creative Partner",
+    title: "Ongoing Support",
     description:
-      "From the first idea to the final launch, we bring strategy, design and development together under one roof.",
+      "Reliable hosting and ongoing support to keep your website running smooth.",
     image: "/stack/ongoing support_diagram.png",
   },
 ];
 
 const WhyCopperStudio = () => {
   return (
-    <section className="bg-white px-4 py-20 sm:px-6 sm:py-24 md:px-10 md:py-28 lg:px-16 lg:py-32">
+    <section className="bg-white px-4 py-10 sm:px-6 sm:py-24 md:px-10 md:py-28 lg:px-16 lg:py-32">
       <div className="mx-auto w-full max-w-[95%]">
 
         {/* =====================================
@@ -51,38 +51,23 @@ const WhyCopperStudio = () => {
           }}
           className="mx-auto w-full max-w-4xl text-center"
         >
-          <p
-            className="
-              text-xs
-              font-medium
-              uppercase
-              tracking-[0.18em]
-              text-black/40
-              sm:text-sm
-              sm:tracking-[0.2em]
-            "
-          >
-            Why Copper Studio
-          </p>
 
           <h2
             className="
               mt-4
-              text-4xl
-              font-medium
+              whitespace-nowrap
+              text-3xl
+              font-semibold
               leading-[0.98]
               tracking-tight
               text-black
               sm:mt-5
-              sm:text-5xl
-              md:text-6xl
-              lg:text-7xl
+              sm:text-4xl
+              md:text-5xl
+              lg:text-6xl
             "
           >
-            Why work with{" "}
-            <span className="text-orange-500">
-              Copper Studio
-            </span>
+            Why work with Copper Studio
           </h2>
 
           <p
@@ -99,12 +84,9 @@ const WhyCopperStudio = () => {
               md:text-lg
             "
           >
-            We combine creative thinking, thoughtful design and
-            purposeful technology to create experiences that
-            people remember.
+            A collaborative approach focused on transparency, thoughtful execution, and long term support, so you can focus on growing your business while we handle the rest.
           </p>
         </motion.div>
-
 
         {/* =====================================
             CARDS CONTAINER
@@ -114,15 +96,15 @@ const WhyCopperStudio = () => {
           className="
             mx-auto
             mt-12
-            grid
+            flex
             w-full
             max-w-[1198px]
-            grid-cols-1
+            flex-wrap
+            bg-white
+            justify-center
             gap-5
             sm:mt-16
-            md:grid-cols-2
             lg:mt-20
-            lg:grid-cols-3
           "
         >
 
@@ -152,34 +134,32 @@ const WhyCopperStudio = () => {
               className="
                 group
                 relative
-                min-h-[460px]
+                h-[450px]
+                w-[376px]
+                shrink-0
                 overflow-hidden
                 rounded-2xl
-                border
-                border-black/10
-                bg-[#f8f8f6]
+                
+                bg-white
+                p-2
                 transition-all
                 duration-300
                 hover:border-orange-500/50
                 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)]
-                sm:min-h-[470px]
-                lg:h-[450px]
-                lg:min-h-0
               "
             >
 
               {/* =====================================
-                  IMAGE
+                  IMAGE — 360 × 310
               ====================================== */}
 
               <div
                 className="
                   relative
-                  h-[220px]
-                  w-full
+                  h-[310px]
+                  w-[360px]
                   overflow-hidden
-                  sm:h-[240px]
-                  lg:h-[250px]
+                  rounded-xl
                 "
               >
 
@@ -212,57 +192,45 @@ const WhyCopperStudio = () => {
 
               </div>
 
-
               {/* =====================================
-                  TEXT CONTENT
+                  CONTENT — 360 × 120
               ====================================== */}
 
-              <div className="p-5 sm:p-6 md:p-7">
+              <div
+                className="
+                  h-[120px]
+                  w-[360px]
+                  px-3
+                  pt-3
+                "
+              >
 
-                {/* Number */}
-
-                <span
-                  className="
-                    text-xs
-                    font-medium
-                    tracking-[0.15em]
-                    text-black/30
-                    transition-colors
-                    duration-300
-                    group-hover:text-orange-500
-                    sm:text-sm
-                  "
-                >
-                  {reason.number}
-                </span>
-
+              
 
                 {/* Title */}
 
                 <h3
                   className="
-                    mt-2
-                    text-2xl
+                    mt-1
+                    text-xl
                     font-medium
                     tracking-tight
                     text-black
-                    sm:mt-3
-                    sm:text-3xl
+                    sm:text-2xl
                   "
                 >
                   {reason.title}
                 </h3>
 
-
                 {/* Description */}
 
                 <p
                   className="
-                    mt-3
-                    text-sm
-                    leading-6
+                    mt-1
+                    text-xs
+                    leading-5
                     text-black/50
-                    sm:text-base
+                    sm:text-sm
                   "
                 >
                   {reason.description}
@@ -281,4 +249,4 @@ const WhyCopperStudio = () => {
   );
 };
 
-export default WhyCopperStudio;
+export default WhyCopperStudio

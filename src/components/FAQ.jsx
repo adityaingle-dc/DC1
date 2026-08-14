@@ -3,35 +3,31 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "What services do you offer?",
+    question: "What services does Copper Studio offer?",
     answer:
-      "We offer brand identity, web design, web development, custom company portals, digital experiences and other creative development solutions tailored to your business.",
+      "We specialize in Brand Identity, Website Design & Development, and Custom Company Portals. Whether you're launching a new business, refreshing your brand, or streamlining internal operations, we create tailored solutions designed around your goals.",
   },
   {
-    question: "How does a project usually start?",
+    question: "Can you redesign my existing website or brand?",
     answer:
-      "We begin with a conversation about your goals, requirements, audience and vision. From there, we define the scope, creative direction and development approach before moving into the design phase.",
+      "Absolutely. Once the project is complete, you'll receive ownership of all final deliverables, and they'll remain available through your dedicated client portal with lifetime access.",
   },
   {
-    question: "How long does a project take?",
+    question: "How long does a typical project take?",
     answer:
-      "Project timelines depend on the scope and complexity. A focused website can take a few weeks, while larger branding, development or custom portal projects may take longer.",
-  },
-  {
-    question: "Can you work with our existing brand?",
-    answer:
-      "Absolutely. We can work with an existing identity and build a digital experience around it, or help evolve the visual language when the current brand needs refinement.",
+      "Project timelines vary depending on the scope and complexity. Once we understand your requirements, we'll provide a clear project roadmap with estimated milestones and delivery dates.",
   },
   {
     question: "Do you provide support after launch?",
     answer:
-      "Yes. We can provide ongoing maintenance, improvements, technical support and further development after your project goes live.",
+      "Yes. We offer ongoing hosting, maintenance, technical support, and continuous improvements to ensure your website or digital product continues to perform as your business grows.",
   },
   {
-    question: "Can you build a custom client portal?",
+    question: "How do I get started?",
     answer:
-      "Yes. We design and develop custom portals around your company's workflow, including dashboards, project management, documents, invoices, communication and other business-specific features.",
+      "Getting started is simple. Book a discovery call or send us an enquiry with your project details. We'll learn about your business, discuss your goals, and recommend the best approach before sharing a tailored proposal, timeline, and quotation.",
   },
+  
 ];
 
 const FAQ = () => {

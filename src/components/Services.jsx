@@ -93,13 +93,22 @@ const services = [
       "Build secure custom business portals tailored to your workflow, making it easier to manage clients, teams, projects, approvals, files, and everyday operations.",
     images: [
       {
-        src: "/service/portal1.png",
+        src: "/portal/Free_iMac_Mockup_1 1.png",
+        expandedHeading: "Custom Portals",
+        expandedDescription:
+          "Secure client portals that simplify communication, file sharing, approvals, and project tracking.",
       },
       {
-        src: "/services/portal2.png",
+        src: "/portal/Free_iMac_Mockup_3 1.png",
+        expandedHeading: "Billing & Invoicing",
+        expandedDescription:
+          "Custom invoicing systems that automate billing, payments, and financial workflows.",
       },
       {
-        src: "/services/portal3.png",
+        src: "/portal/Free_iMac_Mockup_3 12.png",
+        expandedHeading: "Custom CRM",
+        expandedDescription:
+          "Tailored CRM solutions that centralize customer data, sales, and relationship management.",
       },
     ],
   },
@@ -814,35 +823,39 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                   <div
                     key={`${image.src}-${imageIndex}`}
                     className="
-  group
-  relative
-  h-[417px]
-  w-[386px]
-  shrink-0
-  overflow-hidden
-  rounded-lg
-  
-  bg-gradient-to-br
-  from-[#d8c4ff]
-  via-[#6d5a91]
-  to-[#09070f]
-"
+                      group
+                      relative
+                      h-[280px]
+                      w-[calc(100vw-32px)]
+                      max-w-[386px]
+                      shrink-0
+                      overflow-hidden
+                      rounded-lg
+                      bg-gradient-to-br
+                      from-[#d8c4ff]
+                      via-[#6d5a91]
+                      to-[#09070f]
+                      sm:h-[340px]
+                      sm:w-[320px]
+                      md:h-[419px]
+                      md:w-[386px]
+                    "
                   >
-                  <img
-  src={image.src}
-  alt={`${service.title} ${imageIndex + 1}`}
-  className="
-    absolute
-    inset-0
-    h-full
-    w-full
-    object-cover
-    p-2
-    transition-transform
-    duration-700
-    group-hover:scale-105
-  "
-/>
+                    <img
+                      src={image.src}
+                      alt={`${service.title} ${imageIndex + 1}`}
+                      className="
+                        absolute
+                        inset-0
+                        h-full
+                        w-full
+                        object-cover
+                        p-2
+                        transition-transform
+                        duration-700
+                        group-hover:scale-105
+                      "
+                    />
 
                     <div
                       className="
@@ -856,15 +869,26 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                       "
                     />
 
+                    {/* =================================================
+                        SERVICE 03 HEADING
+                        Upper center
+                    ================================================= */}
+
                     <div
                       className="
                         absolute
-                        inset-0
-                        flex
-                        items-center
-                        justify-center
-                        px-4
+                        left-1/2
+                        top-4
+                        z-10
+                        w-[88%]
+                        -translate-x-1/2
+                        px-2
                         text-center
+                        sm:top-5
+                        sm:px-3
+                        md:top-6
+                        md:w-[85%]
+                        md:px-4
                       "
                     >
                       <h4
@@ -874,10 +898,46 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                           leading-tight
                           text-white
                           sm:text-lg
+                          md:text-2xl
                         "
                       >
-                        {service.title}
+                        {image.expandedHeading || service.title}
                       </h4>
+                    </div>
+
+                    {/* =================================================
+                        SERVICE 03 PARAGRAPH
+                        Bottom
+                    ================================================= */}
+
+                    <div
+                      className="
+                        absolute
+                        bottom-4
+                        left-4
+                        right-4
+                        z-10
+                        sm:bottom-5
+                        sm:left-5
+                        sm:right-5
+                        md:bottom-6
+                        md:left-6
+                        md:right-6
+                      "
+                    >
+                      <p
+                        className="
+                          text-[11px]
+                          leading-5
+                          text-white/75
+                          sm:text-xs
+                          sm:leading-5
+                          md:text-sm
+                          md:leading-6
+                        "
+                      >
+                        {image.expandedDescription || service.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -958,4 +1018,4 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
   );
 };
 
-export default Services;
+export default Services

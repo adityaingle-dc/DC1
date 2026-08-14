@@ -378,61 +378,62 @@ const Footer = () => {
 
           </div>
 
+          {/* =================================================
+    BOTTOM SVG
+================================================= */}
+
+<div className="mt-30 flex w-full justify-center">
+  <img
+  src="/footer_copper studio.svg"
+  alt=""
+  aria-hidden="true"
+  className="
+    pointer-events-none
+    absolute
+    bottom-0
+    left-1/2
+    mt-10
+    z-0
+    w-[110%]
+    max-w-none
+    -translate-x-1/2
+    object-contain
+    opacity-100
+  "
+/>
+</div>
+
 
           {/* =================================================
               BOTTOM BAR
           ================================================= */}
 
           <div
-            className="
-              mt-10
-              flex
-              flex-col
-              gap-4
-              border-t
-              border-white/10
-              pt-5
-              text-xs
-              text-white/30
-              sm:mt-12
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-              sm:pt-6
-            "
-          >
+  className="
+    mt-15
+    ml-auto
+    flex
+    w-fit
+    flex-col
+    items-end
+    gap-4
+    pt-5
+    text-xs
+    text-white/30
+   
+    sm:flex-row
+    sm:items-center
+    sm:justify-end
+    sm:pt-6
+  "
+>
 
             <p>
-              © {new Date().getFullYear()} Copper Studio
+              © {new Date().getFullYear()} Copper Studio.All Rights reserved
             </p>
 
 
-            <div className="flex gap-5 sm:gap-6">
-
-              <a
-                href="#"
-                className="
-                  transition-colors
-                  duration-300
-                  hover:text-white
-                "
-              >
-                Privacy
-              </a>
-
-              <a
-                href="#"
-                className="
-                  transition-colors
-                  duration-300
-                  hover:text-white
-                "
-              >
-                Terms
-              </a>
-
-            </div>
-
+            
           </div>
 
         </div>

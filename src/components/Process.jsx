@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { motion } from "framer-motion";
 
 const steps = [
@@ -6,31 +6,31 @@ const steps = [
     number: "01",
     title: "Discover",
     description:
-      "We start by understanding your business, audience, goals, challenges and what makes your brand different.",
+      "We begin by understanding your business, goals, audience, competitors, and current challenges. Through collaborative discussions and research, we uncover insights that shape a solution aligned with your vision and long-term objectives.",
   },
   {
     number: "02",
-    title: "Define",
+    title: "Strategy",
     description:
-      "We turn ideas into a clear strategy, structure and creative direction that gives the project a strong foundation.",
+      "With a clear understanding of your business, we define the project's direction, structure, and user journey. Every decision, from branding to functionality, is guided by strategy to ensure the final outcome solves real business problems.",
   },
   {
     number: "03",
     title: "Design",
     description:
-      "We create the visual language, interfaces and experiences that make your brand memorable and easy to connect with.",
+      "Ideas are transformed into thoughtful designs that balance aesthetics with usability. Whether it's a brand identity, website, or custom portal, every detail is crafted to create a consistent, intuitive, and memorable experience.",
   },
   {
     number: "04",
     title: "Build",
     description:
-      "We bring the approved direction to life with clean, scalable and purposeful development.",
+      "Once the designs are approved, we bring them to life through careful development and rigorous testing. We focus on performance, responsiveness, accessibility, and scalability to deliver a polished product that's ready for real world use.",
   },
   {
     number: "05",
-    title: "Deliver",
+    title: "Launch & Support",
     description:
-      "We test, refine and launch the final experience while making sure everything is ready for the real world.",
+      "After a successful launch, our partnership doesn't end. We provide hosting, maintenance, ongoing support, and continuous improvements to ensure your brand and digital products evolve as your business grows.",
   },
 ];
 
@@ -38,124 +38,80 @@ const Process = () => {
   const processRef = useRef(null);
   const stepsRef = useRef(null);
 
-  const processLocked = useRef(false);
   const reachedBottom = useRef(false);
 
-  useEffect(() => {
-    const handleWheel = (event) => {
-      /*
-        ==========================================
-        DESKTOP ONLY
-        ==========================================
-      */
+  const handleWheel = (event) => {
+    if (window.innerWidth < 1024) return;
 
-      if (window.innerWidth < 1024) {
+    const process = processRef.current;
+    const stepsContainer = stepsRef.current;
+
+    if (!process || !stepsContainer) return;
+
+    const rect = process.getBoundingClientRect();
+
+    const processActive =
+      rect.top <= 10 &&
+      rect.bottom >= window.innerHeight - 10;
+
+    if (!processActive) {
+      reachedBottom.current = false;
+      return;
+    }
+
+    const maxScroll = Math.max(
+      0,
+      stepsContainer.scrollHeight - stepsContainer.clientHeight
+    );
+
+    const scrollTop = stepsContainer.scrollTop;
+
+    const scrollingDown = event.deltaY > 0;
+    const scrollingUp = event.deltaY < 0;
+
+    const atTop = scrollTop <= 1;
+    const atBottom = scrollTop >= maxScroll - 1;
+
+    /* ================================
+       SCROLL DOWN
+    ================================= */
+
+    if (scrollingDown) {
+      if (!atBottom) {
+        event.preventDefault();
+        stepsContainer.scrollTop += event.deltaY;
         return;
       }
 
-      const process = processRef.current;
-      const stepsContainer = stepsRef.current;
+      if (atBottom && !reachedBottom.current) {
+        event.preventDefault();
+        reachedBottom.current = true;
+        return;
+      }
 
-      if (!process || !stepsContainer) return;
+      return;
+    }
 
-      const rect = process.getBoundingClientRect();
+    /* ================================
+       SCROLL UP
+    ================================= */
 
-      const processActive =
-        rect.top <= 10 &&
-        rect.bottom >= window.innerHeight - 10;
-
-      if (!processActive) {
-        processLocked.current = false;
+    if (scrollingUp) {
+      if (!atTop) {
+        event.preventDefault();
         reachedBottom.current = false;
+        stepsContainer.scrollTop += event.deltaY;
         return;
       }
 
-      const {
-        scrollTop,
-        scrollHeight,
-        clientHeight,
-      } = stepsContainer;
-
-      const maxScroll = scrollHeight - clientHeight;
-
-      const scrollingDown = event.deltaY > 0;
-      const scrollingUp = event.deltaY < 0;
-
-      const atTop = scrollTop <= 1;
-      const atBottom = scrollTop >= maxScroll - 1;
-
-      /*
-        ==========================================
-        SCROLL DOWN
-        ==========================================
-      */
-
-      if (scrollingDown) {
-        if (!atBottom) {
-          event.preventDefault();
-
-          processLocked.current = true;
-
-          stepsContainer.scrollTop += event.deltaY;
-
-          return;
-        }
-
-        if (atBottom && !reachedBottom.current) {
-          event.preventDefault();
-
-          reachedBottom.current = true;
-          processLocked.current = true;
-
-          return;
-        }
-
-        if (atBottom && reachedBottom.current) {
-          processLocked.current = false;
-
-          return;
-        }
-      }
-
-      /*
-        ==========================================
-        SCROLL UP
-        ==========================================
-      */
-
-      if (scrollingUp) {
-        if (!atTop) {
-          event.preventDefault();
-
-          processLocked.current = true;
-          reachedBottom.current = false;
-
-          stepsContainer.scrollTop += event.deltaY;
-
-          return;
-        }
-
-        if (atTop) {
-          processLocked.current = false;
-          reachedBottom.current = false;
-
-          return;
-        }
-      }
-    };
-
-    window.addEventListener("wheel", handleWheel, {
-      passive: false,
-    });
-
-    return () => {
-      window.removeEventListener("wheel", handleWheel);
-    };
-  }, []);
+      reachedBottom.current = false;
+    }
+  };
 
   return (
     <section
       ref={processRef}
+      onWheelCapture={handleWheel}
       className="
         relative
         bg-white
@@ -172,10 +128,6 @@ const Process = () => {
     >
       <div className="mx-auto w-full max-w-full">
 
-        {/* =================================================
-            MAIN PROCESS LAYOUT
-        ================================================= */}
-
         <div
           className="
             grid
@@ -188,9 +140,7 @@ const Process = () => {
           "
         >
 
-          {/* =================================================
-              LEFT — STICKY ON DESKTOP
-          ================================================= */}
+          {/* LEFT */}
 
           <div
             className="
@@ -216,7 +166,6 @@ const Process = () => {
                 duration: 0.8,
               }}
             >
-
               <h2
                 className="
                   mt-0
@@ -253,14 +202,10 @@ const Process = () => {
                 strategy, creativity and development moving in
                 the same direction.
               </p>
-
             </motion.div>
           </div>
 
-
-          {/* =================================================
-              RIGHT — PROCESS STEPS
-          ================================================= */}
+          {/* RIGHT */}
 
           <div
             className="
@@ -268,14 +213,12 @@ const Process = () => {
               lg:pl-8
             "
           >
-
             <div
               ref={stepsRef}
               className="
                 h-auto
                 overflow-visible
                 pr-0
-
                 lg:h-[600px]
                 lg:overflow-y-auto
                 lg:overscroll-none
@@ -287,7 +230,6 @@ const Process = () => {
                 msOverflowStyle: "none",
               }}
             >
-
               <style>
                 {`
                   .scrollbar-hide::-webkit-scrollbar {
@@ -296,15 +238,9 @@ const Process = () => {
                 `}
               </style>
 
-
-              {/* =================================================
-                  STEPS
-              ================================================= */}
-
               <div className="flex flex-col gap-3">
 
                 {steps.map((step, index) => (
-
                   <motion.div
                     key={step.number}
                     initial={{
@@ -332,18 +268,12 @@ const Process = () => {
                       transition-colors
                       duration-300
                       hover:bg-[#eeeeeb]
-
                       sm:rounded-3xl
                       sm:p-7
-
                       md:p-8
-
                       lg:p-10
                     "
                   >
-
-                    {/* NUMBER + HEADING */}
-
                     <div
                       className="
                         flex
@@ -353,7 +283,6 @@ const Process = () => {
                         md:gap-5
                       "
                     >
-
                       <motion.div
                         whileHover={{
                           scale: 1.08,
@@ -381,11 +310,9 @@ const Process = () => {
                           group-hover:border-orange-500
                           group-hover:bg-orange-500
                           group-hover:text-white
-
                           sm:h-12
                           sm:w-12
                           sm:text-xs
-
                           md:h-14
                           md:w-14
                           md:text-sm
@@ -393,7 +320,6 @@ const Process = () => {
                       >
                         {step.number}
                       </motion.div>
-
 
                       <h3
                         className="
@@ -404,21 +330,14 @@ const Process = () => {
                           transition-transform
                           duration-500
                           group-hover:translate-x-1
-
                           sm:text-3xl
-
                           md:text-4xl
-
                           lg:text-5xl
                         "
                       >
                         {step.title}
                       </h3>
-
                     </div>
-
-
-                    {/* DESCRIPTION */}
 
                     <p
                       className="
@@ -427,7 +346,6 @@ const Process = () => {
                         text-sm
                         leading-6
                         text-black/50
-
                         sm:mt-5
                         sm:text-base
                         sm:leading-7
@@ -435,19 +353,14 @@ const Process = () => {
                     >
                       {step.description}
                     </p>
-
                   </motion.div>
-
                 ))}
 
               </div>
-
             </div>
-
           </div>
 
         </div>
-
       </div>
     </section>
   );

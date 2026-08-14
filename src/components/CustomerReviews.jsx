@@ -6,25 +6,26 @@ const reviews = [
     quote:
       "Copper Studio completely transformed how we manage our business. The new website makes it easy for customers to explore our services and get in touch, while the custom CRM has made tracking clients, cab assignments, driver availability, and trip details incredibly efficient. Everything is now organized in one place, saving our team hours every week and giving us a scalable system.",
     name: "Subhash Mishra | Director",
-    
     company: "Facilities Tours & Travels Pvt. Ltd.",
+    image: "/client_reviews/Container.png",
   },
   {
     quote:
       "Copper Studio created a website that represents our agency perfectly. The team understood our vision, organized our content clearly, and delivered a modern, user-friendly experience. The new website has strengthened our online presence and given us a scalable platform to showcase our work and support our growth.",
     name: "Pratik Jambhale | Founder",
-   
     company: "Nitty Gritty Labz LLP",
+    image: "/client_reviews/Container2.png",
+  
   },
   {
     quote:
       "Copper Studio developed a rebranding proposal backed by thorough research and strategic thinking. They took the time to understand our business before presenting multiple concepts, each with a clear rationale. The proposal gave us a strong vision for how our brand could evolve and grow.",
     name: "Mallika Kadambande | Marketing Head",
-   
     company: "Qodenext India Private Limited",
+    image: "/client_reviews/Container1.png",
+  
   },
 ];
-
 const CustomerReviews = () => {
   const [activeReview, setActiveReview] = useState(0);
 
@@ -213,30 +214,60 @@ const CustomerReviews = () => {
               >
                 {/* Customer Information */}
 
-                <div>
-                  <p
-                    className="
-                      text-sm
-                      font-medium
-                      text-black
-                      sm:text-base
-                    "
-                  >
-                    {review.name}
-                  </p>
+                <div className="flex items-center gap-3">
 
-                  <p
-                    className="
-                      mt-1
-                      text-xs
-                      text-black/45
-                      sm:text-sm
-                    "
-                  >
-                    {review.role} · {review.company}
-                  </p>
-                </div>
+  {/* Customer Image */}
 
+  <div
+    className="
+      h-[50px]
+      w-[50px]
+      shrink-0
+      overflow-hidden
+      rounded-full
+      border
+      border-black/10
+      bg-black/5
+    "
+  >
+    <img
+      src={review.image}
+      alt={review.name}
+      className="
+        h-full
+        w-full
+        object-cover
+      "
+    />
+  </div>
+
+  {/* Customer Information */}
+
+  <div>
+    <p
+      className="
+        text-sm
+        font-medium
+        text-black
+        sm:text-base
+      "
+    >
+      {review.name}
+    </p>
+
+    <p
+      className="
+        mt-1
+        text-xs
+        text-black/45
+        sm:text-sm
+      "
+    >
+      {review.company}
+    </p>
+  </div>
+
+</div>
                 {/* Review Indicators */}
 
                 <div

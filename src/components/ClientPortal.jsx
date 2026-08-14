@@ -1,29 +1,30 @@
 import { motion } from "framer-motion";
 
 const features = [
+
   {
-    name: "Decision",
-    logo: "/circles/bulb.svg",
+    name: "Complete Transparency",
+    logo: "/cp-icons/logo1.png",
     description:
-      "Clear decisions that turn ideas into purposeful digital solutions.",
+      "Track timelines, project progress, meetings and updates in one place.",
   },
   {
-    name: "Client Portal",
-    logo: "/circles/screen.svg",
+    name: "Everything in One Place",
+    logo: "/cp-icons/logo2.png",
     description:
-      "A centralized space to manage projects, communication and documents.",
+      "Access, upload, download and manage all your project files without endless emails treads.",
   },
   {
-    name: "Hosting",
-    logo: "/circles/refresh.svg",
+    name: "Faster Feedback",
+    logo: "/cp-icons/logo3.png",
     description:
-      "Reliable infrastructure that keeps your digital experience fast and accessible.",
+      "Share feedback, approvals and files directly through the portal for smoother communication.",
   },
   {
-    name: "Brand Identity",
-    logo: "/circles/home.svg",
+    name: "Lifetime Access to Your Work",
+    logo: "/cp-icons/logo4.png",
     description:
-      "A distinctive identity that gives your business a memorable presence.",
+      "Revisit your project assets anytime, even after the project is complete.",
   },
 ];
 
@@ -101,6 +102,7 @@ const ClientPortal = () => {
               </h2>
             </div>
 
+
             {/* Know More Button */}
 
             <motion.button
@@ -137,6 +139,7 @@ const ClientPortal = () => {
 
           </motion.div>
 
+
           {/* =====================================
               MAIN IMAGE
           ====================================== */}
@@ -160,220 +163,156 @@ const ClientPortal = () => {
               relative
               overflow-hidden
               rounded-xl
-              border
-              border-black/10
+              
               sm:rounded-2xl
             "
           >
 
-            <img
-              src="/client-portal.png"
-              alt="Client portal"
-              className="
-                h-auto
-                min-h-[220px]
-                w-full
-                object-cover
-                sm:min-h-0
-              "
-            />
+            <div className="w-full bg-white">
+  <img
+    src="/client-portal.png"
+    alt="Client portal"
+    className="
+      h-auto
+      min-h-[220px]
+      w-full
+      object-cover
+      sm:min-h-0
+    "
+  />
+</div>
 
             <div
-              className="
-                pointer-events-none
-                absolute
-                inset-0
-                bg-gradient-to-t
-                from-black/20
-                to-transparent
-              "
+              
             />
 
           </motion.div>
 
         </div>
 
+
         {/* =====================================
-            OVERLAPPING LOGO CIRCLES
+            FEATURE RECTANGLES
         ====================================== */}
 
-        <div
-          className="
-            mx-auto
-            mt-10
-            max-w-6xl
-            sm:mt-12
-          "
-        >
-
-          {/* =====================================
-              DESKTOP / TABLET OVERLAPPING CIRCLES
-          ====================================== */}
+        <div className="mx-auto mt-10 max-w-6xl sm:mt-12">
 
           <div
-            className="
-              hidden
-              w-full
-              items-center
-              overflow-visible
-              sm:flex
-            "
-          >
-
+  className="
+    flex
+    flex-col
+    items-center
+    gap-6
+    sm:flex-row
+    sm:flex-wrap
+    sm:justify-center
+    sm:gap-6
+    lg:flex-nowrap
+    lg:justify-center
+    lg:gap-8
+  "
+>
             {features.map((feature, index) => (
 
               <motion.div
                 key={feature.name}
-
                 initial={{
                   opacity: 0,
-                  scale: 0.9,
                   y: 20,
                 }}
-
                 whileInView={{
                   opacity: 1,
-                  scale: 1,
                   y: 0,
                 }}
-
                 viewport={{
                   once: true,
+                  amount: 0.2,
                 }}
-
                 transition={{
                   duration: 0.5,
                   delay: index * 0.1,
                 }}
-
                 whileHover={{
-                  y: -10,
-                  scale: 1.05,
-                  zIndex: 50,
+                  y: -8,
+                  scale: 1.02,
                 }}
-
                 className="
                   group
                   relative
-                  flex
-                  aspect-square
-                  w-[25%]
+                  h-[230px]
+                  w-[300px]
                   shrink-0
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-white/20
+                  overflow-hidden
+                  rounded-2xl
+                  border
+                  border-black/10
+                  bg-[#f7f7f5]
+                  p-5
                   transition-all
-                  duration-300
-                  hover:bg-white/30
-
-                  md:w-[27%]
-
-                  lg:w-[28%]
+                  duration-400
+                  hover:border-orange-500
+                  hover:bg-orange-500
+                  hover:shadow-[0_20px_40px_rgba(0,0,0,0.10)]
                 "
-
-                style={{
-                  marginLeft: index === 0 ? "0" : "-5%",
-                  zIndex: 10 + index,
-                }}
               >
 
-                {/* Visible Circle Border */}
+                {/* =================================
+                    CONTENT BOX
+                ================================== */}
 
                 <div
                   className="
-                    pointer-events-none
                     absolute
-                    inset-0
-                    rounded-full
-                    border-2
-                    border-black/50
-                    transition-colors
-                    duration-300
-                    group-hover:border-orange-500
-                  "
-                />
-
-                {/* Logo + Text */}
-
-                <div
-                  className="
-                    relative
-                    z-10
-                    flex
-                    -translate-y-6
-                    flex-col
-                    items-center
-                    justify-center
-                    px-4
-                    text-center
-                    md:-translate-y-8
+                    left-1/2
+                    top-1/2
+                    w-[236px]
+                    -translate-x-1/2
+                    -translate-y-1/2
                   "
                 >
 
-                  {/* Logo */}
+                  {/* Heading */}
 
-                  <img
-                    src={feature.logo}
-                    alt={feature.name}
+                  <h3
                     className="
-                      h-8
-                      w-8
-                      object-contain
-                      grayscale
-                      transition-all
-                      duration-300
-                      group-hover:scale-110
-                      group-hover:grayscale-0
-
-                      md:h-10
-                      md:w-10
-
-                      lg:h-12
-                      lg:w-12
-                    "
-                  />
-
-                  {/* Name */}
-
-                  <span
-                    className="
-                      mt-3
-                      whitespace-nowrap
-                      text-xs
+                      text-lg
                       font-medium
                       tracking-tight
                       text-black
                       transition-colors
                       duration-300
-                      group-hover:text-orange-500
-
-                      md:mt-4
-                      md:text-sm
-
-                      lg:text-base
+                      group-hover:text-white
                     "
                   >
                     {feature.name}
-                  </span>
+                  </h3>
 
-                  {/* Description */}
+
+                  {/* Divider */}
+
+                  <div
+                    className="
+                      my-3
+                      h-px
+                      w-full
+                      bg-black/10
+                      transition-colors
+                      duration-300
+                      group-hover:bg-white/40
+                    "
+                  />
+
+
+                  {/* Paragraph */}
 
                   <p
                     className="
-                      mt-1
-                      max-w-[110px]
-                      text-[9px]
-                      leading-3
+                      text-xs
+                      leading-5
                       text-black/45
-
-                      md:max-w-[130px]
-                      md:text-[10px]
-                      md:leading-4
-
-                      lg:max-w-[150px]
-                      lg:text-xs
-                      lg:leading-5
+                      transition-colors
+                      duration-300
+                      group-hover:text-white/85
                     "
                   >
                     {feature.description}
@@ -381,150 +320,39 @@ const ClientPortal = () => {
 
                 </div>
 
-              </motion.div>
 
-            ))}
-
-          </div>
-
-
-          {/* =====================================
-              MOBILE 2 × 2 CIRCLE GRID
-          ====================================== */}
-
-          <div
-            className="
-              grid
-              grid-cols-2
-              gap-3
-              sm:hidden
-            "
-          >
-
-            {features.map((feature, index) => (
-
-              <motion.div
-                key={feature.name}
-
-                initial={{
-                  opacity: 0,
-                  scale: 0.9,
-                  y: 20,
-                }}
-
-                whileInView={{
-                  opacity: 1,
-                  scale: 1,
-                  y: 0,
-                }}
-
-                viewport={{
-                  once: true,
-                }}
-
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                }}
-
-                whileTap={{
-                  scale: 0.97,
-                }}
-
-                className="
-                  group
-                  relative
-                  flex
-                  aspect-square
-                  w-full
-                  items-center
-                  justify-center
-                  rounded-full
-                  bg-white/30
-                  transition-all
-                  duration-300
-                "
-              >
-
-                {/* Visible Circle Border */}
+                {/* =================================
+                    LOGO
+                ================================== */}
 
                 <div
                   className="
-                    pointer-events-none
                     absolute
-                    inset-0
-                    rounded-full
-                    border-2
-                    border-black/50
-                    transition-colors
-                    duration-300
-                    group-hover:border-orange-500
-                  "
-                />
-
-                {/* Logo + Text */}
-
-                <div
-                  className="
-                    relative
-                    z-10
+                    top
+                    left-1/2
                     flex
-                    -translate-y-3
-                    flex-col
+                    h-[23px]
+                    w-[25px]
+                    -translate-x-1/2
                     items-center
                     justify-center
-                    px-5
-                    text-center
                   "
                 >
-
-                  {/* Logo */}
 
                   <img
                     src={feature.logo}
                     alt={feature.name}
                     className="
-                      h-8
-                      w-8
+                      h-[23px]
+                      w-[25px]
                       object-contain
-                      grayscale
+                      brightness-0
                       transition-all
                       duration-300
+                      group-hover:invert
                       group-hover:scale-110
-                      group-hover:grayscale-0
                     "
                   />
-
-                  {/* Name */}
-
-                  <span
-                    className="
-                      mt-3
-                      text-xs
-                      font-medium
-                      tracking-tight
-                      text-black
-                      transition-colors
-                      duration-300
-                      group-hover:text-orange-500
-                    "
-                  >
-                    {feature.name}
-                  </span>
-
-                  {/* Description */}
-
-                  <p
-                    className="
-                      mt-2
-                      max-w-[130px]
-                      text-[9px]
-                      leading-3.5
-                      text-black/45
-                    "
-                  >
-                    {feature.description}
-                  </p>
 
                 </div>
 
@@ -535,6 +363,7 @@ const ClientPortal = () => {
           </div>
 
         </div>
+
 
         {/* =====================================
             DESCRIPTION
@@ -548,9 +377,7 @@ const ClientPortal = () => {
             max-w-6xl
             flex-col
             gap-8
-
             sm:mt-16
-
             md:mt-20
           "
         />

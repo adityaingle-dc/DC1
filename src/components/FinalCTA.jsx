@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-
+import { FiArrowUpRight } from "react-icons/fi";
 const FinalCTA = () => {
   return (
     <section className="bg-white px-4 py-20 sm:px-6 sm:py-24 md:px-10 md:py-28 lg:px-16 lg:py-32">
@@ -35,7 +35,7 @@ const FinalCTA = () => {
               max-w-full
               text-[10px]
               font-medium
-              uppercase
+            
               tracking-[0.12em]
               text-orange-500
               sm:text-xs
@@ -94,35 +94,40 @@ const FinalCTA = () => {
           >
 
             {/* Primary */}
+<motion.a
+  href="#contact"
+  whileHover={{
+    scale: 1.04,
+  }}
+  whileTap={{
+    scale: 0.97,
+  }}
+  className="
+    flex
+    w-full
+    items-center
+    justify-center
+    gap-2
+    rounded-full
+    bg-black
+    px-7
+    py-3.5
+    text-sm
+    font-medium
+    text-white
+    transition-all
+    duration-300
+    hover:bg-orange-500
+    sm:w-auto
+  "
+>
+  <span>Book a Discovery Call</span>
 
-            <motion.a
-              href="#contact"
-              whileHover={{
-                scale: 1.04,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
-              className="
-                flex
-                w-full
-                items-center
-                justify-center
-                rounded-full
-                bg-black
-                px-7
-                py-3.5
-                text-sm
-                font-medium
-                text-white
-                transition-all
-                duration-300
-                hover:bg-orange-500
-                sm:w-auto
-              "
-            >
-              Start a Project
-            </motion.a>
+  <FiArrowUpRight
+    size={18}
+    strokeWidth={2}
+  />
+</motion.a>
 
 
             {/* Secondary */}
