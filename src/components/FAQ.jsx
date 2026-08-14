@@ -103,6 +103,7 @@ const FAQ = () => {
                   sm:text-5xl
                   md:text-6xl
                   lg:mt-5
+                   font-['DM_Sans']
                   lg:text-7xl
                 "
               >
@@ -118,6 +119,7 @@ const FAQ = () => {
                   text-sm
                   leading-6
                   text-black/50
+                   font-['DM_Sans']
                   sm:mt-7
                   sm:text-base
                   sm:leading-7
@@ -253,6 +255,7 @@ const FAQ = () => {
                               leading-tight
                               tracking-tight
                               text-black
+                               font-['DM_Sans']
                               transition-colors
                               duration-300
                               group-hover:text-orange-500

@@ -96,6 +96,7 @@ const ClientPortal = () => {
                   md:text-6xl
                   lg:mt-4
                   lg:text-7xl
+                   font-['DM_Sans']
                 "
               >
                 Client Portal
@@ -132,6 +133,7 @@ const ClientPortal = () => {
                 sm:mt-4
                 sm:px-7
                 sm:py-3
+                 font-['DM_Sans']
               "
             >
               Know more
@@ -175,6 +177,7 @@ const ClientPortal = () => {
     className="
       h-auto
       min-h-[220px]
+       font-['DM_Sans']
       w-full
       object-cover
       sm:min-h-0
@@ -279,6 +282,7 @@ const ClientPortal = () => {
                       font-medium
                       tracking-tight
                       text-black
+                       font-['DM_Sans']
                       transition-colors
                       duration-300
                       group-hover:text-white
@@ -310,6 +314,7 @@ const ClientPortal = () => {
                       text-xs
                       leading-5
                       text-black/45
+                       font-['DM_Sans']
                       transition-colors
                       duration-300
                       group-hover:text-white/85
@@ -376,6 +381,7 @@ const ClientPortal = () => {
             flex
             max-w-6xl
             flex-col
+             font-['DM_Sans']
             gap-8
             sm:mt-16
             md:mt-20

@@ -179,6 +179,7 @@ const Process = () => {
                   md:text-6xl
                   lg:mt-5
                   lg:text-7xl
+                   font-['DM_Sans']
                 "
               >
                 Take a look at
@@ -196,6 +197,7 @@ const Process = () => {
                   sm:text-base
                   sm:leading-7
                   md:text-lg
+                   font-['DM_Sans']
                 "
               >
                 Every project follows a clear process that keeps
@@ -291,6 +293,7 @@ const Process = () => {
                           duration: 0.2,
                         }}
                         className="
+                         font-['DM_Sans']
                           flex
                           h-11
                           w-11

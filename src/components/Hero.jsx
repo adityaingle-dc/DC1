@@ -157,6 +157,7 @@ const Hero = () => {
                 font-medium
                 text-white/90
                 sm:text-sm
+                 font-['DM_Sans']
               "
             >
               Brand Identity • Website Design • Custom Portals
@@ -183,6 +184,7 @@ const Hero = () => {
               ease: "easeOut",
             }}
             className="
+            font-[DM Sans]
               max-w-[95%]
               text-4xl
               font-medium
@@ -193,7 +195,7 @@ const Hero = () => {
               sm:text-5xl
               md:max-w-4xl
               md:text-6xl
-              font-[DM Sans] font-medium
+              
               
             "
           >
@@ -229,6 +231,7 @@ const Hero = () => {
               text-white/80
               sm:mt-7
               sm:max-w-xl
+               font-['DM_Sans']
               sm:text-base
               sm:leading-7
               md:text-lg
@@ -294,6 +297,7 @@ const Hero = () => {
                 duration-1
                 sm:w-auto
                 sm:px-7
+                 font-['DM_Sans']
               "
             >
               View All Services
@@ -324,6 +328,7 @@ const Hero = () => {
                 duration-1
                 sm:w-auto
                 sm:px-7
+                 font-['DM_Sans']
               "
             >
               Let's Connect →
@@ -370,6 +375,7 @@ const Hero = () => {
               tracking-[0.12em]
               text-white/70
               sm:text-[11px]
+               font-['DM_Sans']
             "
           >
             scroll down for more

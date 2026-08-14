@@ -173,6 +173,7 @@ const Services = () => {
               sm:mt-8
               sm:text-5xl
               md:text-6xl
+               font-['DM_Sans']
             "
           >
             Services We Offer
@@ -217,6 +218,7 @@ const Services = () => {
               sm:pl-5
               sm:pr-2
               sm:text-sm
+               font-['DM_Sans']
             "
           >
             <span className="whitespace-nowrap">
@@ -350,6 +352,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
             sm:text-[8rem]
             md:text-[10rem]
             lg:text-[12rem]
+             font-['DM_Sans']
           "
         >
           {service.number}
@@ -394,6 +397,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
             md:text-5xl
             lg:-mt-16
             lg:text-6xl
+             font-['DM_Sans']
           "
         >
           {service.title}
@@ -566,6 +570,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                               <h4
                                 className="
                                   text-lg
+                                   font-['DM_Sans']
                                   font-medium
                                   leading-tight
                                   text-white
@@ -599,6 +604,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                                   text-white/75
                                   sm:text-sm
                                   sm:leading-6
+                                   font-['DM_Sans']
                                   md:text-base
                                 "
                               >
@@ -624,6 +630,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                               className="
                                 text-xs
                                 font-medium
+                                 font-['DM_Sans']
                                 leading-tight
                                 text-white
                                 sm:text-base
@@ -729,6 +736,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                                   text-white
                                   sm:text-2xl
                                   md:text-3xl
+                                   font-['DM_Sans']
                                 "
                               >
                                 {image.expandedHeading ||
@@ -753,6 +761,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                                   text-xs
                                   leading-5
                                   text-white/75
+                                   font-['DM_Sans']
                                   sm:text-sm
                                   sm:leading-6
                                   md:text-base
@@ -899,6 +908,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                           text-white
                           sm:text-lg
                           md:text-2xl
+                           font-['DM_Sans']
                         "
                       >
                         {image.expandedHeading || service.title}
@@ -915,6 +925,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                         absolute
                         bottom-4
                         left-4
+                         font-['DM_Sans']
                         right-4
                         z-10
                         sm:bottom-5
@@ -934,6 +945,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                           sm:leading-5
                           md:text-sm
                           md:leading-6
+                           font-['DM_Sans']
                         "
                       >
                         {image.expandedDescription || service.description}
@@ -986,6 +998,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
               sm:mt-8
               sm:w-[150px]
               sm:pl-5
+               font-['DM_Sans']
             "
           >
             <span>

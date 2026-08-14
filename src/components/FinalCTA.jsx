@@ -35,7 +35,7 @@ const FinalCTA = () => {
               max-w-full
               text-[10px]
               font-medium
-            
+             font-['DM_Sans']
               tracking-[0.12em]
               text-orange-500
               sm:text-xs
@@ -65,12 +65,13 @@ const FinalCTA = () => {
               md:text-6xl
               md:leading-[0.95]
               lg:text-7xl
+               font-['DM_Sans']
             "
           >
             Let's create something
             <br />
 
-            <span className="text-black">
+            <span className="text-black  font-['DM_Sans']">
               your customers will remember.
             </span>
           </h2>
@@ -119,6 +120,7 @@ const FinalCTA = () => {
     duration-300
     hover:bg-orange-500
     sm:w-auto
+     font-['DM_Sans']
   "
 >
   <span>Book a Discovery Call</span>
@@ -158,6 +160,7 @@ const FinalCTA = () => {
                 hover:border-orange-500
                 hover:text-orange-500
                 sm:w-auto
+                 font-['DM_Sans']
               "
             >
               View Our Work

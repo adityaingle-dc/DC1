@@ -65,6 +65,7 @@ const WhyCopperStudio = () => {
               sm:text-4xl
               md:text-5xl
               lg:text-6xl
+               font-['DM_Sans']
             "
           >
             Why work with Copper Studio
@@ -82,6 +83,7 @@ const WhyCopperStudio = () => {
               sm:text-base
               sm:leading-7
               md:text-lg
+               font-['DM_Sans']
             "
           >
             A collaborative approach focused on transparency, thoughtful execution, and long term support, so you can focus on growing your business while we handle the rest.

@@ -188,6 +188,7 @@ const CustomerReviews = () => {
                   text-xl
                   font-medium
                   leading-[1.4]
+                   font-['DM_Sans']
                   tracking-tight
                   text-black
                   sm:mt-5
@@ -208,13 +209,14 @@ const CustomerReviews = () => {
                   w-full
                   items-end
                   justify-between
+                   font-['DM_Sans']
                   gap-6
                   sm:mt-8
                 "
               >
                 {/* Customer Information */}
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center  font-['DM_Sans'] gap-3">
 
   {/* Customer Image */}
 
@@ -250,6 +252,7 @@ const CustomerReviews = () => {
         font-medium
         text-black
         sm:text-base
+         font-['DM_Sans']
       "
     >
       {review.name}
@@ -259,6 +262,7 @@ const CustomerReviews = () => {
       className="
         mt-1
         text-xs
+         font-['DM_Sans']
         text-black/45
         sm:text-sm
       "

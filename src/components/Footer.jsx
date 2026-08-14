@@ -79,6 +79,7 @@ const Footer = () => {
                   drop-shadow-[0_0_18px_rgba(249,115,22,0.2)]
                   sm:text-4xl
                   md:text-5xl
+                   font-['DM_Sans']
                 "
               >
                 The Copper Studio
@@ -93,6 +94,7 @@ const Footer = () => {
                   max-w-sm
                   text-sm
                   leading-6
+                   font-['DM_Sans']
                   text-white/40
                   sm:mt-6
                   sm:leading-7
@@ -218,6 +220,7 @@ const Footer = () => {
                   tracking-[0.2em]
                   text-white/30
                   sm:mb-6
+                   font-['DM_Sans']
                 "
               >
                 Connect
@@ -236,6 +239,7 @@ const Footer = () => {
                     text-white/60
                     transition-colors
                     duration-300
+                     font-['DM_Sans']
                     hover:text-orange-500
                   "
                 >
@@ -251,6 +255,7 @@ const Footer = () => {
                     transition-colors
                     duration-300
                     hover:text-orange-500
+                     font-['DM_Sans']
                   "
                 >
                   P: +91 9820933877
@@ -262,6 +267,7 @@ const Footer = () => {
                     text-sm
                     leading-6
                     text-white/60
+                     font-['DM_Sans']
                   "
                 >
                   Office 721, Centura Square IT Park,
@@ -291,6 +297,7 @@ const Footer = () => {
                   tracking-[0.2em]
                   text-white/30
                   sm:mb-6
+                   font-['DM_Sans']
                 "
               >
                 Pages
@@ -310,6 +317,7 @@ const Footer = () => {
                     className="
                       w-fit
                       text-sm
+                       font-['DM_Sans']
                       text-white/60
                       transition-colors
                       duration-300
@@ -339,6 +347,7 @@ const Footer = () => {
                   uppercase
                   tracking-[0.2em]
                   text-white/30
+                   font-['DM_Sans']
                   sm:mb-6
                 "
               >
@@ -361,6 +370,7 @@ const Footer = () => {
                       w-fit
                       max-w-full
                       text-sm
+                       font-['DM_Sans']
                       leading-6
                       text-white/60
                       transition-colors
@@ -420,7 +430,7 @@ const Footer = () => {
     pt-5
     text-xs
     text-white/30
-   
+    font-['DM_Sans']
     sm:flex-row
     sm:items-center
     sm:justify-end

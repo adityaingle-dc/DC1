@@ -46,6 +46,7 @@ const Navbar = () => {
             text-gray-900
             sm:h-[45px]
             sm:px-5
+             font-['DM_Sans']
             sm:text-xl
           "
         >
@@ -78,6 +79,7 @@ const Navbar = () => {
               py-1.5
               text-sm
               font-medium
+               font-['DM_Sans']
               text-gray-900
             "
           >
@@ -95,6 +97,7 @@ const Navbar = () => {
               text-sm
               font-medium
               text-gray-600
+               font-['DM_Sans']
               transition
               hover:bg-gray-100
               hover:text-gray-900
@@ -117,6 +120,7 @@ const Navbar = () => {
               transition
               hover:bg-gray-100
               hover:text-gray-900
+               font-['DM_Sans']
             "
           >
             Services
@@ -136,6 +140,7 @@ const Navbar = () => {
               transition
               hover:bg-gray-100
               hover:text-gray-900
+               font-['DM_Sans']
             "
           >
             Projects
@@ -155,6 +160,7 @@ const Navbar = () => {
               transition
               hover:bg-gray-100
               hover:text-gray-900
+               font-['DM_Sans']
             "
           >
             Client Login
@@ -185,6 +191,7 @@ const Navbar = () => {
               transition-all
               duration-300
               hover:bg-gray-900
+               font-['DM_Sans']
             "
           >
             <span>
@@ -360,6 +367,7 @@ const Navbar = () => {
                     text-sm
                     font-semibold
                     text-white
+                     font-['DM_Sans']
                   "
                 >
 

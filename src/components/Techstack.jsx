@@ -139,7 +139,7 @@ const TechStack = () => {
               text-black
 
               sm:text-5xl
-
+ font-['DM_Sans']
               md:text-6xl
             "
           >
