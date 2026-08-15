@@ -2,7 +2,8 @@ import { useState } from "react";
 import Industry from "../components/Industry";
 import WhatToBuild from "../components/WhatToBuild";
 import WhatBrings from "../components/WhatBrings";
-import WhatYouNeed from "../components/WhatYouNeed";
+
+
 
 const ScopeBuilder = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -68,3 +69,5 @@ const ScopeBuilder = () => {
 };
 
 export default ScopeBuilder;
+
+/*scopebuilder*/
