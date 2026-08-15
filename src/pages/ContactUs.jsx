@@ -1,11 +1,11 @@
-import Navbar from "../components/Navbar";
-import LetsTalk from "../components/LetsTalk";
-import Conversation from "../components/Conversation";
-import Enquiery from "../components/Enquiery";
-import CTA from "../components/CTA";
-import CallPoints from "../components/CallPoints";
-import FAQ2 from "../components/FAQ2";
-import Footer2 from "../components/Footer2";
+import Navbar from "../components/home/Navbar";
+import LetsTalk from "../components/contact/LetsTalk";
+import Conversation from "../components/contact/Conversation";
+import Enquiery from "../components/contact/Enquiery";
+import CTA from "../components/contact/CTA";
+import CallPoints from "../components/contact/CallPoints";
+import FAQ2 from "../components/contact/FAQ2";
+import Footer2 from "../components/contact/Footer2";
 
 const ContactUs = () => {
   return (

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Industry from "../components/Industry";
-import WhatToBuild from "../components/WhatToBuild";
-import WhatBrings from "../components/WhatBrings";
+import Industry from "../components/scopebuilder/Industry";
+import WhatToBuild from "../components/scopebuilder/WhatToBuild";
+import WhatBrings from "../components/scopebuilder/WhatBrings";
 
 
 

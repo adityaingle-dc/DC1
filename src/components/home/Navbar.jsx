@@ -40,17 +40,17 @@ const Navbar = () => {
             shrink-0
             items-center
             px-4
-            text-lg
+            text-2xl
             font-bold
             tracking-tight
             text-gray-900
             sm:h-[45px]
             sm:px-5
              font-['DM_Sans']
-            sm:text-xl
+           
           "
         >
-          Copper Studio
+          copper studio
         </div>
 
 

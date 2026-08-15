@@ -1,18 +1,18 @@
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import CompanyMarquee from "../components/CompanyMarquee";
-import FloatingActions from "../components/FloatingActions";
-import SelectedProjects from "../components/SelectedProjects";
-import Services from "../components/Services";
-import ClientPortal from "../components/ClientPortal";
-import Process from "../components/Process";
-import Techstack from "../components/Techstack";
-import FAQ from "../components/FAQ";
-import SelectedProjects2 from "../components/SelectedProjects2";
-import Footer from "../components/Footer";
-import FinalCTA from "../components/FinalCTA";
-import WhyCopperStudio from "../components/WhyCopperStudio";
-import CustomerReviews from "../components/CustomerReviews";
+import Navbar from "../components/home/Navbar";
+import Hero from "../components/home/Hero";
+import CompanyMarquee from "../components/home/CompanyMarquee";
+import FloatingActions from "../components/home/FloatingActions";
+import SelectedProjects from "../components/home/SelectedProjects";
+import Services from "../components/home/Services";
+import ClientPortal from "../components/home/ClientPortal";
+import Process from "../components/home/Process";
+import Techstack from "../components/home/Techstack";
+import FAQ from "../components/home/FAQ";
+import SelectedProjects2 from "../components/home/SelectedProjects2";
+import Footer from "../components/home/Footer";
+import FinalCTA from "../components/home/FinalCTA";
+import WhyCopperStudio from "../components/home/WhyCopperStudio";
+import CustomerReviews from "../components/home/CustomerReviews";
 
 
 function Home() {
