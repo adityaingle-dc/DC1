@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const brandCards = [
   {
@@ -103,7 +103,7 @@ const tabs = [
   "Custom Company Portals",
 ];
 
-function WhatYouNeed() {
+function WhatYouNeed({ onBack, onContinue }) {
   const [activeTab, setActiveTab] = useState("Brand Identity");
   const [selectedItems, setSelectedItems] = useState([]);
 
@@ -121,9 +121,10 @@ function WhatYouNeed() {
 
   const currentCards = getCurrentCards();
 
-  /* --------------------------------
+  /* =====================================
      SELECT / DESELECT
-  -------------------------------- */
+  ====================================== */
+
   const toggleItem = (item) => {
     setSelectedItems((prev) => {
       const exists = prev.some(
@@ -140,9 +141,10 @@ function WhatYouNeed() {
     });
   };
 
-  /* --------------------------------
-     LIVE ESTIMATION
-  -------------------------------- */
+  /* =====================================
+     ESTIMATION
+  ====================================== */
+
   const estimatedMin = selectedItems.reduce(
     (total, item) => total + item.min,
     0
@@ -153,9 +155,6 @@ function WhatYouNeed() {
     0
   );
 
-  /* --------------------------------
-     FORMAT PRICE
-  -------------------------------- */
   const formatPrice = (amount) => {
     if (amount === 0) {
       return "₹0";
@@ -175,442 +174,595 @@ function WhatYouNeed() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#202020] m-0 p-0 font-[DM_Sans,sans-serif]">
-      <div className="flex h-screen min-h-screen w-full flex-col overflow-hidden bg-white">
+    <div
+      className="
+        relative
+        h-full
+        w-full
+        overflow-hidden
+        bg-white
+        font-[DM_Sans,sans-serif]
+      "
+    >
 
-        {/* =========================================
-            HEADER
-        ========================================= */}
-        <header
-          className="
-            mx-[54px]
-            flex
-            h-[88px]
-            min-h-[88px]
-            items-center
-            justify-between
-            border-b
-            border-[#dedede]
-          "
-        >
-          {/* LEFT HEADER */}
-          <div className="flex items-center gap-[11px] whitespace-nowrap">
-            <span
+      {/* =====================================
+          HEADER
+      ====================================== */}
+
+      <div
+        className="
+          mx-auto
+          flex
+          w-full
+          flex-col
+          px-6
+          py-4
+        "
+      >
+
+        <div className="flex w-full items-center justify-between">
+
+          {/* LEFT — BRAND */}
+
+          <div className="flex items-center gap-3">
+
+            <div
               className="
-                text-[21px]
-                font-bold
-                leading-none
-                tracking-[-0.7px]
-                text-[#111111]
+                flex
+                h-[18px]
+                w-[130.63px]
+                items-center
+                whitespace-nowrap
               "
             >
-              CopperStudio
-            </span>
-
-            <span className="text-[13px] text-[#777777]">
-              •
-            </span>
-
-            <span className="text-[15px] font-normal text-[#444444]">
-              Scope Builder
-            </span>
-          </div>
-
-          {/* RIGHT HEADER */}
-          <div className="flex items-center gap-3">
-            <span className="whitespace-nowrap text-[14px] font-normal text-[#333333]">
-              Step 4 of 5
-            </span>
-
-            {/* PROGRESS */}
-            <div className="relative h-px w-[220px] bg-[#d3d3d3]">
-              <div
+              <span
                 className="
-                  absolute
-                  left-0
-                  top-[-1px]
-                  h-[3px]
-                  w-[80%]
-                  rounded-[3px]
-                  bg-[#f26a21]
+                  whitespace-nowrap
+                  font-['DM_Sans']
+                  text-[20px]
+                  font-medium
+                  leading-[18px]
+                  tracking-tight
+                  text-black
                 "
-              />
+              >
+                Copper Studio
+              </span>
             </div>
 
-            {/* CLOSE */}
-            <button
-              type="button"
-              aria-label="Close"
+            <span
               className="
-                ml-4
-                flex
-                h-[38px]
-                w-[38px]
-                items-center
-                justify-center
+                h-[4px]
+                w-[4px]
+                shrink-0
                 rounded-full
-                border-0
-                bg-[#f4f4f4]
-                text-[24px]
-                font-normal
-                leading-none
-                text-[#111111]
-                transition
-                duration-150
-                hover:bg-[#e9e9e9]
+                bg-black/30
+              "
+            />
+
+            <div
+              className="
+                flex
+                h-[14px]
+                items-center
+                whitespace-nowrap
               "
             >
-              ×
-            </button>
+              <span
+                className="
+                  whitespace-nowrap
+                  font-['DM_Sans']
+                  text-[11px]
+                  leading-[14px]
+                  text-black/40
+                "
+              >
+                Scope Builder
+              </span>
+            </div>
+
           </div>
-        </header>
 
-        {/* =========================================
-            MAIN CONTENT
-        ========================================= */}
-        <main
-          className="
-            flex
-            min-h-0
-            flex-1
-            w-full
-            flex-col
-            px-[54px]
-            pt-[50px]
-            pb-[28px]
-          "
-        >
-          {/* =========================================
-              TITLE
-          ========================================= */}
-          <section className="mb-[30px] text-center">
-            <h1
-              className="
-                m-0
-                text-[32px]
-                font-bold
-                leading-[1.2]
-                tracking-[-1px]
-                text-[#080808]
-              "
-            >
-              What do you need done?
-            </h1>
 
-            <p
-              className="
-                mt-[5px]
-                mb-0
-                text-[16px]
-                font-normal
-                leading-[1.4]
-                text-[#6b6b6b]
-              "
-            >
-              Pick as many as fit. You can always adjust later.
-            </p>
-          </section>
+          {/* RIGHT */}
 
-          {/* =========================================
-              TABS
-          ========================================= */}
-          <nav
-            className="
-              mx-auto
-              mb-[30px]
-              flex
-              w-full
-              max-w-[850px]
-              items-stretch
-              justify-center
-              border-b
-              border-[#dddddd]
-            "
-          >
-            {tabs.map((tab) => {
-              const isActive = activeTab === tab;
-
-              return (
-                <button
-                  key={tab}
-                  type="button"
-                  onClick={() => setActiveTab(tab)}
-                  className={`
-                    relative
-                    h-[48px]
-                    flex-1
-                    whitespace-nowrap
-                    border-0
-                    bg-transparent
-                    px-[18px]
-                    text-[16px]
-                    cursor-pointer
-                    transition-colors
-                    duration-150
-                    hover:text-[#111111]
-                    ${
-                      isActive
-                        ? "font-semibold text-[#111111]"
-                        : "font-medium text-[#303030]"
-                    }
-                  `}
-                >
-                  {tab}
-
-                  {isActive && (
-                    <span
-                      className="
-                        absolute
-                        bottom-[-1px]
-                        left-0
-                        right-0
-                        h-[3px]
-                        rounded-t-[3px]
-                        bg-[#f26a21]
-                      "
-                    />
-                  )}
-                </button>
-              );
-            })}
-          </nav>
-
-          {/* =========================================
-              CARDS
-          ========================================= */}
-          <section
-            className={`
-              grid
-              w-full
-              grid-cols-2
-              gap-3
-              content-start
-              max-[750px]:grid-cols-1
-            `}
-          >
-            {currentCards.map((item, index) => {
-              const isSelected = selectedItems.some(
-                (selected) => selected.name === item.name
-              );
-
-              const isPortalThirdCard =
-                activeTab === "Custom Company Portals" &&
-                index === 2;
-
-              return (
-                <button
-                  key={item.name}
-                  type="button"
-                  onClick={() => toggleItem(item)}
-                  className={`
-                    relative
-                    flex
-                    min-h-[134px]
-                    items-center
-                    justify-center
-                    rounded-[15px]
-                    border
-                    px-[42px]
-                    py-[22px]
-                    pb-[18px]
-                    text-center
-                    cursor-pointer
-                    transition
-                    duration-150
-
-                    ${
-                      isSelected
-                        ? "border-[#f26a21] bg-[#fffaf6] shadow-[0_0_0_1px_rgba(242,106,33,0.1)]"
-                        : "border-[#cccccc] bg-white hover:border-[#a9a9a9]"
-                    }
-
-                    ${
-                      isPortalThirdCard
-                        ? "col-span-2 w-[calc(50%-6px)] justify-self-center max-[750px]:col-span-1 max-[750px]:w-full"
-                        : ""
-                    }
-
-                    max-[450px]:min-h-[125px]
-                    max-[450px]:px-[28px]
-                  `}
-                >
-                  {/* SELECTION CIRCLE */}
-                  <span
-                    className={`
-                      absolute
-                      right-[10px]
-                      top-[10px]
-                      flex
-                      h-[19px]
-                      w-[19px]
-                      items-center
-                      justify-center
-                      rounded-full
-                      border
-                      text-[11px]
-                      font-bold
-                      text-white
-                      ${
-                        isSelected
-                          ? "border-[#f26a21] bg-[#f26a21]"
-                          : "border-[#d2d2d2] bg-white"
-                      }
-                    `}
-                  >
-                    {isSelected && "✓"}
-                  </span>
-
-                  {/* CARD CONTENT */}
-                  <div className="w-full max-w-[650px]">
-                    <h2
-                      className="
-                        m-0
-                        mb-1
-                        text-[16px]
-                        font-bold
-                        leading-[1.3]
-                        text-[#111111]
-                        max-[450px]:text-[15px]
-                      "
-                    >
-                      {item.name}
-                    </h2>
-
-                    <p
-                      className="
-                        mx-auto
-                        mb-[7px]
-                        mt-0
-                        max-w-[600px]
-                        text-[12px]
-                        font-normal
-                        leading-[1.35]
-                        text-[#6b6b6b]
-                        max-[450px]:text-[11px]
-                      "
-                    >
-                      {item.description}
-                    </p>
-
-                    <strong
-                      className="
-                        block
-                        text-[13px]
-                        font-bold
-                        leading-[1.2]
-                        text-[#333333]
-                      "
-                    >
-                      {item.price}
-                    </strong>
-                  </div>
-                </button>
-              );
-            })}
-          </section>
-        </main>
-
-        {/* =========================================
-            FOOTER
-        ========================================= */}
-        <footer
-          className="
-            mx-[54px]
-            flex
-            h-[82px]
-            min-h-[82px]
-            items-center
-            justify-between
-            border-t
-            border-[#dedede]
-            max-[1000px]:mx-8
-            max-[750px]:mx-5
-            max-[450px]:mx-4
-          "
-        >
-          {/* BACK */}
-          <button
-            type="button"
-            className="
-              flex
-              items-center
-              gap-[5px]
-              border-0
-              bg-transparent
-              px-0
-              py-2
-              text-[14px]
-              font-normal
-              text-[#111111]
-              cursor-pointer
-              hover:underline
-            "
-          >
-            <span className="translate-y-[-1px] text-[21px] leading-none">
-              ‹
-            </span>
-
-            Back
-          </button>
-
-          {/* LIVE ESTIMATION */}
           <div
             className="
               flex
               items-center
-              justify-center
-              gap-[9px]
-              text-[13px]
-              font-normal
-              text-[#666666]
-              max-[750px]:hidden
+              gap-4
             "
           >
-            <span>
-              {selectedItems.length} Items
+
+            <span
+              className="
+                whitespace-nowrap
+                font-['DM_Sans']
+                text-[12px]
+                font-medium
+                text-black
+              "
+            >
+              Step 4 of 5
             </span>
 
-            <span className="text-[#999999]">
-              •
-            </span>
+            <div
+              className="
+                relative
+                h-[3px]
+                w-[100px]
+                overflow-hidden
+                rounded-full
+                bg-black/10
+              "
+            >
+              <div
+                className="
+                  absolute
+                  left-0
+                  top-0
+                  h-full
+                  w-4/5
+                  rounded-full
+                  bg-orange-500
+                "
+              />
+            </div>
 
-            <span>
-              Est. {formatPrice(estimatedMin)} to{" "}
-              {formatPrice(estimatedMax)}
-            </span>
+            <button
+              type="button"
+              aria-label="Close"
+              className="
+                flex
+                h-[26px]
+                w-[26px]
+                shrink-0
+                items-center
+                justify-center
+                rounded-full
+                bg-black/5
+                text-black/60
+                transition-all
+                duration-300
+                hover:bg-black/10
+                hover:text-black
+              "
+            >
+              <span
+                className="
+                  text-[16px]
+                  font-light
+                  leading-none
+                "
+              >
+                ×
+              </span>
+            </button>
+
           </div>
 
-          {/* CONTINUE */}
-          <button
-            type="button"
+        </div>
+
+        <div
+          className="
+            mt-4
+            h-px
+            w-full
+            bg-black/10
+          "
+        />
+
+      </div>
+
+
+      {/* =====================================
+          MAIN CONTENT
+      ====================================== */}
+
+      <div
+        className="
+          mx-auto
+          flex
+          w-full
+          max-w-[740px]
+          flex-col
+          items-center
+          px-0
+          pt-0
+        "
+      >
+
+        {/* HEADING */}
+
+        <h1
+          className="
+            mt-[3px]
+            font-['DM_Sans']
+            text-[28px]
+            font-semibold
+            leading-[34px]
+            tracking-tight
+            text-black
+          "
+        >
+          What do you need done?
+        </h1>
+
+
+        {/* SUBTITLE */}
+
+        <p
+          className="
+            mt-[2px]
+            font-['DM_Sans']
+            text-[14px]
+            leading-[20px]
+            text-black/45
+          "
+        >
+          Pick as many as fit. You can always adjust later.
+        </p>
+
+
+        {/* =====================================
+            TABS
+        ====================================== */}
+
+        <div
+          className="
+            mt-[17px]
+            flex
+            w-full
+            border-b
+            border-black/10
+          "
+        >
+
+          {tabs.map((tab) => {
+            const active = activeTab === tab;
+
+            return (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setActiveTab(tab)}
+                className={`
+                  relative
+                  flex
+                  h-[33px]
+                  flex-1
+                  items-start
+                  justify-center
+                  bg-transparent
+                  pt-[1px]
+                  font-['DM_Sans']
+                  text-[14px]
+                  leading-[20px]
+                  transition-all
+                  duration-300
+                  ${
+                    active
+                      ? "font-medium text-black"
+                      : "font-normal text-black/45 hover:text-black"
+                  }
+                `}
+              >
+                {tab}
+
+                {active && (
+                  <span
+                    className="
+                      absolute
+                      bottom-[-1px]
+                      left-0
+                      h-[2px]
+                      w-full
+                      bg-orange-500
+                    "
+                  />
+                )}
+              </button>
+            );
+          })}
+
+        </div>
+
+
+        {/* =====================================
+            CARDS
+        ====================================== */}
+
+        <div
+          className="
+            mt-[24px]
+            grid
+            w-full
+            grid-cols-2
+            gap-[10px]
+          "
+        >
+
+          {currentCards.map((item) => {
+
+            const selected = selectedItems.some(
+              (selectedItem) =>
+                selectedItem.name === item.name
+            );
+
+            return (
+              <button
+                key={item.name}
+                type="button"
+                onClick={() => toggleItem(item)}
+                className={`
+                  relative
+                  flex
+                  h-[100px]
+                  w-full
+                  items-center
+                  justify-center
+                  rounded-[16px]
+                  border
+                  px-5
+                  text-center
+                  transition-all
+                  duration-300
+                  ${
+                    selected
+                      ? "border-orange-500 bg-orange-50/30"
+                      : "border-black/10 bg-white hover:border-orange-500"
+                  }
+                `}
+              >
+
+                {/* CHECK CIRCLE */}
+
+                <span
+                  className={`
+                    absolute
+                    right-[7px]
+                    top-[7px]
+                    flex
+                    h-[18px]
+                    w-[18px]
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    font-['DM_Sans']
+                    text-[10px]
+                    ${
+                      selected
+                        ? "border-orange-500 bg-orange-500 text-white"
+                        : "border-black/10 bg-white text-transparent"
+                    }
+                  `}
+                >
+                  ✓
+                </span>
+
+
+                {/* CONTENT */}
+
+                <div className="w-full">
+
+                  <h3
+                    className="
+                      font-['DM_Sans']
+                      text-[14px]
+                      font-medium
+                      leading-[18px]
+                      tracking-tight
+                      text-black
+                    "
+                  >
+                    {item.name}
+                  </h3>
+
+                  <p
+                    className="
+                      mx-auto
+                      mt-[4px]
+                      max-w-[330px]
+                      font-['DM_Sans']
+                      text-[11px]
+                      leading-[14px]
+                      text-black/45
+                    "
+                  >
+                    {item.description}
+                  </p>
+
+                  <p
+                    className="
+                      mt-[4px]
+                      font-['DM_Sans']
+                      text-[12px]
+                      font-medium
+                      leading-[15px]
+                      text-black
+                    "
+                  >
+                    {item.price}
+                  </p>
+
+                </div>
+
+              </button>
+            );
+          })}
+
+        </div>
+
+      </div>
+
+
+      {/* =====================================
+          BOTTOM BORDER
+      ====================================== */}
+
+      <div
+        className="
+          absolute
+          bottom-[58px]
+          left-[31px]
+          right-[31px]
+          h-px
+          bg-black/10
+        "
+      />
+
+
+      {/* =====================================
+          FOOTER
+      ====================================== */}
+
+      <div
+        className="
+          absolute
+          bottom-0
+          left-0
+          flex
+          h-[58px]
+          w-full
+          items-center
+          justify-between
+          bg-white
+          px-[31px]
+        "
+      >
+
+        {/* BACK */}
+
+        <button
+          type="button"
+          onClick={onBack}
+          className="
+            flex
+            items-center
+            gap-2
+            rounded-full
+            px-0
+            py-2
+            font-['DM_Sans']
+            text-[14px]
+            font-medium
+            text-black/70
+            transition-all
+            duration-300
+            hover:text-black
+          "
+        >
+          <span
             className="
-              flex
-              h-[38px]
-              items-center
-              gap-2
-              rounded-[20px]
-              border
-              border-[#cccccc]
-              bg-white
-              px-[14px]
-              text-[14px]
-              font-medium
-              text-[#111111]
-              cursor-pointer
-              transition
-              duration-150
-              hover:border-[#a9a9a9]
-              hover:bg-[#f7f7f7]
+              text-[20px]
+              leading-none
             "
           >
-            Continue
+            ←
+          </span>
 
-            <span className="text-[19px] leading-none">
-              →
-            </span>
-          </button>
-        </footer>
+          <span>
+            Back
+          </span>
+        </button>
+
+
+        {/* =====================================
+            ESTIMATION
+        ====================================== */}
+
+        <div
+          className="
+            absolute
+            left-1/2
+            flex
+            -translate-x-1/2
+            items-center
+            whitespace-nowrap
+            font-['DM_Sans']
+            text-[14px]
+            leading-[20px]
+          "
+        >
+
+          {/* ITEMS — LIGHT BLUE/GRAY LIKE SCREENSHOT 2 */}
+
+          <span
+            className="
+              font-['DM_Sans']
+              font-normal
+              text-[#8B9BB0]
+            "
+          >
+            {selectedItems.length} Items
+          </span>
+
+          <span
+            className="
+              mx-[9px]
+              text-[#C7CDD5]
+            "
+          >
+            •
+          </span>
+
+          {/* ESTIMATE — DARK */}
+
+          <span
+            className="
+              font-['DM_Sans']
+              font-medium
+              text-black
+            "
+          >
+            Est. {formatPrice(estimatedMin)} to{" "}
+            {formatPrice(estimatedMax)}
+          </span>
+
+        </div>
+
+
+        {/* CONTINUE */}
+
+        <button
+          type="button"
+          onClick={onContinue}
+          className="
+            flex
+            items-center
+            gap-2
+            rounded-full
+            bg-black
+            px-[20px]
+            py-[9px]
+            font-['DM_Sans']
+            text-[14px]
+            font-medium
+            text-white
+            transition-all
+            duration-300
+            hover:bg-orange-500
+          "
+        >
+
+          <span>
+            Continue
+          </span>
+
+          <span
+            className="
+              text-[20px]
+              leading-none
+            "
+          >
+            →
+          </span>
+
+        </button>
+
       </div>
+
     </div>
   );
 }

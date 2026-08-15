@@ -3,6 +3,7 @@ import Industry from "../components/Industry";
 import WhatToBuild from "../components/WhatToBuild";
 import WhatBrings from "../components/WhatBrings";
 import WhatYouNeed from "../components/WhatYouNeed";
+import TellUs from "../components/TellUs";
 
 const ScopeBuilder = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -28,24 +29,32 @@ const ScopeBuilder = () => {
       ====================================== */}
 
       <div
-  className="
-    relative
-    mx-auto
-    h-[500px]
-    w-[1000px]
-    max-w-full
-    overflow-hidden
-    rounded-[1rem]
-    bg-white
-    translate-y-20
-    shadow-[0_30px_100px_rgba(0,0,0,0.3)]
-  "
->
+        className="
+          relative
+          mx-auto
+          h-[500px]
+          w-[1000px]
+          max-w-full
+          overflow-hidden
+          rounded-[1rem]
+          bg-white
+          translate-y-20
+          shadow-[0_30px_100px_rgba(0,0,0,0.3)]
+        "
+      >
+        {/* =====================================
+            STEP 1 — INDUSTRY
+        ====================================== */}
+
         {currentStep === 1 && (
           <Industry
             onContinue={() => setCurrentStep(2)}
           />
         )}
+
+        {/* =====================================
+            STEP 2 — WHAT TO BUILD
+        ====================================== */}
 
         {currentStep === 2 && (
           <WhatToBuild
@@ -54,15 +63,41 @@ const ScopeBuilder = () => {
           />
         )}
 
+        {/* =====================================
+            STEP 3 — WHAT BRINGS
+        ====================================== */}
+
         {currentStep === 3 && (
           <WhatBrings
             onBack={() => setCurrentStep(2)}
             onContinue={() => setCurrentStep(4)}
           />
         )}
-      </div>
 
-     
+        {/* =====================================
+            STEP 4 — WHAT YOU NEED
+        ====================================== */}
+
+        {currentStep === 4 && (
+          <WhatYouNeed
+            onBack={() => setCurrentStep(3)}
+            onContinue={() => setCurrentStep(5)}
+          />
+        )}
+
+        {/* =====================================
+            STEP 5 — TELL US
+        ====================================== */}
+
+        {currentStep === 5 && (
+          <TellUs
+            onBack={() => setCurrentStep(4)}
+            onContinue={() => {
+              console.log("Scope Builder completed");
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 };
