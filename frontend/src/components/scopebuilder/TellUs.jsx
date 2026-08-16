@@ -18,6 +18,41 @@ export default function TellUs({ onBack, onContinue }) {
     }));
   };
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async () => {
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/tell-us`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "Failed to save the form");
+      }
+
+      // Keep the existing flow unchanged after the database save succeeds.
+      onContinue();
+    } catch (error) {
+      console.error("Tell Us submission failed:", error);
+      alert("Unable to save your information. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div
       className="
@@ -223,8 +258,11 @@ export default function TellUs({ onBack, onContinue }) {
           min-h-0
           flex-1
           flex-col
-          px-[60px]
-          pt-[20px]
+          px-4
+          pt-5
+          sm:px-6
+          md:px-10
+          lg:px-[60px]
         "
       >
 
@@ -238,9 +276,13 @@ export default function TellUs({ onBack, onContinue }) {
             className="
               m-0
               font-['DM_Sans']
-              text-[28px]
+              text-[22px]
               font-semibold
-              leading-[34px]
+              leading-[28px]
+              sm:text-[25px]
+              sm:leading-[31px]
+              md:text-[28px]
+              md:leading-[34px]
               tracking-[-0.8px]
               text-black
             "
@@ -274,9 +316,10 @@ export default function TellUs({ onBack, onContinue }) {
           className="
             mt-[17px]
             flex
+            flex-wrap
             items-center
-            gap-[8px]
-            whitespace-nowrap
+            gap-x-[8px]
+            gap-y-[4px]
             font-['DM_Sans']
             text-[13px]
           "
@@ -322,8 +365,11 @@ export default function TellUs({ onBack, onContinue }) {
           className="
             mt-[24px]
             grid
-            grid-cols-[300px_398px]
-            gap-[98px]
+            grid-cols-1
+            gap-6
+            md:grid-cols-[300px_398px]
+            md:gap-[98px]
+            md:items-start
           "
         >
 
@@ -558,7 +604,8 @@ export default function TellUs({ onBack, onContinue }) {
               }
               className="
                 h-[175px]
-                w-[398px]
+                w-full
+                max-w-[398px]
                 resize-none
                 rounded-[15px]
                 border
@@ -593,8 +640,12 @@ export default function TellUs({ onBack, onContinue }) {
         className="
           absolute
           bottom-[58px]
-          left-[31px]
-          right-[31px]
+          left-4
+          right-4
+          sm:left-6
+          sm:right-6
+          md:left-[31px]
+          md:right-[31px]
           h-px
           bg-black/10
         "
@@ -611,12 +662,15 @@ export default function TellUs({ onBack, onContinue }) {
           bottom-0
           left-0
           flex
-          h-[58px]
+          min-h-[58px]
           w-full
           items-center
           justify-between
+          gap-3
           bg-white
-          px-[31px]
+          px-4
+          sm:px-6
+          md:px-[31px]
         "
       >
 
@@ -662,7 +716,8 @@ export default function TellUs({ onBack, onContinue }) {
 
         <button
           type="button"
-          onClick={onContinue}
+          onClick={handleSubmit}
+          disabled={isSubmitting}
           className="
             flex
             items-center
@@ -678,11 +733,13 @@ export default function TellUs({ onBack, onContinue }) {
             transition-all
             duration-300
             hover:bg-orange-500
+            disabled:cursor-not-allowed
+            disabled:opacity-60
           "
         >
 
           <span>
-            Submit
+            {isSubmitting ? "Saving..." : "Submit"}
           </span>
 
           <span
