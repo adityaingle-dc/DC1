@@ -6,7 +6,7 @@ const Footer = () => {
       <footer
         className="
           overflow-hidden
-          rounded-t-[2rem]
+          rounded-t-[1.5rem]
           bg-[#0d0d0d]
           px-5
           pb-6
@@ -14,11 +14,12 @@ const Footer = () => {
           text-white
           sm:px-6
           sm:pt-16
-          md:rounded-t-[3rem]
+         
+         h-[500px]
           md:px-10
           md:pb-8
           md:pt-20
-          lg:rounded-t-[4rem]
+         
           lg:px-16
         "
       >
@@ -71,38 +72,38 @@ const Footer = () => {
 
               {/* Heading */}
 
-              <h2
-                className="
-                  text-3xl
-                  font-semibold
-                  tracking-[-0.04em]
-                  drop-shadow-[0_0_18px_rgba(249,115,22,0.2)]
-                  sm:text-4xl
-                  md:text-5xl
-                   font-['DM_Sans']
-                "
-              >
-                The Copper Studio
-              </h2>
+             <h2
+  className="
+    whitespace-nowrap
+    font-dm-sans
+    text-[24px]
+    font-bold
+    leading-[32px]
+    tracking-[-0.04em]
+    drop-shadow-[0_0_18px_rgba(249,115,22,0.2)]
+  "
+>
+  THE COPPER STUDIO
+</h2>
 
 
               {/* Description */}
 
               <p
-                className="
-                  mt-5
-                  max-w-sm
-                  text-sm
-                  leading-6
-                   font-['DM_Sans']
-                  text-white/40
-                  sm:mt-6
-                  sm:leading-7
-                "
-              >
-                Building memorable brands, digital experiences
-                and products that move businesses forward.
-              </p>
+  className="
+    mt-5
+    max-w-sm
+    font-dm-sans
+    text-[14px]
+    font-normal
+    leading-[18px]
+    text-white/40
+    sm:mt-6
+  "
+>
+  Copper Studio is a design and development studio creating distinctive
+  brands, digital experiences, and custom business solutions.
+</p>
 
 
               {/* =================================================
@@ -120,6 +121,7 @@ const Footer = () => {
                     flex
                     h-10
                     w-10
+                    mb-10
                     shrink-0
                     items-center
                     justify-center
@@ -150,6 +152,7 @@ const Footer = () => {
                     flex
                     h-10
                     w-10
+                    mb-10
                     shrink-0
                     items-center
                     justify-center
@@ -180,6 +183,7 @@ const Footer = () => {
                     flex
                     h-10
                     w-10
+                    mb-10
                     shrink-0
                     items-center
                     justify-center
@@ -218,12 +222,12 @@ const Footer = () => {
                   font-medium
                   uppercase
                   tracking-[0.2em]
-                  text-white/30
+                  text-white
                   sm:mb-6
-                   font-['DM_Sans']
+                   font-dm-sans
                 "
               >
-                Connect
+                CONNECT
               </p>
 
               <div className="flex flex-col gap-3.5 sm:gap-4">
@@ -239,7 +243,7 @@ const Footer = () => {
                     text-white/60
                     transition-colors
                     duration-300
-                     font-['DM_Sans']
+                     font-dm-sans
                     hover:text-orange-500
                   "
                 >
@@ -255,7 +259,7 @@ const Footer = () => {
                     transition-colors
                     duration-300
                     hover:text-orange-500
-                     font-['DM_Sans']
+                     font-dm-sans
                   "
                 >
                   P: +91 9820933877
@@ -267,7 +271,7 @@ const Footer = () => {
                     text-sm
                     leading-6
                     text-white/60
-                     font-['DM_Sans']
+                     font-dm-sans
                   "
                 >
                   Office 721, Centura Square IT Park,
@@ -291,16 +295,17 @@ const Footer = () => {
               <p
                 className="
                   mb-5
+                  ml-15
                   text-xs
                   font-medium
                   uppercase
                   tracking-[0.2em]
-                  text-white/30
+                  text-white
                   sm:mb-6
-                   font-['DM_Sans']
+                   font-dm-sans
                 "
               >
-                Pages
+                PAGES
               </p>
 
               <div className="flex flex-col gap-3.5 sm:gap-4">
@@ -310,6 +315,7 @@ const Footer = () => {
                   "Studio",
                   "Services",
                   "Projects",
+                  "Blogs",
                 ].map((item) => (
                   <a
                     key={item}
@@ -317,7 +323,8 @@ const Footer = () => {
                     className="
                       w-fit
                       text-sm
-                       font-['DM_Sans']
+                      ml-15
+                       font-dm-sans
                       text-white/60
                       transition-colors
                       duration-300
@@ -342,16 +349,17 @@ const Footer = () => {
               <p
                 className="
                   mb-5
+                  ml-20
                   text-xs
                   font-medium
                   uppercase
                   tracking-[0.2em]
-                  text-white/30
-                   font-['DM_Sans']
+                  text-white
+                   font-dm-sans
                   sm:mb-6
                 "
               >
-                Resources
+                RESOURCES
               </p>
 
               <div className="flex flex-col gap-3.5 sm:gap-4">
@@ -368,9 +376,10 @@ const Footer = () => {
                     href="#"
                     className="
                       w-fit
+                      ml-20
                       max-w-full
                       text-sm
-                       font-['DM_Sans']
+                       font-dm-sans
                       leading-6
                       text-white/60
                       transition-colors
@@ -401,12 +410,14 @@ const Footer = () => {
     pointer-events-none
     absolute
     bottom-0
-    left-1/2
+    
     mt-10
     z-0
-    w-[110%]
+    w-[95vw]
+    h-[396px]
     max-w-none
-    -translate-x-1/2
+    translate-x-8
+    translate-y-15
     object-contain
     opacity-100
   "
@@ -420,7 +431,7 @@ const Footer = () => {
 
           <div
   className="
-    mt-15
+    
     ml-auto
     flex
     w-fit
@@ -430,7 +441,9 @@ const Footer = () => {
     pt-5
     text-xs
     text-white/30
-    font-['DM_Sans']
+    font-dm-sans
+   translate-x-25
+   translate-y-5
     sm:flex-row
     sm:items-center
     sm:justify-end
@@ -440,6 +453,35 @@ const Footer = () => {
 
             <p>
               © {new Date().getFullYear()} Copper Studio.All Rights reserved
+            </p>
+
+
+            
+          </div>
+
+
+          <div
+ className="
+  flex
+  w-fit
+  flex-col
+  items-start
+  gap-4
+  pt-5
+  font-dm-sans
+  text-[12px]
+  font-normal
+  leading-[16px]
+  text-white/30
+  sm:flex-row
+  sm:items-center
+  sm:justify-start
+  -translate-y-5
+  -translate-x-4
+  sm:pt-6
+"
+>         <p>
+              Design by Copper Studio
             </p>
 
 

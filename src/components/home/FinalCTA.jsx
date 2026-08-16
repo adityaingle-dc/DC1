@@ -31,21 +31,17 @@ const FinalCTA = () => {
           {/* Small Label */}
 
           <p
-            className="
-              max-w-full
-              text-[10px]
-              font-medium
-             font-dm-sans
-              tracking-[0.12em]
-              text-orange-500
-              sm:text-xs
-              sm:tracking-[0.16em]
-              md:text-sm
-              md:tracking-[0.2em]
-            "
-          >
-            Brand Identity.Websites.Customer Portal
-          </p>
+  className="
+    max-w-full
+    font-dm-sans
+    text-[20px]
+    font-normal
+    leading-[24px]
+    text-[#C55418]
+  "
+>
+  Brand Identity. Websites. Customer Portal
+</p>
 
 
           {/* Main Heading */}
@@ -104,24 +100,28 @@ const FinalCTA = () => {
     scale: 0.97,
   }}
   className="
-    flex
-    w-full
-    items-center
-    justify-center
-    gap-2
-    rounded-full
-    bg-black
-    px-7
-    py-3.5
-    text-sm
-    font-medium
-    text-white
-    transition-all
-    duration-300
-    hover:bg-orange-500
-    sm:w-auto
-     font-dm-sans
-  "
+  flex
+  w-full
+  items-center
+  justify-center
+  gap-2
+  rounded-full
+  border
+  border-black/30
+  bg-white
+  px-7
+  py-3.5
+  text-sm
+  font-medium
+  text-black
+  transition-all
+  duration-300
+  hover:bg-orange-500
+  hover:border-orange-500
+  hover:text-white
+  sm:w-auto
+  font-dm-sans
+"
 >
   <span>Book a Discovery Call</span>
 
@@ -148,22 +148,23 @@ const FinalCTA = () => {
                 items-center
                 justify-center
                 rounded-full
-                border
-                border-black/25
+               
                 px-7
                 py-3.5
                 text-sm
                 font-medium
-                text-black
+                text-white
+                bg-black
                 transition-all
                 duration-300
-                hover:border-orange-500
-                hover:text-orange-500
-                sm:w-auto
-                 font-dm-sans
+                hover:bg-orange-500
+  hover:border-orange-500
+  hover:text-white
+  sm:w-auto
+  font-dm-sans
               "
             >
-              View Our Work
+              View Projects
             </motion.a>
 
           </div>
