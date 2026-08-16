@@ -184,9 +184,9 @@ const Process = () => {
                   max-[639px]:leading-[1]
                 "
               >
-                Take A look at
+                Take A Look At
                 <br />
-                how we work.
+                How We Work
               </h2>
 
               <p

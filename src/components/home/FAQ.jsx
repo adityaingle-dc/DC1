@@ -76,7 +76,7 @@ const FAQ = () => {
                 <br />
 
                 <span className="faq-heading-muted">
-                  We've got <br/> answers.
+                  We've got <br/> answers
                 </span>
               </h2>
 

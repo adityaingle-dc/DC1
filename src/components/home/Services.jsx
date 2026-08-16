@@ -100,7 +100,7 @@ const services = [
           "Secure client portals that simplify communication, file sharing, approvals, and project tracking.",
       },
       {
-        src: "/services/po2.svg",
+        src: "/services/po5.svg",
         expandedHeading: "Billing & Invoicing",
         expandedDescription:
           "Custom invoicing systems that automate billing, payments, and financial workflows.",

@@ -64,11 +64,11 @@ const FinalCTA = () => {
                font-dm-sans
             "
           >
-            Let's create something
+            Let's create something your
             <br />
 
             <span className="text-black  font-dm-sans">
-              your customers will remember.
+             customers will remember.
             </span>
           </h2>
 
