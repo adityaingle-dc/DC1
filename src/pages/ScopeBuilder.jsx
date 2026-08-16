@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Industry from "../components/Industry";
-import WhatToBuild from "../components/WhatToBuild";
-import WhatBrings from "../components/WhatBrings";
-import WhatYouNeed from "../components/WhatYouNeed";
-import TellUs from "../components/TellUs";
+import Industry from "../components/scopebuilder/Industry";
+import WhatToBuild from "../components/scopebuilder/WhatToBuild";
+import WhatBrings from "../components/scopebuilder/WhatBrings";
+import WhatYouNeed from "../components/scopebuilder/WhatYouNeed";
+import TellUs from "../components/scopebuilder/TellUs";
 
 const ScopeBuilder = () => {
   const [currentStep, setCurrentStep] = useState(1);

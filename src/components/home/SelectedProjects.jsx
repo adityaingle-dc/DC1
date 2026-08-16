@@ -166,7 +166,7 @@ const SelectedProjects = () => {
                 duration-300
                 hover:bg-orange-500
                 hover:text-white
-
+                translate-y-3
                 sm:gap-2
                 sm:px-5
                 sm:py-2.5
@@ -210,8 +210,8 @@ const SelectedProjects = () => {
                 sm:gap-4
                 md:gap-5
               "
-              animate={{
-                x: ["0%", "-50%"],
+             animate={{
+                x: ["-50%", "0%"],
               }}
               transition={{
                 duration: 28,
@@ -261,7 +261,7 @@ const SelectedProjects = () => {
                 md:gap-5
               "
               animate={{
-                x: ["-50%", "0%"],
+                x: ["0%", "-50%"],
               }}
               transition={{
                 duration: 32,
@@ -283,6 +283,8 @@ const SelectedProjects = () => {
             </motion.div>
 
           </div>
+
+          
 
         </div>
 

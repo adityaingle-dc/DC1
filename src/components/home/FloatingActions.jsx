@@ -32,18 +32,12 @@ const FloatingActions = () => {
           items-center
           justify-center
           rounded-full
-          border
-          border-black/30
-          bg-white/80
+        
+          bg-white
           text-black
           shadow-md
           backdrop-blur-md
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:border-orange-500
-          hover:bg-white
-          hover:text-orange-500
+         
           sm:h-10
           sm:w-10
         "
@@ -66,18 +60,12 @@ const FloatingActions = () => {
           items-center
           justify-center
           rounded-full
-          border
-          border-black/30
-          bg-white/80
+         
+          bg-white
           text-black
           shadow-md
           backdrop-blur-md
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:border-orange-500
-          hover:bg-white
-          hover:text-orange-500
+         
           sm:h-10
           sm:w-10
         "
@@ -100,18 +88,11 @@ const FloatingActions = () => {
           items-center
           justify-center
           rounded-full
-          border
-          border-black/30
-          bg-white/80
+         
+          bg-white
           text-black
           shadow-md
-          backdrop-blur-md
-          transition-all
-          duration-300
-          hover:-translate-y-1
-          hover:border-orange-500
-          hover:bg-white
-          hover:text-orange-500
+          
           sm:h-10
           sm:w-10
         "

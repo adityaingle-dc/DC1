@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 
 const features = [
-
   {
     name: "Complete Transparency",
     logo: "/cp-icons/logo1.png",
@@ -35,21 +34,24 @@ const ClientPortal = () => {
         bg-white
         px-4
         py-16
+
         sm:px-6
         sm:py-20
+
         md:px-10
         md:py-24
+
         lg:px-16
         lg:py-28
       "
     >
-      <div className="mx-auto max-w-[95%]">
+      <div className="mx-auto w-full max-w-[95%]">
 
         {/* =====================================
             HEADER + IMAGE
         ====================================== */}
 
-        <div className="mx-auto max-w-6xl">
+        <div className="mx-auto w-full max-w-6xl">
 
           {/* Header */}
 
@@ -73,6 +75,7 @@ const ClientPortal = () => {
               flex
               flex-col
               gap-5
+
               sm:flex-row
               sm:items-start
               sm:justify-between
@@ -82,25 +85,51 @@ const ClientPortal = () => {
 
             {/* Heading */}
 
-            <div>
+            <div className="min-w-0 w-full">
+
               <h2
                 className="
                   mt-2
-                  max-w-3xl
+                  h-auto
+                  w-full
                   text-4xl
-                  font-medium
+                  font-semibold
                   leading-[0.95]
-                  tracking-tight
+                  tracking-[0.2px]
                   text-black
                   sm:text-5xl
                   md:text-6xl
                   lg:mt-4
+                  lg:h-[68px]
+                  lg:w-[424px]
                   lg:text-7xl
-                   font-['DM_Sans']
+                  font-dm-sans
                 "
               >
                 Client Portal
               </h2>
+
+              <p
+                className="
+                  mt-4
+                  h-auto
+                  w-full
+                  max-w-[981px]
+                  font-dm-sans
+                  text-sm
+                  font-normal
+                  leading-6
+                  text-black/85
+                  sm:text-base
+                  md:text-lg
+                "
+              >
+                A centralized client portal built for seamless collaboration
+                and complete transparency. Track project progress, access
+                deliverables, upload files, share feedback, and revisit every
+                project asset anytime with lifetime access.
+              </p>
+
             </div>
 
 
@@ -117,10 +146,12 @@ const ClientPortal = () => {
                 mt-1
                 w-fit
                 shrink-0
+                self-start
                 rounded-full
                 border
                 border-black/30
                 px-6
+                translate-y-0
                 py-2.5
                 text-sm
                 font-medium
@@ -133,7 +164,9 @@ const ClientPortal = () => {
                 sm:mt-4
                 sm:px-7
                 sm:py-3
-                 font-['DM_Sans']
+                font-dm-sans
+
+                lg:translate-y-20
               "
             >
               Know more
@@ -163,31 +196,33 @@ const ClientPortal = () => {
             }}
             className="
               relative
+              w-full
               overflow-hidden
               rounded-xl
-              
               sm:rounded-2xl
             "
           >
 
             <div className="w-full bg-white">
-  <img
-    src="/client-portal.png"
-    alt="Client portal"
-    className="
-      h-auto
-      min-h-[220px]
-       font-['DM_Sans']
-      w-full
-      object-cover
-      sm:min-h-0
-    "
-  />
-</div>
 
-            <div
-              
-            />
+              <img
+                src="/client-portal.png"
+                alt="Client portal"
+                className="
+                  block
+                  h-auto
+                  min-h-[180px]
+                  w-full
+                  object-cover
+
+                  sm:min-h-[220px]
+                  md:min-h-0
+                "
+              />
+
+            </div>
+
+            <div />
 
           </motion.div>
 
@@ -198,23 +233,26 @@ const ClientPortal = () => {
             FEATURE RECTANGLES
         ====================================== */}
 
-        <div className="mx-auto mt-10 max-w-6xl sm:mt-12">
+        <div className="mx-auto mt-10 w-full max-w-6xl sm:mt-12">
 
           <div
-  className="
-    flex
-    flex-col
-    items-center
-    gap-6
-    sm:flex-row
-    sm:flex-wrap
-    sm:justify-center
-    sm:gap-6
-    lg:flex-nowrap
-    lg:justify-center
-    lg:gap-8
-  "
->
+            className="
+              flex
+              flex-col
+              items-center
+              gap-6
+
+              sm:flex-row
+              sm:flex-wrap
+              sm:justify-center
+              sm:gap-6
+
+              lg:flex-nowrap
+              lg:justify-center
+              lg:gap-8
+            "
+          >
+
             {features.map((feature, index) => (
 
               <motion.div
@@ -232,11 +270,10 @@ const ClientPortal = () => {
                   amount: 0.2,
                 }}
                 transition={{
-                  duration: 0.5,
+                  duration: 0,
                   delay: index * 0.1,
                 }}
                 whileHover={{
-                  y: -8,
                   scale: 1.02,
                 }}
                 className="
@@ -244,18 +281,26 @@ const ClientPortal = () => {
                   relative
                   h-[230px]
                   w-[300px]
+                  max-w-full
                   shrink-0
                   overflow-hidden
                   rounded-2xl
-                  border
-                  border-black/10
-                  bg-[#f7f7f5]
+                  mt-15
+                  bg-[#fbfbf9]
                   p-5
                   transition-all
                   duration-400
                   hover:border-orange-500
-                  hover:bg-orange-500
+                  hover:bg-[#EE7A1D]
                   hover:shadow-[0_20px_40px_rgba(0,0,0,0.10)]
+
+                  max-[639px]:h-[210px]
+                  max-[639px]:w-full
+
+                  sm:w-[300px]
+                  md:w-[300px]
+                  lg:h-[230px]
+                  lg:w-[300px]
                 "
               >
 
@@ -269,6 +314,7 @@ const ClientPortal = () => {
                     left-1/2
                     top-1/2
                     w-[236px]
+                    max-w-[calc(100%-40px)]
                     -translate-x-1/2
                     -translate-y-1/2
                   "
@@ -278,14 +324,18 @@ const ClientPortal = () => {
 
                   <h3
                     className="
+                      translate-y-16
+                      font-dm-sans
                       text-lg
                       font-medium
                       tracking-tight
                       text-black
-                       font-['DM_Sans']
                       transition-colors
                       duration-300
                       group-hover:text-white
+
+                      max-[639px]:translate-y-14
+                      sm:text-lg
                     "
                   >
                     {feature.name}
@@ -296,13 +346,14 @@ const ClientPortal = () => {
 
                   <div
                     className="
+                      translate-y-14
                       my-3
                       h-px
                       w-full
-                      bg-black/10
+                      bg-orange-500
                       transition-colors
                       duration-300
-                      group-hover:bg-white/40
+                      group-hover:bg-white
                     "
                   />
 
@@ -311,13 +362,16 @@ const ClientPortal = () => {
 
                   <p
                     className="
-                      text-xs
+                      translate-y-12
+                      font-dm-sans
+                      text-[16px]
                       leading-5
-                      text-black/45
-                       font-['DM_Sans']
+                      text-black/60
                       transition-colors
                       duration-300
                       group-hover:text-white/85
+
+                      max-[639px]:translate-y-10
                     "
                   >
                     {feature.description}
@@ -333,14 +387,15 @@ const ClientPortal = () => {
                 <div
                   className="
                     absolute
-                    top
-                    left-1/2
+                    top-3
+                    left-8
                     flex
                     h-[23px]
                     w-[25px]
-                    -translate-x-1/2
                     items-center
                     justify-center
+
+                    sm:left-8
                   "
                 >
 
@@ -379,10 +434,12 @@ const ClientPortal = () => {
             mx-auto
             mt-12
             flex
+            w-full
             max-w-6xl
             flex-col
-             font-['DM_Sans']
             gap-8
+            font-dm-sans
+
             sm:mt-16
             md:mt-20
           "

@@ -3,31 +3,43 @@ import { motion } from "framer-motion";
 const technologies = [
   {
     name: "Figma",
-    logo: "/stack/Figma.png",
+    logo: "/stack/Vector.svg",
   },
   {
     name: "Photoshop",
-    logo: "/stack/Photoshop.png",
+    logo: "/stack/image 35.svg",
   },
   {
     name: "React",
-    logo: "/stack/React.png",
+    logo: "/stack/image 28.svg",
   },
   {
     name: "Next.js",
-    logo: "/stack/NEXT.js.png",
+    logo: "/stack/image 29.svg",
   },
   {
     name: "Node.js",
-    logo: "/stack/NODE.js.png",
+    logo: "/stack/image 30.svg",
+  },
+  {
+    name: "Firebase",
+    logo: "/stack/image 31.svg",
+  },
+  {
+    name: "HTML",
+    logo: "/stack/image 32.svg",
   },
   {
     name: "MongoDB",
-    logo: "/stack/MongoDB.png",
+    logo: "/stack/image 33.svg",
+  },
+  {
+    name: "CSS",
+    logo: "/stack/image 34.svg",
   },
   {
     name: "JavaScript",
-    logo: "/stack/JS.png",
+    logo: "/stack/image 35.svg",
   },
 ];
 
@@ -37,8 +49,8 @@ const TechPill = ({ tech }) => {
       className="
         group
         flex
-        h-[75px]
-        w-[170px]
+        h-[97.6px]
+        w-[225px]
         shrink-0
         cursor-pointer
         items-center
@@ -51,6 +63,9 @@ const TechPill = ({ tech }) => {
         duration-300
         hover:border-orange-500
         hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)]
+
+        max-[639px]:h-[72px]
+        max-[639px]:w-[165px]
 
         sm:h-[85px]
         sm:w-[195px]
@@ -74,6 +89,9 @@ const TechPill = ({ tech }) => {
           duration-300
           group-hover:grayscale-0
 
+          max-[639px]:h-[32px]
+          max-[639px]:w-[70px]
+
           sm:h-[48px]
           sm:w-[105px]
 
@@ -93,20 +111,23 @@ const TechStack = () => {
     <section
       className="
         overflow-hidden
-        bg-white
-        px-4
+        bg-05050b
+        
+        pr-0
         py-20
+        
+      
 
-        sm:px-6
+        
         sm:py-24
 
-        md:px-10
+       
         md:py-28
 
-        lg:px-16
+     
       "
     >
-      <div className="mx-auto max-w-[95%]">
+      <div className="mx-auto  w-full max-w-[100%]">
 
         {/* =====================================
             HEADER
@@ -127,25 +148,29 @@ const TechStack = () => {
           transition={{
             duration: 0.8,
           }}
-          className="max-w-3xl"
+          className="
+            flex
+            w-full
+            justify-start
+          "
         >
           <h2
             className="
-              mt-2
-              text-4xl
-              font-medium
-              leading-[0.95]
+              whitespace-nowrap
+              font-dm-sans
+              text-[36px]
+              font-semibold
+              leading-[1]
               tracking-tight
+              text-left
               text-black
-
-              sm:text-5xl
- font-['DM_Sans']
-              md:text-6xl
+             translate-x-3
+              max-[639px]:text-[28px]
+              sm:text-[32px]
+              md:text-[36px]
             "
           >
-            Creative &
-            <br />
-            Development Stack.
+            Our Creative & Development Stack.
           </h2>
         </motion.div>
 
@@ -155,18 +180,17 @@ const TechStack = () => {
         ====================================== */}
 
         <div
-          className="
-            relative
-            mt-12
-            w-full
-            overflow-hidden
-
-            sm:mt-14
-
-            md:mt-16
-          "
-        >
-
+  className="
+    relative
+    mt-10
+    w-[1440px]
+    mx-auto
+    overflow-hidden
+    justify-start
+    sm:mt-12
+    md:mt-14
+  "
+>
           <motion.div
             className="
               flex

@@ -32,10 +32,10 @@ const Hero = () => {
       >
 
         {/* =====================================
-            ANIMATED BACKGROUND
+            STATIC BACKGROUND
         ====================================== */}
 
-        <motion.div
+        <div
           className="
             absolute
             inset-0
@@ -45,27 +45,7 @@ const Hero = () => {
             bg-no-repeat
           "
           style={{
-            backgroundImage: "url('/cpbg.png')",
-          }}
-          initial={{
-            scale: 1.12,
-            x: 0,
-          }}
-          animate={{
-            scale: [1.12, 1.16, 1.12],
-            x: [-4, 4, -4],
-          }}
-          transition={{
-            scale: {
-              duration: 18,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-            x: {
-              duration: 18,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
+            backgroundImage: "url('/CSbg.png')",
           }}
         />
 
@@ -102,17 +82,18 @@ const Hero = () => {
 
 
         {/* =====================================
-            HERO CONTENT
+            HERO CONTENT CONTAINER
+            947 × 389
         ====================================== */}
 
         <div
           className="
             relative
             z-20
-            mx-auto
             flex
-            w-full
-            max-w-5xl
+            h-[389px]
+            w-[947px]
+            max-w-full
             flex-col
             items-center
             text-center
@@ -120,10 +101,10 @@ const Hero = () => {
         >
 
           {/* =====================================
-              GLASS PILL
+              HERO SVG PILL
           ====================================== */}
 
-          <motion.div
+          <motion.img
             initial={{
               opacity: 0,
               y: 25,
@@ -137,36 +118,21 @@ const Hero = () => {
               delay: 0.3,
               ease: "easeOut",
             }}
+            src="/Container.svg"
+            alt="Brand Identity, Website Design, Custom Portals"
             className="
-              mb-6
-              max-w-[90%]
-              rounded-full
-              border
-              border-white/[0.08]
-              bg-black/[0.10]
-              px-4
-              py-2
-              backdrop-blur-[2px]
-              sm:mb-7
-              sm:px-5
+              h-[35px]
+              w-[375px]
+              max-w-full
+              shrink-0
+              object-contain
             "
-          >
-            <span
-              className="
-                text-xs
-                font-medium
-                text-white/90
-                sm:text-sm
-                 font-['DM_Sans']
-              "
-            >
-              Brand Identity • Website Design • Custom Portals
-            </span>
-          </motion.div>
+          />
 
 
           {/* =====================================
-              HEADING
+              MAIN HEADING
+              947 × 164
           ====================================== */}
 
           <motion.h1
@@ -184,29 +150,43 @@ const Hero = () => {
               ease: "easeOut",
             }}
             className="
-            font-[DM Sans]
-              max-w-[95%]
-              text-4xl
-              font-medium
+              mt-[20px]
+              flex
+              h-[164px]
+              w-[947px]
+              max-w-full
+              shrink-0
+              items-center
+              justify-center
+              px-2
+              font-dm-sans
+              text-[42px]
+              font-semibold
               leading-[1.02]
               tracking-tight
               text-white
-              sm:max-w-3xl
-              sm:text-5xl
-              md:max-w-4xl
-              md:text-6xl
-              
-              
+
+              sm:px-4
+              sm:text-[52px]
+
+              md:px-6
+              md:text-[64px]
+
+              lg:px-0
+              lg:text-[72px]
             "
           >
-            We help you to build, launch and
-            <br className="hidden sm:block" />
-            {" "}grow with confidence
+            <span>
+              We help you build, launch and
+              
+              grow with confidence.
+            </span>
           </motion.h1>
 
 
           {/* =====================================
               PARAGRAPH
+              476 × 48
           ====================================== */}
 
           <motion.p
@@ -224,21 +204,34 @@ const Hero = () => {
               ease: "easeOut",
             }}
             className="
-              mt-6
-              max-w-[90%]
-              text-sm
+              mt-[16px]
+              flex
+              h-[48px]
+              w-[476px]
+              max-w-full
+              shrink-0
+              items-center
+              justify-center
+              px-4
+              text-center
+              font-dm-sans
+              text-[14px]
+              font-normal
               leading-6
-              text-white/80
-              sm:mt-7
-              sm:max-w-xl
-               font-['DM_Sans']
-              sm:text-base
-              sm:leading-7
-              md:text-lg
+              text-[#F9F8F4]/75
+
+              sm:px-2
+              sm:text-[16px]
+
+              md:px-0
+              md:text-[18px]
             "
           >
-            We design every piece of your business to work together
-            so growth feels simple, not scattered.
+            <span>
+              We design every piece of your business to work together,
+              
+              so growth feels simple, not scattered.
+            </span>
           </motion.p>
 
 
@@ -261,14 +254,14 @@ const Hero = () => {
               ease: "easeOut",
             }}
             className="
-              mt-8
+              mt-[16px]
               flex
-              w-full
+              h-auto
               flex-col
               items-center
+              justify-center
               gap-3
-              sm:mt-9
-              sm:w-auto
+
               sm:flex-row
             "
           >
@@ -285,19 +278,17 @@ const Hero = () => {
               }}
               className="
                 h-[42px]
-                w-[170px]
+                w-[156.3px]
                 rounded-full
                 border
                 border-white/50
                 px-5
+                font-dm-sans
                 text-sm
                 font-medium
                 text-white
                 transition-all
-                duration-1
-                sm:w-auto
-                sm:px-7
-                 font-['DM_Sans']
+                duration-100
               "
             >
               View All Services
@@ -316,22 +307,20 @@ const Hero = () => {
               }}
               className="
                 h-[42px]
-                w-[170px]
+                w-[153.6px]
                 rounded-full
                 border
                 border-white/50
                 px-5
+                font-dm-sans
                 text-sm
                 font-medium
                 text-white
                 transition-all
-                duration-1
-                sm:w-auto
-                sm:px-7
-                 font-['DM_Sans']
+                duration-100
               "
             >
-              Let's Connect →
+              Let's Connect
             </motion.button>
 
           </motion.div>
@@ -370,12 +359,12 @@ const Hero = () => {
           <span
             className="
               whitespace-nowrap
+              font-dm-sans
               text-[9px]
               font-medium
               tracking-[0.12em]
               text-white/70
               sm:text-[11px]
-               font-['DM_Sans']
             "
           >
             scroll down for more

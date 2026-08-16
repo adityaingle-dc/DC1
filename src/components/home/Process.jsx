@@ -6,31 +6,31 @@ const steps = [
     number: "01",
     title: "Discover",
     description:
-      "We begin by understanding your business, goals, audience, competitors, and current challenges. Through collaborative discussions and research, we uncover insights that shape a solution aligned with your vision and long-term objectives.",
+      "We understand your business, goals, audience, and challenges through research and collaboration. This helps us uncover insights that shape the right direction.",
   },
   {
     number: "02",
     title: "Strategy",
     description:
-      "With a clear understanding of your business, we define the project's direction, structure, and user journey. Every decision, from branding to functionality, is guided by strategy to ensure the final outcome solves real business problems.",
+      "We define the project’s direction, structure, and user journey based on a clear understanding of your business. Every decision is guided by purpose and real business needs.",
   },
   {
     number: "03",
     title: "Design",
     description:
-      "Ideas are transformed into thoughtful designs that balance aesthetics with usability. Whether it's a brand identity, website, or custom portal, every detail is crafted to create a consistent, intuitive, and memorable experience.",
+      "We turn strategy into thoughtful, distinctive design that balances aesthetics with usability. From brand identity to digital experiences, every detail is designed to feel consistent and memorable.",
   },
   {
     number: "04",
     title: "Build",
     description:
-      "Once the designs are approved, we bring them to life through careful development and rigorous testing. We focus on performance, responsiveness, accessibility, and scalability to deliver a polished product that's ready for real world use.",
+      "We bring approved designs to life through careful, scalable development. We focus on performance, responsiveness, accessibility, and real-world usability.",
   },
   {
     number: "05",
     title: "Launch & Support",
     description:
-      "After a successful launch, our partnership doesn't end. We provide hosting, maintenance, ongoing support, and continuous improvements to ensure your brand and digital products evolve as your business grows.",
+      "We launch your project and stay involved beyond the finish line. From hosting and maintenance to ongoing improvements, we help your brand evolve as your business grows.",
   },
 ];
 
@@ -114,7 +114,7 @@ const Process = () => {
       onWheelCapture={handleWheel}
       className="
         relative
-        bg-white
+        bg-#05050b
         px-4
         py-16
         sm:px-6
@@ -179,10 +179,12 @@ const Process = () => {
                   md:text-6xl
                   lg:mt-5
                   lg:text-7xl
-                   font-['DM_Sans']
+                  font-dm-sans
+                  max-[639px]:text-3xl
+                  max-[639px]:leading-[1]
                 "
               >
-                Take a look at
+                Take A look at
                 <br />
                 how we work.
               </h2>
@@ -192,22 +194,27 @@ const Process = () => {
                   mt-6
                   max-w-md
                   text-sm
-                  leading-6
-                  text-black/50
+                  leading-[24px]
+                  text-black/70
                   sm:text-base
-                  sm:leading-7
                   md:text-lg
-                   font-['DM_Sans']
+                  font-dm-sans
+                  max-[639px]:max-w-full
+                  max-[639px]:text-sm
+                  max-[639px]:leading-6
                 "
               >
-                Every project follows a clear process that keeps
-                strategy, creativity and development moving in
-                the same direction.
+                Whether we're building a brand, a website, or a custom portal,
+                every project follows the same strategic process for
+                consistent, high-quality results.
               </p>
             </motion.div>
           </div>
 
-          {/* RIGHT */}
+
+          {/* =====================================
+              RIGHT
+          ====================================== */}
 
           <div
             className="
@@ -216,150 +223,159 @@ const Process = () => {
             "
           >
             <div
-              ref={stepsRef}
               className="
-                h-auto
-                overflow-visible
-                pr-0
-                lg:h-[600px]
-                lg:overflow-y-auto
-                lg:overscroll-none
-                lg:pr-3
-                lg:scrollbar-hide
+                flex
+                w-full
+                flex-col
+                gap-3
+                sm:gap-4
               "
-              style={{
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-              }}
             >
-              <style>
-                {`
-                  .scrollbar-hide::-webkit-scrollbar {
-                    display: none;
-                  }
-                `}
-              </style>
 
-              <div className="flex flex-col gap-3">
+              {steps.map((step, index) => (
+                <motion.div
+                  key={step.number}
+                  initial={{
+                    opacity: 0,
+                    y: 25,
+                  }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  viewport={{
+                    once: true,
+                    amount: 0.15,
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.04,
+                  }}
+                  className="
+                    group
+                    flex
+                    min-h-[130px]
+                    w-full
+                    items-center
+                    rounded-2xl
+                    bg-05050b
+                    px-5
+                    py-4
+                    transition-all
+                    duration-300
+                    hover:border-black/10
+                    sm:px-6
+                    max-[639px]:min-h-[120px]
+                    max-[639px]:px-4
+                    max-[639px]:py-3
+                  "
+                >
 
-                {steps.map((step, index) => (
+                  {/* =====================================
+                      NUMBER — 96 × 96
+                  ====================================== */}
+
                   <motion.div
-                    key={step.number}
-                    initial={{
-                      opacity: 0,
-                      y: 25,
-                    }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                    }}
-                    viewport={{
-                      once: true,
-                      amount: 0.2,
+                    whileHover={{
+                      scale: 1.04,
                     }}
                     transition={{
-                      duration: 0.5,
-                      delay: index * 0.04,
+                      duration: 0.2,
                     }}
                     className="
-                      group
-                      min-h-[80px]
-                      rounded-2xl
-                      bg-[#f3f3f1]
-                      p-5
-                      transition-colors
+                      flex
+                      h-[96px]
+                      w-[96px]
+                      shrink-0
+                      items-center
+                      justify-center
+                      rounded-full
+                      bg-05050b
+                      bg-white
+                      font-dm-sans
+                      text-sm
+                      font-medium
+                      tracking-[0.12em]
+                      text-black/40
+                      transition-all
                       duration-300
-                      hover:bg-[#eeeeeb]
-                      sm:rounded-3xl
-                      sm:p-7
-                      md:p-8
-                      lg:p-10
+                      group-hover:border-orange-500
+                      group-hover:bg-orange-500
+                      group-hover:text-white
+                      max-[639px]:h-[72px]
+                      max-[639px]:w-[72px]
+                      max-[639px]:text-xs
+                      sm:h-[82px]
+                      sm:w-[82px]
+                      md:h-[96px]
+                      md:w-[96px]
                     "
                   >
-                    <div
+                    {step.number}
+                  </motion.div>
+
+
+                  {/* =====================================
+                      CONTENT
+                  ====================================== */}
+
+                  <div
+                    className="
+                      ml-5
+                      flex
+                      min-w-0
+                      w-full
+                      max-w-[522px]
+                      flex-col
+                      justify-center
+                      max-[639px]:ml-3
+                    "
+                  >
+
+                    {/* Heading */}
+
+                    <h3
                       className="
-                        flex
-                        items-center
-                        gap-3
-                        sm:gap-4
-                        md:gap-5
+                        font-['DM_Sans']
+                        text-2xl
+                        font-medium
+                        leading-tight
+                        tracking-tight
+                        text-black
+                        sm:text-3xl
+                        md:text-4xl
+                        max-[639px]:text-lg
+                        max-[639px]:leading-6
                       "
                     >
-                      <motion.div
-                        whileHover={{
-                          scale: 1.08,
-                        }}
-                        transition={{
-                          duration: 0.2,
-                        }}
-                        className="
-                         font-['DM_Sans']
-                          flex
-                          h-11
-                          w-11
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-full
-                          border
-                          border-black/10
-                          bg-white
-                          text-[11px]
-                          font-medium
-                          tracking-[0.12em]
-                          text-black/40
-                          transition-all
-                          duration-300
-                          group-hover:border-orange-500
-                          group-hover:bg-orange-500
-                          group-hover:text-white
-                          sm:h-12
-                          sm:w-12
-                          sm:text-xs
-                          md:h-14
-                          md:w-14
-                          md:text-sm
-                        "
-                      >
-                        {step.number}
-                      </motion.div>
+                      {step.title}
+                    </h3>
 
-                      <h3
-                        className="
-                          text-2xl
-                          font-medium
-                          tracking-tight
-                          text-black
-                          transition-transform
-                          duration-500
-                          group-hover:translate-x-1
-                          sm:text-3xl
-                          md:text-4xl
-                          lg:text-5xl
-                        "
-                      >
-                        {step.title}
-                      </h3>
-                    </div>
+
+                    {/* Complete Description */}
 
                     <p
                       className="
-                        mt-4
-                        max-w-lg
+                        mt-2
+                        font-['DM_Sans']
                         text-sm
-                        leading-6
+                        leading-5
                         text-black/50
-                        sm:mt-5
                         sm:text-base
-                        sm:leading-7
+                        sm:leading-6
+                        max-[639px]:mt-1
+                        max-[639px]:text-xs
+                        max-[639px]:leading-5
                       "
                     >
                       {step.description}
                     </p>
-                  </motion.div>
-                ))}
 
-              </div>
+                  </div>
+
+                </motion.div>
+              ))}
+
             </div>
           </div>
 
