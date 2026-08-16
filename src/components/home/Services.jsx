@@ -5,11 +5,11 @@ import { useRef, useState } from "react";
 const services = [
   {
     number: "01",
+    numberSvg: "public/services/01.svg",
     title: "Brand Identity",
     description:
       "Develop a strategic brand identity with custom logo design, visual systems, typography, and brand guidelines that create a lasting impression across every touchpoint.",
     images: [
-     
       {
         src: "/services/services_branding_5.png",
         collapsedText: "Brand Identity",
@@ -44,11 +44,11 @@ const services = [
 
   {
     number: "02",
+    numberSvg: "public/services/02.svg",
     title: "Web Design & Development",
     description:
       "Design and develop fast, responsive, SEO-optimized websites that combine beautiful UI/UX with seamless functionality to help your business grow online.",
     images: [
-     
       {
         src: "/services/services_website_5.png",
         collapsedText: "Website",
@@ -88,24 +88,25 @@ const services = [
 
   {
     number: "03",
+    numberSvg: "public/services/03.svg",
     title: "Custom Company Portal",
     description:
       "Build secure custom business portals tailored to your workflow, making it easier to manage clients, teams, projects, approvals, files, and everyday operations.",
     images: [
       {
-        src: "/portal/Free_iMac_Mockup_1 1.png",
+        src: "/services/po1.svg",
         expandedHeading: "Custom Portals",
         expandedDescription:
           "Secure client portals that simplify communication, file sharing, approvals, and project tracking.",
       },
       {
-        src: "/portal/Free_iMac_Mockup_3 1.png",
+        src: "/services/po2.svg",
         expandedHeading: "Billing & Invoicing",
         expandedDescription:
           "Custom invoicing systems that automate billing, payments, and financial workflows.",
       },
       {
-        src: "/portal/Free_iMac_Mockup_3 12.png",
+        src: "/services/po3.svg",
         expandedHeading: "Custom CRM",
         expandedDescription:
           "Tailored CRM solutions that centralize customer data, sales, and relationship management.",
@@ -163,18 +164,19 @@ const Services = () => {
           "
         >
           <h2
-            className="
+            className={`
               ml-0
               mt-0
               text-3xl
               font-medium
               tracking-tight
+              ${isServicesInView ? "text-white" : "text-black"}
               sm:ml-5
               sm:mt-8
               sm:text-5xl
               md:text-6xl
-               font-['DM_Sans']
-            "
+              font-['DM_Sans']
+            `}
           >
             Services We Offer
           </h2>
@@ -218,7 +220,7 @@ const Services = () => {
               sm:pl-5
               sm:pr-2
               sm:text-sm
-               font-['DM_Sans']
+              font-['DM_Sans']
             "
           >
             <span className="whitespace-nowrap">
@@ -264,11 +266,16 @@ const Services = () => {
   );
 };
 
+
 /* =========================================================
    SERVICE CARD
 ========================================================= */
 
-const ServiceCard = ({ service, index, isServicesInView }) => {
+const ServiceCard = ({
+  service,
+  index,
+  isServicesInView,
+}) => {
   const [hoveredImage, setHoveredImage] = useState(0);
 
   return (
@@ -316,10 +323,10 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
         `}
       >
         {/* =================================================
-            NUMBER
+            NUMBER SVG
         ================================================= */}
 
-        <motion.p
+        <motion.div
           initial={{
             opacity: 0,
             y: -20,
@@ -338,25 +345,25 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
             ease: "easeOut",
           }}
           className="
-            bg-gradient-to-b
-            from-white/40
-            via-white/20
-            to-white/5
-            bg-clip-text
-            text-[6rem]
-            font-semibold
-            leading-none
-            tracking-[-0.06em]
-            text-transparent
-            drop-shadow-[0_14px_20px_rgba(0,0,0,0.95)]
-            sm:text-[8rem]
-            md:text-[10rem]
-            lg:text-[12rem]
-             font-['DM_Sans']
+            flex
+            items-center
+            justify-center
           "
         >
-          {service.number}
-        </motion.p>
+          <img
+  src={service.numberSvg}
+  alt={service.number}
+  className="
+    h-auto
+    h-[225px]
+    w-[283pxpx]
+    object-contain
+    opacity-50
+    
+  "
+/>
+        </motion.div>
+
 
         {/* =================================================
             SERVICE TITLE
@@ -378,7 +385,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
             duration: 0.8,
             delay: 0.15,
           }}
-          className="
+          className={`
             relative
             z-10
             -mt-6
@@ -389,7 +396,7 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
             font-medium
             leading-tight
             tracking-tight
-            text-white
+            ${isServicesInView ? "text-white" : "text-black"}
             sm:-mt-10
             sm:px-0
             sm:text-4xl
@@ -397,11 +404,12 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
             md:text-5xl
             lg:-mt-16
             lg:text-6xl
-             font-['DM_Sans']
-          "
+            font-['DM_Sans']
+          `}
         >
           {service.title}
         </motion.h3>
+
 
         {/* =================================================
             DESCRIPTION
@@ -423,23 +431,24 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
             duration: 0.8,
             delay: 0.25,
           }}
-          className="
+          className={`
             mt-5
             max-w-2xl
             px-2
             text-center
             text-sm
             leading-6
-            text-white/60
+            ${isServicesInView ? "text-white/60" : "text-black/60"}
             sm:mt-6
             sm:px-0
             sm:text-base
             sm:leading-7
             md:text-lg
-          "
+          `}
         >
           {service.description}
         </motion.p>
+
 
         {/* =================================================
             IMAGE GALLERY
@@ -463,351 +472,184 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
               overflow-hidden
             "
           >
+
             {/* =================================================
-                SERVICE 01 + 02 — MARQUEE
+                SERVICE 01 + 02 — 4 IMAGE ROW
             ================================================= */}
 
             {service.number !== "03" ? (
-              <div className="overflow-hidden">
-                <motion.div
-                  className="
-                    flex
-                    w-max
-                    items-center
-                    gap-2
-                    sm:gap-3
-                  "
-                  animate={{
-                    x: ["0%", "-50%"],
-                  }}
-                  transition={{
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                >
-                  {/* FIRST SET */}
+              <div
+                className="
+                  flex
+                  w-full
+                  items-center
+                  justify-center
+                  gap-2
+                  overflow-hidden
+                  sm:gap-3
+                "
+              >
+                {service.images.map((image, imageIndex) => {
+                  const isExpanded =
+                    hoveredImage === imageIndex;
 
-                  {service.images.map((image, imageIndex) => {
-                    const isExpanded =
-                      hoveredImage === imageIndex;
-
-                    return (
-                      <motion.div
-                        key={`${service.number}-first-${image.src}`}
-                        onMouseEnter={() =>
-                          setHoveredImage(imageIndex)
-                        }
-                        onMouseLeave={() =>
-                          setHoveredImage(0)
-                        }
-                        animate={{
-                          width: isExpanded
-                            ? "min(618px, 70vw)"
-                            : "min(174px, 20vw)",
-                        }}
-                        transition={{
-                          duration: 0.5,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
+                  return (
+                    <motion.div
+                      key={`${service.number}-${image.src}`}
+                      onMouseEnter={() =>
+                        setHoveredImage(imageIndex)
+                      }
+                      onMouseLeave={() =>
+                        setHoveredImage(0)
+                      }
+                      animate={{
+                        width: isExpanded
+                          ? "min(618px, 70vw)"
+                          : "min(174px, 20vw)",
+                      }}
+                      transition={{
+                        duration: 0.5,
+                        ease: [0.22, 1, 0.36, 1],
+                      }}
+                      className="
+                        group
+                        relative
+                        h-[280px]
+                        shrink-0
+                        overflow-hidden
+                        rounded-lg
+                        bg-black
+                        sm:h-[340px]
+                        md:h-[419px]
+                      "
+                    >
+                      <img
+                        src={image.src}
+                        alt={`${service.title} ${imageIndex + 1}`}
                         className="
-  group
-  relative
-  h-[280px]
-  shrink-0
-  overflow-hidden
-  rounded-lg
-  bg-black
-  sm:h-[340px]
-  md:h-[419px]
-"
-                      >
-                        <img
-  src={image.src}
-  alt={`${service.title} ${imageIndex + 1}`}
-  className="
-  absolute
-  -inset-[2px]
-  h-[calc(100%+4px)]
-  w-[calc(100%+4px)]
-  object-cover
-
-    rounded-lg
-    transition-transform
-    duration-700
-    scale-105
-  "
-/>
-                        <div
-                          className="
-                            pointer-events-none
-                            absolute
-                            inset-0
-                            bg-gradient-to-t
-                            from-black/90
-                            via-black/20
-                            to-transparent
-                          "
-                        />
-
-                        {isExpanded ? (
-                          <>
-                            {/* Expanded heading — upper left */}
-
-                            <div
-                              className="
-                                absolute
-                                left-4
-                                right-4
-                                top-4
-                                max-w-[75%]
-                                text-left
-                                sm:left-6
-                                sm:right-6
-                                sm:top-6
-                              "
-                            >
-                              <h4
-                                className="
-                                  text-lg
-                                   font-['DM_Sans']
-                                  font-medium
-                                  leading-tight
-                                  text-white
-                                  sm:text-2xl
-                                  md:text-3xl
-                                "
-                              >
-                                {image.expandedHeading ||
-                                  service.title}
-                              </h4>
-                            </div>
-
-                            {/* Expanded paragraph */}
-
-                            <div
-                              className="
-                                absolute
-                                bottom-4
-                                left-4
-                                right-4
-                                sm:bottom-6
-                                sm:left-6
-                                sm:right-6
-                              "
-                            >
-                              <p
-                                className="
-                                  max-w-lg
-                                  text-xs
-                                  leading-5
-                                  text-white/75
-                                  sm:text-sm
-                                  sm:leading-6
-                                   font-['DM_Sans']
-                                  md:text-base
-                                "
-                              >
-                                {image.expandedDescription ||
-                                  service.description}
-                              </p>
-                            </div>
-                          </>
-                        ) : (
-                          <div
-                            className="
-                              absolute
-                              inset-0
-                              flex
-                              items-center
-                              justify-center
-                              px-3
-                              text-center
-                              sm:px-4
-                            "
-                          >
-                            <h4
-                              className="
-                                text-xs
-                                font-medium
-                                 font-['DM_Sans']
-                                leading-tight
-                                text-white
-                                sm:text-base
-                                md:text-lg
-                              "
-                            >
-                              {image.collapsedText ||
-                                service.title}
-                            </h4>
-                          </div>
-                        )}
-                      </motion.div>
-                    );
-                  })}
-
-                  {/* DUPLICATE SET FOR MARQUEE */}
-
-                  {service.images.map((image, imageIndex) => {
-                    const isExpanded =
-                      hoveredImage === imageIndex;
-
-                    return (
-                      <motion.div
-                        key={`${service.number}-second-${image.src}`}
-                        onMouseEnter={() =>
-                          setHoveredImage(imageIndex)
-                        }
-                        onMouseLeave={() =>
-                          setHoveredImage(0)
-                        }
-                        animate={{
-                          width: isExpanded
-                            ? "min(618px, 80vw)"
-                            : "min(174px, 20vw)",
-                        }}
-                        transition={{
-                          duration: 0.5,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
-                        className="
-                          group
-                          relative
-                          h-[280px]
-                          shrink-0
-                          overflow-hidden
+                          absolute
+                          -inset-[2px]
+                          h-[calc(100%+4px)]
+                          w-[calc(100%+4px)]
+                          object-cover
                           rounded-lg
-                          border
-                          border-white/15
-                          bg-black
-                          sm:h-[340px]
-                          md:h-[419px]
+                          transition-transform
+                          duration-700
+                          scale-105
                         "
-                      >
-                        <img
-                          src={image.src}
-                          alt={`${service.title} ${imageIndex + 1}`}
-                          className="
-                            
-  absolute
-  -inset-[2px]
-  h-[calc(100%+4px)]
-  w-[calc(100%+4px)]
-  object-cover
+                      />
 
-                            transition-transform
-                            duration-700
-                            group-hover:scale-105
-                          "
-                        />
+                      <div
+                        className="
+                          pointer-events-none
+                          absolute
+                          inset-0
+                          bg-gradient-to-t
+                          from-black/90
+                          via-black/20
+                          to-transparent
+                        "
+                      />
 
-                        <div
-                          className="
-                            pointer-events-none
-                            absolute
-                            inset-0
-                            bg-gradient-to-t
-                            from-black/90
-                            via-black/20
-                            to-transparent
-                          "
-                        />
+                      {isExpanded ? (
+                        <>
+                          {/* Expanded heading — upper left */}
 
-                        {isExpanded ? (
-                          <>
-                            <div
-                              className="
-                                absolute
-                                left-4
-                                right-4
-                                top-4
-                                max-w-[75%]
-                                text-left
-                                sm:left-6
-                                sm:right-6
-                                sm:top-6
-                              "
-                            >
-                              <h4
-                                className="
-                                  text-lg
-                                  font-medium
-                                  leading-tight
-                                  text-white
-                                  sm:text-2xl
-                                  md:text-3xl
-                                   font-['DM_Sans']
-                                "
-                              >
-                                {image.expandedHeading ||
-                                  service.title}
-                              </h4>
-                            </div>
-
-                            <div
-                              className="
-                                absolute
-                                bottom-4
-                                left-4
-                                right-4
-                                sm:bottom-6
-                                sm:left-6
-                                sm:right-6
-                              "
-                            >
-                              <p
-                                className="
-                                  max-w-lg
-                                  text-xs
-                                  leading-5
-                                  text-white/75
-                                   font-['DM_Sans']
-                                  sm:text-sm
-                                  sm:leading-6
-                                  md:text-base
-                                "
-                              >
-                                {image.expandedDescription ||
-                                  service.description}
-                              </p>
-                            </div>
-                          </>
-                        ) : (
                           <div
                             className="
                               absolute
-                              inset-0
-                              flex
-                              items-center
-                              justify-center
-                              px-3
-                              text-center
-                              sm:px-4
+                              left-4
+                              right-4
+                              top-4
+                              max-w-[75%]
+                              text-left
+                              sm:left-6
+                              sm:right-6
+                              sm:top-6
                             "
                           >
                             <h4
                               className="
-                                text-xs
+                                text-lg
+                                font-['DM_Sans']
                                 font-medium
                                 leading-tight
                                 text-white
-                                sm:text-base
-                                md:text-lg
+                                sm:text-2xl
+                                md:text-3xl
                               "
                             >
-                              {image.collapsedText ||
+                              {image.expandedHeading ||
                                 service.title}
                             </h4>
                           </div>
-                        )}
-                      </motion.div>
-                    );
-                  })}
-                </motion.div>
+
+                          {/* Expanded paragraph */}
+
+                          <div
+                            className="
+                              absolute
+                              bottom-4
+                              left-4
+                              right-4
+                              sm:bottom-6
+                              sm:left-6
+                              sm:right-6
+                            "
+                          >
+                            <p
+                              className="
+                                max-w-lg
+                                text-xs
+                                leading-5
+                                text-white/75
+                                sm:text-sm
+                                sm:leading-6
+                                font-['DM_Sans']
+                                md:text-base
+                              "
+                            >
+                              {image.expandedDescription ||
+                                service.description}
+                            </p>
+                          </div>
+                        </>
+                      ) : (
+                        <div
+                          className="
+                            absolute
+                            inset-0
+                            flex
+                            items-center
+                            justify-center
+                            px-3
+                            text-center
+                            sm:px-4
+                          "
+                        >
+                          <h4
+                            className="
+                              text-xs
+                              font-medium
+                              font-['DM_Sans']
+                              leading-tight
+                              text-white
+                              sm:text-base
+                              md:text-lg
+                            "
+                          >
+                            {image.collapsedText ||
+                              service.title}
+                          </h4>
+                        </div>
+                      )}
+                    </motion.div>
+                  );
+                })}
               </div>
             ) : (
               /* =================================================
-                 SERVICE 03
+                 SERVICE 03 — 3 SVG IMAGE BOXES
               ================================================= */
 
               <div
@@ -840,10 +682,6 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                       shrink-0
                       overflow-hidden
                       rounded-lg
-                      bg-gradient-to-br
-                      from-[#d8c4ff]
-                      via-[#6d5a91]
-                      to-[#09070f]
                       sm:h-[340px]
                       sm:w-[320px]
                       md:h-[419px]
@@ -854,181 +692,95 @@ const ServiceCard = ({ service, index, isServicesInView }) => {
                       src={image.src}
                       alt={`${service.title} ${imageIndex + 1}`}
                       className="
-                        absolute
-                        inset-0
                         h-full
                         w-full
-                        object-cover
-                        p-2
+                        object-contain
                         transition-transform
                         duration-700
                         group-hover:scale-105
                       "
                     />
-
-                    <div
-                      className="
-                        pointer-events-none
-                        absolute
-                        inset-0
-                        bg-gradient-to-t
-                        from-black/90
-                        via-black/20
-                        to-transparent
-                      "
-                    />
-
-                    {/* =================================================
-                        SERVICE 03 HEADING
-                        Upper center
-                    ================================================= */}
-
-                    <div
-                      className="
-                        absolute
-                        left-1/2
-                        top-4
-                        z-10
-                        w-[88%]
-                        -translate-x-1/2
-                        px-2
-                        text-center
-                        sm:top-5
-                        sm:px-3
-                        md:top-6
-                        md:w-[85%]
-                        md:px-4
-                      "
-                    >
-                      <h4
-                        className="
-                          text-base
-                          font-medium
-                          leading-tight
-                          text-white
-                          sm:text-lg
-                          md:text-2xl
-                           font-['DM_Sans']
-                        "
-                      >
-                        {image.expandedHeading || service.title}
-                      </h4>
-                    </div>
-
-                    {/* =================================================
-                        SERVICE 03 PARAGRAPH
-                        Bottom
-                    ================================================= */}
-
-                    <div
-                      className="
-                        absolute
-                        bottom-4
-                        left-4
-                         font-['DM_Sans']
-                        right-4
-                        z-10
-                        sm:bottom-5
-                        sm:left-5
-                        sm:right-5
-                        md:bottom-6
-                        md:left-6
-                        md:right-6
-                      "
-                    >
-                      <p
-                        className="
-                          text-[11px]
-                          leading-5
-                          text-white/75
-                          sm:text-xs
-                          sm:leading-5
-                          md:text-sm
-                          md:leading-6
-                           font-['DM_Sans']
-                        "
-                      >
-                        {image.expandedDescription || service.description}
-                      </p>
-                    </div>
                   </div>
                 ))}
               </div>
             )}
+
           </div>
+        </div>
 
-          {/* =================================================
-              KNOW MORE BUTTON
-          ================================================= */}
 
-          <motion.button
-            whileHover={{
-              scale: 1.04,
-            }}
-            whileTap={{
-              scale: 0.97,
-            }}
-            transition={{
-              duration: 0.2,
-            }}
+        {/* =================================================
+            KNOW MORE BUTTON
+        ================================================= */}
+
+        <motion.button
+          whileHover={{
+            scale: 1.04,
+          }}
+          whileTap={{
+            scale: 0.97,
+          }}
+          transition={{
+            duration: 0.2,
+          }}
+          className={`
+            group
+            mx-auto
+            mt-7
+            mb-2
+            flex
+            h-[40px]
+            w-[145px]
+            items-center
+            justify-between
+            rounded-full
+            border
+            border-white/25
+            bg-white/5
+            px-2
+            pl-4
+            text-sm
+            font-medium
+            ${isServicesInView ? "text-white" : "text-black"}
+            backdrop-blur-sm
+            transition-colors
+            duration-300
+            hover:bg-white
+            hover:text-black
+            sm:mt-8
+            sm:w-[150px]
+            sm:pl-5
+            font-['DM_Sans']
+          `}
+        >
+          <span>
+            Know More
+          </span>
+
+          <span
             className="
-              group
-              mx-auto
-              mt-7
-              mb-2
               flex
-              h-[40px]
-              w-[145px]
+              h-7
+              w-7
+              shrink-0
               items-center
-              justify-between
+              justify-center
               rounded-full
-              border
-              border-white/25
-              bg-white/5
-              px-2
-              pl-4
-              text-sm
-              font-medium
-              text-white
-              backdrop-blur-sm
+              bg-white
+              text-black
               transition-colors
               duration-300
-              hover:bg-white
-              hover:text-black
-              sm:mt-8
-              sm:w-[150px]
-              sm:pl-5
-               font-['DM_Sans']
+              group-hover:bg-black
+              group-hover:text-white
             "
           >
-            <span>
-              Know More
-            </span>
+            <MdChevronRight size={18} />
+          </span>
+        </motion.button>
 
-            <span
-              className="
-                flex
-                h-7
-                w-7
-                shrink-0
-                items-center
-                justify-center
-                rounded-full
-                bg-white
-                text-black
-                transition-colors
-                duration-300
-                group-hover:bg-black
-                group-hover:text-white
-              "
-            >
-              <MdChevronRight size={18} />
-            </span>
-          </motion.button>
-        </div>
       </motion.div>
     </motion.div>
   );
 };
 
-export default Services
+export default Services;
