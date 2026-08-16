@@ -13,6 +13,7 @@ import Footer from "../components/home/Footer";
 import FinalCTA from "../components/home/FinalCTA";
 import WhyCopperStudio from "../components/home/WhyCopperStudio";
 import CustomerReviews from "../components/home/CustomerReviews";
+import LongPage from "../components/home/LongPage";
 
 
 function Home() {
@@ -44,11 +45,8 @@ function Home() {
 
 <ClientPortal />
 
-<Process />
+<LongPage/>
 
-<Techstack />
-
-<WhyCopperStudio/>
 
 <FAQ/>
 

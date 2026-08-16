@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
+ 
 const faqs = [
   {
     question: "What services does Copper Studio offer?",
@@ -10,7 +10,7 @@ const faqs = [
   {
     question: "Can you redesign my existing website or brand?",
     answer:
-      "Absolutely. Once the project is complete, you'll receive ownership of all final deliverables, and they'll remain available through your dedicated client portal with lifetime access.",
+      "Yes. Whether you need a complete rebrand, a website redesign, or improvements to an existing digital product, we can help modernize your business while maintaining continuity where needed.",
   },
   {
     question: "How long does a typical project take?",
@@ -29,14 +29,14 @@ const faqs = [
   },
   
 ];
-
+ 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
-
+ 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+ 
   return (
     <section
       className="
@@ -51,11 +51,11 @@ const FAQ = () => {
       "
     >
       <div className="mx-auto w-full max-w-[95%]">
-
+ 
         {/* =========================================
             TWO COLUMN LAYOUT
         ========================================== */}
-
+ 
         <div
           className="
             grid
@@ -67,13 +67,13 @@ const FAQ = () => {
             xl:gap-20
           "
         >
-
+ 
           {/* =====================================
               LEFT — STICKY
           ====================================== */}
-
+ 
           <div className="lg:sticky lg:top-24 lg:h-fit">
-
+ 
             <motion.div
               initial={{
                 opacity: 0,
@@ -90,55 +90,57 @@ const FAQ = () => {
                 duration: 0.8,
               }}
             >
-
-              <h2
-                className="
-                  mt-2
-                  max-w-xl
-                  text-4xl
-                  font-medium
-                  leading-[0.95]
-                  tracking-tight
-                  text-black
-                  sm:text-5xl
-                  md:text-6xl
-                  lg:mt-5
-                   font-['DM_Sans']
-                  lg:text-7xl
-                "
-              >
-                Got questions?
-                <br />
-                We've got answers.
-              </h2>
-
+ 
+             <h2
+  className="
+    mt-2
+    max-w-xl
+    text-4xl
+    font-medium
+    leading-[0.95]
+    tracking-tight
+    text-black
+    sm:text-5xl
+    md:text-6xl
+    lg:mt-5
+    font-dm-sans
+    lg:text-7xl
+  "
+>
+  <span className="text-black">
+    Got questions?
+  </span>
+  <br />
+  <span className="text-black/60">
+    We've got answers.
+  </span>
+</h2>
               <p
                 className="
                   mt-6
                   max-w-md
                   text-sm
                   leading-6
-                  text-black/50
-                   font-['DM_Sans']
+                  text-black/80
+                   font-dm-sans
                   sm:mt-7
                   sm:text-base
                   sm:leading-7
                   md:text-lg
                 "
               >
-                Everything you need to know before starting
-                your next project with Copper Studio.
+               Everything you need to know about our services, process, timelines, pricing, and what it's like to work with Copper Studio.
               </p>
-
+ 
             </motion.div>
-
+ 
           </div>
-
-
+ 
+ 
           {/* =====================================
               RIGHT — FAQ CONTAINER
           ====================================== */}
-
+ 
           <div
             className="
               min-w-0
@@ -146,7 +148,7 @@ const FAQ = () => {
               lg:pl-4
             "
           >
-
+ 
             <div
               className="
                 h-auto
@@ -163,7 +165,7 @@ const FAQ = () => {
                 msOverflowStyle: "none",
               }}
             >
-
+ 
               <style>
                 {`
                   .scrollbar-hide::-webkit-scrollbar {
@@ -171,16 +173,16 @@ const FAQ = () => {
                   }
                 `}
               </style>
-
+ 
               <div className="flex flex-col gap-3 sm:gap-4">
-
+ 
                 {faqs.map((faq, index) => {
-
+ 
                   const isOpen = openIndex === index;
-
+ 
                   return (
                     <motion.div
-                      key={faq.question}
+  key={faq.question}
                       initial={{
                         opacity: 0,
                         y: 20,
@@ -199,14 +201,17 @@ const FAQ = () => {
                       }}
                       className="group"
                     >
-
+ 
                       {/* =================================
                           QUESTION + ANSWER WRAPPER
                       ================================== */}
-
+ 
                       <div
                         className={`
                           overflow-hidden
+                          transition-[border-radius]
+                          duration-500
+                          ease-[cubic-bezier(0.22,1,0.36,1)]
                           ${
                             isOpen
                               ? "rounded-[2rem]"
@@ -214,11 +219,11 @@ const FAQ = () => {
                           }
                         `}
                       >
-
+ 
                         {/* =================================
                             QUESTION CAPSULE
                         ================================== */}
-
+ 
                         <button
                           type="button"
                           onClick={() => toggleFAQ(index)}
@@ -229,13 +234,13 @@ const FAQ = () => {
                             items-center
                             justify-between
                             gap-4
-                            bg-[#f3f3f1]
+                            bg-[#f9f8f4]
                             px-5
                             py-3
                             text-left
                             transition-all
-                            duration-300
-                            hover:bg-[#eeeeeb]
+                            duration-500
+                            ease-[cubic-bezier(0.22,1,0.36,1)]
                             sm:min-h-[70px]
                             sm:gap-6
                             sm:px-7
@@ -246,7 +251,7 @@ const FAQ = () => {
                             }
                           `}
                         >
-
+ 
                           <span
                             className="
                               min-w-0
@@ -255,9 +260,10 @@ const FAQ = () => {
                               leading-tight
                               tracking-tight
                               text-black
-                               font-['DM_Sans']
+                               font-dm-sans
                               transition-colors
                               duration-300
+                              ease-out
                               group-hover:text-orange-500
                               sm:text-lg
                               md:text-xl
@@ -265,114 +271,105 @@ const FAQ = () => {
                           >
                             {faq.question}
                           </span>
-
-
+ 
+ 
                           {/* Plus / Minus */}
-
-                          <span
-                            className={`
-                              flex
-                              h-8
-                              w-8
-                              shrink-0
-                              items-center
-                              justify-center
-                              rounded-full
-                              border
-                              transition-all
-                              duration-300
-                              sm:h-9
-                              sm:w-9
-                              ${
-                                isOpen
-                                  ? "border-orange-500 bg-orange-500 text-white"
-                                  : "border-black/10 bg-white text-black"
-                              }
-                            `}
-                          >
-                            <span className="text-base font-light sm:text-lg">
-                              {isOpen ? "−" : "+"}
+ 
+                          <motion.span
+                            animate={{
+                              rotate: isOpen ? 135 : 0,
+                            }}
+                            transition={{
+                              duration: 0.4,
+                              ease: [0.22, 1, 0.36, 1],
+                            }}
+                             className="
+    flex
+    h-5
+    w-5
+    shrink-0
+    items-center
+    justify-center
+    bg-transparent
+    text-black
+    
+  "
+>
+                            <span className="text-black font-light text-3xl">
+                              +
                             </span>
-                          </span>
-
+                          </motion.span>
+ 
                         </button>
-
-
-                        {/* =================================
-                            ANSWER
-                        ================================== */}
-
-                        <AnimatePresence initial={false}>
-
-                          {isOpen && (
-                            <motion.div
-                              initial={{
-                                height: 0,
-                                opacity: 0,
-                              }}
-                              animate={{
-                                height: "auto",
-                                opacity: 1,
-                              }}
-                              exit={{
-                                height: 0,
-                                opacity: 0,
-                              }}
-                              transition={{
-                                duration: 0.35,
-                                ease: "easeInOut",
-                              }}
-                              className="overflow-hidden"
-                            >
-
-                              <div
-                                className="
-                                  bg-[#f8f8f6]
-                                  px-5
-                                  pb-5
-                                  pt-4
-                                  sm:px-7
-                                  sm:pb-6
-                                  sm:pt-4
-                                "
-                              >
-
-                                <p
-                                  className="
-                                    text-sm
-                                    leading-6
-                                    text-black/50
-                                    sm:text-base
-                                    sm:leading-7
-                                  "
-                                >
-                                  {faq.answer}
-                                </p>
-
-                              </div>
-
-                            </motion.div>
-                          )}
-
-                        </AnimatePresence>
-
+ 
+{/* =================================
+    ANSWER
+================================== */}
+ 
+<motion.div
+  animate={{
+    gridTemplateRows: isOpen ? "1fr" : "0fr",
+  }}
+  transition={{
+    duration: 0.5,
+    ease: [0.65, 0, 0.35, 1],
+  }}
+  style={{ display: "grid" }}
+  className="overflow-hidden"
+>
+  <div className="min-h-0 overflow-hidden">
+    <motion.div
+      animate={{
+        opacity: isOpen ? 1 : 0,
+        y: isOpen ? 0 : -6,
+      }}
+      transition={{
+        duration: 0.1,
+        delay: isOpen ? 0.12 : 0,
+        ease: "easeOut",
+      }}
+      className="
+        bg-[#f8f8f6]
+        px-5
+        pb-5
+        pt-4
+        sm:px-7
+        sm:pb-6
+        sm:pt-4
+      "
+    >
+      <p
+        className="
+          text-sm
+          leading-6
+          text-black/75
+          sm:text-base
+          sm:leading-7
+          font-dm-sans
+        "
+      >
+        {faq.answer}
+      </p>
+    </motion.div>
+  </div>
+</motion.div>
                       </div>
-
+ 
                     </motion.div>
                   );
                 })}
-
+ 
               </div>
-
+ 
             </div>
-
+ 
           </div>
-
+ 
         </div>
-
+ 
       </div>
     </section>
   );
 };
-
+ 
 export default FAQ;

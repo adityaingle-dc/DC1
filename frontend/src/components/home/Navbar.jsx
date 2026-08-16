@@ -28,31 +28,23 @@ const Navbar = () => {
           shadow-sm
         "
       >
-
-        {/* =================================================
-            LOGO
-        ================================================= */}
-
-        <div
-          className="
-            flex
-            h-[40px]
-            shrink-0
-            items-center
-            px-4
-            text-2xl
-            font-bold
-            tracking-tight
-            text-gray-900
-            sm:h-[45px]
-            sm:px-5
-             font-['DM_Sans']
-           
-          "
-        >
-          copper studio
-        </div>
-
+<div
+  className="
+    flex
+    h-[40px]
+    shrink-0
+    items-center
+    px-4
+    sm:h-[45px]
+    sm:px-5
+  "
+>
+  <img
+    src="/CSlogo.svg"
+    alt="Copper Studio"
+    className="h-auto w-[183.1px] h-[25px] object-contain"
+  />
+</div>
 
         {/* =================================================
             DESKTOP NAVIGATION
@@ -72,19 +64,19 @@ const Navbar = () => {
           {/* Home */}
 
           <button
-            className="
-              rounded-full
-              bg-gray-100
-              px-4
-              py-1.5
-              text-sm
-              font-medium
-               font-['DM_Sans']
-              text-gray-900
-            "
-          >
-            Home
-          </button>
+  className="
+    rounded-full
+    
+    px-4
+    py-1.5
+    text-[16px]
+    font-normal
+    font-dm-sans
+    text-black
+  "
+>
+  Home
+</button>
 
 
           {/* Studio */}
@@ -94,10 +86,10 @@ const Navbar = () => {
               rounded-full
               px-4
               py-1.5
-              text-sm
+              text-16px
               font-medium
-              text-gray-600
-               font-['DM_Sans']
+              text-black
+               font-dm-sans
               transition
               hover:bg-gray-100
               hover:text-gray-900
@@ -114,13 +106,13 @@ const Navbar = () => {
               rounded-full
               px-4
               py-1.5
-              text-sm
+              text-16px
               font-medium
-              text-gray-600
+              text-black
               transition
               hover:bg-gray-100
               hover:text-gray-900
-               font-['DM_Sans']
+               font-dm-sans
             "
           >
             Services
@@ -134,13 +126,13 @@ const Navbar = () => {
               rounded-full
               px-4
               py-1.5
-              text-sm
+              text-16px
               font-medium
-              text-gray-600
+              text-black
               transition
               hover:bg-gray-100
               hover:text-gray-900
-               font-['DM_Sans']
+               font-dm-sans
             "
           >
             Projects
@@ -154,13 +146,13 @@ const Navbar = () => {
               rounded-full
               px-4
               py-1.5
-              text-sm
+              text-16px
               font-medium
-              text-gray-600
+              text-black
               transition
               hover:bg-gray-100
               hover:text-gray-900
-               font-['DM_Sans']
+               font-dm-sans
             "
           >
             Client Login
@@ -191,7 +183,7 @@ const Navbar = () => {
               transition-all
               duration-300
               hover:bg-gray-900
-               font-['DM_Sans']
+               font-dm-sans
             "
           >
             <span>
